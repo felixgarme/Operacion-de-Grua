@@ -4,7 +4,7 @@
 const courseConfig = {
     // Información general del curso
     courseInfo: {
-        title: "Análisis de Tendencia",
+        title: "Aparejamiento de cargas y señales estándar en grúa articulada",
         company: "Quellaveco",
         version: "1.0"
     },
