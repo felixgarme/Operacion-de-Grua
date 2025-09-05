@@ -1,0 +1,199 @@
+/* CSS con prefijos únicos para evitar conflictos */
+.didactic-image-container {
+    position: relative;
+    max-width: 600px; /* 500px + 20% = 600px */
+    margin: 12px auto; /* 10px + 20% = 12px */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.didactic-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 9.6px; /* 8px + 20% = 9.6px */
+    box-shadow: 0 4.8px 19.2px rgba(0, 0, 0, 0.08); /* 4px y 16px + 20% */
+}
+
+.didactic-marker {
+    position: absolute;
+    width: 28.8px; /* 24px + 20% = 28.8px */
+    height: 28.8px;
+    background: linear-gradient(135deg, #667eea 0%, #001099 100%);
+    border: 2.4px solid #ffffff; /* 2px + 20% = 2.4px */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14.4px; /* 12px + 20% = 14.4px */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    box-shadow: 0 2.4px 9.6px rgba(102, 126, 234, 0.3); /* 2px y 8px + 20% */
+}
+
+.didactic-marker:hover {
+    box-shadow: 0 7.2px 19.2px rgba(102, 126, 234, 0.5); /* 6px y 16px + 20% */
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.didactic-marker:hover::after {
+    content: '';
+    position: absolute;
+    top: -3.6px; /* -3px + 20% = -3.6px */
+    left: -3.6px;
+    right: -3.6px;
+    bottom: -3.6px;
+    border: 1.2px solid rgba(102, 126, 234, 0.5); /* 1px + 20% = 1.2px */
+    border-radius: 50%;
+    animation: ripple 0.6s ease-out; /* 0.5s + 20% = 0.6s */
+}
+
+.didactic-marker.active {
+    background: linear-gradient(135deg, #0003aa 0%, var(--color-rojo) 100%);
+    box-shadow: 0 4.8px 19.2px rgba(240, 147, 251, 0.5); /* 4px y 16px + 20% */
+}
+
+.didactic-marker.active::after {
+    content: '';
+    position: absolute;
+    top: -4.8px; /* -4px + 20% = -4.8px */
+    left: -4.8px;
+    right: -4.8px;
+    bottom: -4.8px;
+    border: 2.4px solid rgba(240, 147, 251, 0.5); /* 2px + 20% = 2.4px */
+    border-radius: 50%;
+}
+
+.didactic-description-panel {
+    background: linear-gradient(10deg, #667eea 0%, #001099 100%);
+    color: white;
+    padding: 12px; /* 10px + 20% = 12px */
+    border-radius: 9.6px; /* 8px + 20% = 9.6px */
+    margin-top: 12px; /* 10px + 20% = 12px */
+    min-height: 120px; /* 60px + 20% = 72px */
+    max-height: 120px; /* 40px + 20% = 48px */
+    font-size: 15.6px; /* 13px + 20% = 15.6px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4.8px 19.2px rgba(102, 126, 234, 0.2); /* 4px y 16px + 20% */
+    transition: all 0.36s ease-in-out; /* 0.3s + 20% = 0.36s */
+    position: relative;
+    overflow: hidden;
+}
+
+.didactic-description-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s; /* 0.5s + 20% = 0.6s */
+}
+
+.didactic-description-panel.updated::before {
+    left: 100%;
+}
+
+.didactic-description-content {
+    position: relative;
+    z-index: 2;
+}
+
+.didactic-description-title {
+    font-size: 16.8px; /* 14px + 20% = 16.8px */
+    font-weight: bold;
+    margin-bottom: 7.2px; /* 6px + 20% = 7.2px */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.48s ease-out forwards; /* 0.4s + 20% = 0.48s */
+}
+
+.didactic-description-text {
+    font-size: 14.4px; /* 12px + 20% = 14.4px */
+    line-height: 1.68; /* 1.4 + 20% = 1.68 */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.48s ease-out 0.1s forwards; /* 0.4s + 20% = 0.48s */
+}
+
+.didactic-default-message {
+    font-size: 15.6px; /* 13px + 20% = 15.6px */
+    opacity: 0.8;
+    font-style: italic;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.didactic-marker.pulse {
+    animation: pulse 2.16s infinite; /* 1.8s + 20% = 2.16s */
+}
+
+/* Responsive design */
+@media (max-width: 576px) { /* 480px + 20% = 576px */
+    .didactic-image-container {
+        max-width: 100%;
+        margin: px; /* 5px + 20% = 6px */
+    }
+
+    .didactic-marker {
+        width: 24px; /* 20px + 20% = 24px */
+        height: 24px;
+        font-size: 12px; /* 10px + 20% = 12px */
+    }
+
+    .didactic-description-panel {
+        padding: 9.6px; /* 8px + 20% = 9.6px */
+        font-size: 14.4px; /* 12px + 20% = 14.4px */
+    }
+
+    .didactic-description-title {
+        font-size: 15.6px; /* 13px + 20% = 15.6px */
+    }
+
+    .didactic-description-text {
+        font-size: 13.2px; /* 11px + 20% = 13.2px */
+    }
+}
+
+.compact-text ul {
+    padding-left: 16px;
+    margin: 0;
+    list-style-type: disc;
+}
+
+.compact-text li {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+    margin-bottom: 4px;
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="mi_curso_scorm" version="1.2"
+    xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+    xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 
+    ims_xml.xsd">
+    
+    <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+    </metadata>
+
+    <organizations default="org1">
+        <organization identifier="org1">
+            <title>Analisis de Tendencia</title>
+            <item identifier="item1" identifierref="resource1">
+                <title>Inicio del Curso</title>
+            </item>
+        </organization>
+    </organizations>
+
+    <resources>
+        <resource identifier="resource1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+    <file href="imsmanifest.xml"/>
+    <file href="index.html"/>
+    <file href="assets/audio/bienvenida.wav"/>
+    <file href="assets/audio/comparacion_distribuciones.wav"/>
+    <file href="assets/audio/concepto.wav"/>
+    <file href="assets/audio/conclusiones.wav"/>
+    <file href="assets/audio/distribucion.wav"/>
+    <file href="assets/audio/distribucion_lognormal.wav"/>
+    <file href="assets/audio/distribucion_normal.wav"/>
+    <file href="assets/audio/ejemplo.wav"/>
+    <file href="assets/audio/intro_conceptos.wav"/>
+    <file href="assets/audio/M1_inicio.wav"/>
+    <file href="assets/audio/M1_pagina1.wav"/>
+    <file href="assets/audio/M1_pagina2.wav"/>
+    <file href="assets/audio/M2_inicio.wav"/>
+    <file href="assets/audio/M2_pagina1.wav"/>
+    <file href="assets/audio/M2_pagina2.wav"/>
+    <file href="assets/audio/M3p1.wav"/>
+    <file href="assets/audio/M3p2.wav"/>
+    <file href="assets/audio/M3p3.wav"/>
+    <file href="assets/audio/M3p4.wav"/>
+    <file href="assets/audio/M3p5.wav"/>
+    <file href="assets/audio/M3p5B.wav"/>
+    <file href="assets/audio/M3p7.wav"/>
+    <file href="assets/audio/M3p8.wav"/>
+    <file href="assets/audio/M3_inicio.wav"/>
+    <file href="assets/audio/quiz_interactivo.wav"/>
+    <file href="assets/css/conclusiones.css"/>
+    <file href="assets/css/ex1.css"/>
+    <file href="assets/css/index.css"/>
+    <file href="assets/css/info.css"/>
+    <file href="assets/css/M1_inicio.css"/>
+    <file href="assets/css/M1_pagina1.css"/>
+    <file href="assets/css/M1_pagina2.css"/>
+    <file href="assets/css/M1_pagina3.css"/>
+    <file href="assets/css/M2_inicio.css"/>
+    <file href="assets/css/M2_pag10.css"/>
+    <file href="assets/css/M2_pagina11.css"/>
+    <file href="assets/css/M2_pagina20.css"/>
+    <file href="assets/css/M2_pagina3.css"/>
+    <file href="assets/css/M2_pagina4.css"/>
+    <file href="assets/css/M2_pagina8.css"/>
+    <file href="assets/css/M3_inicio.css"/>
+    <file href="assets/css/M3_pagina6.css"/>
+    <file href="assets/css/M4_pagina1.css"/>
+    <file href="assets/css/M4_pagina3.css"/>
+    <file href="assets/css/M4_pagina5.css"/>
+    <file href="assets/css/M5_inicio.css"/>
+    <file href="assets/css/M5_pagina1.css"/>
+    <file href="assets/css/M5_pagina2.css"/>
+    <file href="assets/css/M5_pagina3.css"/>
+    <file href="assets/css/main.css"/>
+    <file href="assets/css/main_ex.css"/>
+    <file href="assets/css/main_original.css"/>
+    <file href="assets/css/Mtest.css"/>
+    <file href="assets/css/MX1.css"/>
+    <file href="assets/css/ProgressBar.css"/>
+    <file href="assets/css/sidebar.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm2.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm3.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm4.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm5.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm5b.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm7.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm8.css"/>
+    <file href="assets/css/Funciones de supervivencia R(t)/exm_cel.css"/>
+    <file href="assets/css/M1/M1pg2.css"/>
+    <file href="assets/fonts/AASMARTSANS-BOLD.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-BOLDITALIC.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-LIGHT.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-LIGHTITALIC.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-REGULAR.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-REGULARITALIC.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-SEMIBOLD.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-SEMIBOLDITALIC.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-THIN.TTF"/>
+    <file href="assets/fonts/AASMARTSANS-THINITALIC.TTF"/>
+    <file href="assets/images/fondo_modulo_1.png"/>
+    <file href="assets/images/fondo_modulo_2.png"/>
+    <file href="assets/images/fondo_modulo_3.png"/>
+    <file href="assets/images/fondo_modulo_4.png"/>
+    <file href="assets/images/fondo_modulo_5.png"/>
+    <file href="assets/images/grafica-discreta.png"/>
+    <file href="assets/images/logo_blanco.png"/>
+    <file href="assets/images/logo_color.png"/>
+    <file href="assets/images/objetivo1.png"/>
+    <file href="assets/images/pantalla_inicio.png"/>
+    <file href="js/audioPlayer.js"/>
+    <file href="js/courseConfig.js"/>
+    <file href="js/ex1B.js"/>
+    <file href="js/ex4B.js"/>
+    <file href="js/info.js"/>
+    <file href="js/info133.js"/>
+    <file href="js/M1_inicio.js"/>
+    <file href="js/M1_pagina1.js"/>
+    <file href="js/M1_pagina17.js"/>
+    <file href="js/M1_pagina2.js"/>
+    <file href="js/M1_pagina9.js"/>
+    <file href="js/M2_inicio.js"/>
+    <file href="js/M2_pagina20.js"/>
+    <file href="js/M2_pagina20_lightbox.js"/>
+    <file href="js/M2_pagina3.js"/>
+    <file href="js/M2_pagina4.js"/>
+    <file href="js/M4_pagina1.js"/>
+    <file href="js/M4_pagina3.js"/>
+    <file href="js/M4_pagina5.js"/>
+    <file href="js/M5_inicio.js"/>
+    <file href="js/M5_pagina1.js"/>
+    <file href="js/M5_pagina2.js"/>
+    <file href="js/M5_pagina3.js"/>
+    <file href="js/SCORM.js"/>
+    <file href="js/sidebar old.js"/>
+    <file href="js/sidebar.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm1.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm2.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm3.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm4.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm5.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm7.js"/>
+    <file href="js/Funciones de supervivencia R(t)/exm8.js"/>
+    <file href="js/M1/M1pg1.js"/>
+    <file href="js/M1/M1pg2.js"/>
+    <file href="views/conclusiones.html"/>
+    <file href="views/M1_inicio.html"/>
+    <file href="views/M1_pagina1.html"/>
+    <file href="views/M1_pagina2.html"/>
+    <file href="views/M2_inicio.html"/>
+    <file href="views/M2_pagina1.html"/>
+    <file href="views/M2_pagina2.html"/>
+    <file href="views/M2_pagina3.html"/>
+    <file href="views/M3_inicio.html"/>
+    <file href="views/M3_pagina1.html"/>
+    <file href="views/M3_pagina2.html"/>
+    <file href="views/M3_pagina3.html"/>
+    <file href="views/M3_pagina4.html"/>
+    <file href="views/M3_pagina5 B.html"/>
+    <file href="views/M3_pagina5.html"/>
+    <file href="views/M3_pagina6.html"/>
+    <file href="views/M3_pagina7.html"/>
+    <file href="views/M3_pagina8.html"/>
+    <file href="views/M3_pagina9.html"/>
+    <file href="views/plantilla.html"/>
+    <file href="views/sidebar.html"/>
+    <file href="views/componentes/Caso_discreto.html"/>
+    <file href="views/componentes/exm2-info.html"/>
+    <file href="views/componentes/exm3-info.html"/>
+    <file href="views/componentes/exm4-info.html"/>
+    <file href="views/componentes/exm7-info.html"/>
+    <file href="views/componentes/exm8-info.html"/>
+    <file href="views/componentes/flashcard.html"/>
+    <file href="views/componentes/sidebar.html"/>
+        </resource>
+    </resources>
+</manifest>
+
+
