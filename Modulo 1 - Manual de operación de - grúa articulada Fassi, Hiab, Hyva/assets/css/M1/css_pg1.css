@@ -1,0 +1,240 @@
+
+.safety-course-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    /* background: #F5F7FA; */
+    /* min-height: 100vh; */
+    box-sizing: border-box;
+}
+
+.safety-course-header {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.safety-course-title {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.safety-course-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    margin-bottom: 0px;
+}
+
+.safety-course-section {
+margin-bottom: 10px;
+}
+
+.safety-course-section-title {
+    font-size: 18px;
+    color: #031794;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    padding: 5px 0;
+}
+
+.safety-course-section-subtitle {
+font-size: 14px;
+color: #031794;
+font-weight: bold;
+margin: 0 0 6px 0;
+padding: 3px 0;
+}
+
+.safety-course-card {
+    background: #FFFFFF;
+    border: 2px solid #031794;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(3, 23, 148, 0.1);
+    transition: all 0.3s ease;
+}
+
+.safety-course-main-card {
+border-color: #031794;
+border-width: 3px;
+}
+
+.safety-course-small-card {
+border-color: #6B8BDF;
+border-width: 2px;
+}
+
+.safety-course-list {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+.safety-course-item {
+display: flex;
+align-items: center;
+padding: 6px 8px;
+border-radius: 4px;
+cursor: pointer;
+transition: all 0.3s ease;
+border: 1px solid #DDE8F5;
+}
+
+.safety-course-item:hover {
+background: #E5F0F9;
+border-color: #031794;
+transform: translateX(3px);
+}
+
+.safety-course-item.active {
+background: linear-gradient(90deg, #031794, #34C0C0);
+color: #FFFFFF;
+border-color: #031794;
+}
+
+.safety-course-number {
+font-weight: bold;
+margin-right: 8px;
+min-width: 20px;
+color: #031794;
+}
+
+.safety-course-item.active .safety-course-number {
+color: #FFFFFF;
+}
+
+.safety-course-text {
+color: #4D4D4E;
+font-size: 14px;
+line-height: 1.3;
+}
+
+.safety-course-item.active .safety-course-text {
+color: #FFFFFF;
+}
+
+.safety-course-interactive-panel {
+    background: #FFFFFF;
+    border: 2px solid #DDE8F5;
+    border-radius: 8px;
+    padding: 10px;
+    /* margin-top: 10px; */
+    /* max-width: 85%; */
+    margin-bottom: 80px;
+}
+
+.safety-course-details-title {
+color: #031794;
+font-size: 16px;
+font-weight: bold;
+margin: 0 0 8px 0;
+}
+
+.safety-course-details-content {
+color: #4D4D4E;
+font-size: 14px;
+line-height: 1.5;
+margin: 0;
+}
+
+@media (min-width: 768px) {
+.safety-course-container {
+    padding: 10px;
+}
+
+.safety-course-title {
+    font-size: 28px;
+}
+
+.safety-course-content {
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+.safety-course-side-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.safety-course-section-title {
+    font-size: 20px;
+}
+
+.safety-course-section-subtitle {
+    font-size: 16px;
+}
+}
+
+@media (min-width: 1024px) {
+.safety-course-container {
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.safety-course-title {
+    font-size: 32px;
+}
+
+.safety-course-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+}
+
+@media (max-width: 767px) {
+.safety-course-title {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.safety-course-section-title {
+    font-size: 16px;
+}
+
+.safety-course-section-subtitle {
+    font-size: 14px;
+}
+
+.safety-course-text {
+    font-size: 13px;
+}
+
+.safety-course-card {
+    padding: 8px;
+}
+
+.safety-course-item {
+    padding: 5px 6px;
+}
+}
+
+@media (max-width: 480px) {
+    .safety-course-container {
+        padding: 5px;
+    }
+
+    .safety-course-title {
+        font-size: 18px;
+    }
+
+    .safety-course-section-title {
+        font-size: 15px;
+    }
+
+    .safety-course-text {
+        font-size: 12px;
+    }
+    .fin{
+        margin-bottom: 80px;
+    }
+}

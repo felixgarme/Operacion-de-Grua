@@ -321,6 +321,13 @@ margin: 10px 0;
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    .crane-objectives-grid {
+        display: grid;
+    }
+    .crane-objective-card{
+        min-height: auto;
+    }
     .crane-course-container {
         padding: 5px;
     }
