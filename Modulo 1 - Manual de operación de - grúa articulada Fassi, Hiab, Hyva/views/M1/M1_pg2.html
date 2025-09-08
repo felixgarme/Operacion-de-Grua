@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
+    <link rel="stylesheet" href="../../assets/css/M1/css_pg2.css" />
+
 
   <!-- Scripts -->
   <script src="../../js/sidebar.js" defer></script>
@@ -45,12 +47,187 @@
   <!-- Logo inferior -->
   <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
   <!-- Título principal -->
-  <header><h1 class="titulo-epp"><span class="gradient-text2">Titulo</span></h1></header>
+  <header><h1 class="titulo-epp"><span class="gradient-text2">FACTORES QUE INTERVIENEN EN LA OPERACIÓN</span></h1></header>
 
   <!-- Contenido principal -->
   <main>
  
-        <h1 style="text-align: center;">Contenido</h1>
+    <div class="curso-container">
+
+        <div class="navigation-buttons">
+            <button class="nav-button" onclick="expandAll()">Expandir Todo</button>
+            <button class="nav-button" onclick="collapseAll()">Contraer Todo</button>
+          
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="curso-content">
+            <div class="curso-section" data-section="maquina">
+            <div class="section-header" onclick="toggleSection('maquina')">
+                <div class="section-icon" id="icon-maquina"></div>
+                <h2 class="section-title">La Máquina</h2>
+            </div>
+            <div class="section-content" id="content-maquina">
+                <p style="margin: 0 0 10px 0; color: #4D4D4E; font-weight: 500;">Se deben tener en cuenta los siguientes puntos sobre la máquina para su operación:</p>
+                
+                <div class="punto-item">Asegúrese de que el equipo se encuentre en óptimas condiciones.</div>
+                <div class="punto-item">Asegúrese que cuente con la protección adecuada.</div>
+                <div class="punto-item">No opere el equipo si está en mal estado.</div>
+                <div class="punto-item">Opere correctamente el equipo sin exceder sus capacidades.</div>
+                <div class="punto-item">No debe de hacer modificaciones.</div>
+            </div>
+            </div>
+
+            <div class="curso-section" data-section="area">
+            <div class="section-header" onclick="toggleSection('area')">
+                <div class="section-icon" id="icon-area"></div>
+                <h2 class="section-title">El Área de Trabajo</h2>
+            </div>
+            <div class="section-content" id="content-area">
+                <div class="subsection">
+                <div class="subsection-title">Inspección General</div>
+                <div class="punto-item">Realizar la inspección del área de trabajo, herramientas, materiales y accesorios, verificando que se encuentren en buen estado.</div>
+                <div class="punto-item">Verificar que las condiciones climáticas no afecten la operación a cielo abierto. En casos de viento intenso, exceso de neblina la operación se debe detener.</div>
+                </div>
+
+                <div class="subsection">
+                <div class="subsection-title">Condiciones Climáticas - Tormentas Eléctricas</div>
+                
+                <div class="alert-section">
+                    <div class="alert-title">ALERTA NARANJA</div>
+                    <div class="alert-content">Todos los trabajos de izaje con grúas se detienen, se debe bajar la pluma y liberar la carga, asegurar la pluma para cualquier imprevisto.</div>
+                </div>
+
+                <div class="alert-section">
+                    <div class="alert-title">ALERTA ROJA</div>
+                    <div class="alert-content">El operador y el rigger deben permanecerá dentro de camión y se refugiarán hasta que termine la tormenta eléctrica.</div>
+                </div>
+                </div>
+
+                <div class="subsection">
+                <div class="subsection-title">Precauciones con Rayos</div>
+                <p style="margin: 0 0 8px 0; color: #4D4D4E;">Si hay caída de rayos cerca de la máquina, el operador debe evitar realizar las siguientes acciones:</p>
+                <div class="punto-item">Subir a la máquina.</div>
+                <div class="punto-item">Bajar de la máquina.</div>
+                </div>
+            </div>
+            </div>
+
+            <div class="curso-section" data-section="factores">
+            <div class="section-header" onclick="toggleSection('factores')">
+                <div class="section-icon" id="icon-factores"></div>
+                <h2 class="section-title">Factores que Alteran la Conducta</h2>
+            </div>
+            <div class="section-content" id="content-factores">
+                <p style="margin: 0 0 10px 0; color: #4D4D4E; font-weight: 500;">Factores que pueden afectar el desempeño del operador:</p>
+                
+                <div class="factores-grid">
+                <div class="factor-card">Fatiga</div>
+                <div class="factor-card">Alcohol</div>
+                <div class="factor-card">Presión</div>
+                <div class="factor-card">Tensión</div>
+                <div class="factor-card">Estímulos</div>
+                <div class="factor-card">Cansancio</div>
+                <div class="factor-card">Distracción</div>
+                <div class="factor-card">Alimentación</div>
+                <div class="factor-card">Automedicación</div>
+                <div class="factor-card">Problemas Internalizados</div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script>
+            let sectionsOpened = new Set();
+            const totalSections = 3;
+
+            function toggleSection(sectionId) {
+            const content = document.getElementById('content-' + sectionId);
+            const icon = document.getElementById('icon-' + sectionId);
+            
+            const isActive = content.classList.contains('active');
+            
+            if (isActive) {
+                content.classList.remove('active');
+                icon.classList.remove('active');
+                sectionsOpened.delete(sectionId);
+            } else {
+                content.classList.add('active');
+                icon.classList.add('active');
+                sectionsOpened.add(sectionId);
+                
+                // Smooth scroll to section
+                content.parentElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+                });
+            }
+            
+            updateProgress();
+            }
+
+            function updateProgress() {
+            const progress = (sectionsOpened.size / totalSections) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            }
+
+            function expandAll() {
+            const sections = ['maquina', 'area', 'factores'];
+            sections.forEach(sectionId => {
+                const content = document.getElementById('content-' + sectionId);
+                const icon = document.getElementById('icon-' + sectionId);
+                
+                content.classList.add('active');
+                icon.classList.add('active');
+                sectionsOpened.add(sectionId);
+            });
+            
+            updateProgress();
+            }
+
+            function collapseAll() {
+            const sections = ['maquina', 'area', 'factores'];
+            sections.forEach(sectionId => {
+                const content = document.getElementById('content-' + sectionId);
+                const icon = document.getElementById('icon-' + sectionId);
+                
+                content.classList.remove('active');
+                icon.classList.remove('active');
+                sectionsOpened.delete(sectionId);
+            });
+            
+            updateProgress();
+            }
+
+            function resetProgress() {
+            collapseAll();
+            document.querySelector('.curso-container').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            }
+
+            // Initialize hover effects for factor cards
+            document.addEventListener('DOMContentLoaded', function() {
+            const factorCards = document.querySelectorAll('.factor-card');
+            factorCards.forEach(card => {
+                card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    }, 150);
+                }, 100);
+                });
+            });
+            });
+        </script>
+
+    </div>
 
   </main>
 
@@ -137,11 +314,11 @@
   <script>
     // Navegación
     function goHome() { window.location.href = 'index.html'; }
-    function backPage() { window.location.href = 'M1_inicio.html'; }
+    function backPage() { window.location.href = 'M1_pg1.html'; }
     function goToNextPage() { window.location.href = 'M1_pg3.html'; }
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M1_pg1.html");
+    ScormManager.guardarProgreso("M1_pg2.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();
