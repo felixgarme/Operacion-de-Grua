@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
   <!-- Search Engines -->
-  <meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Verge3D Web Interactive">
-  <meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
   <meta name="twitter:image:src" content="https://cdn.soft8soft.com/images/player_socials.jpg">
   <!-- Open Graph -->
   <meta property="og:title" content="Verge3D Web Interactive">
-  <meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the art WebGL and HTML5 technologies.">
+  <meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
   <meta property="og:image" content="https://cdn.soft8soft.com/images/player_socials.jpg">
   <meta property="og:type" content="website">
 
@@ -35,6 +35,31 @@
   <script src="Fire.js"></script>
 
   <link rel="stylesheet" type="text/css" href="Fire.css">
+
+  <style>
+    /* --- Personalización del Preloader de Verge3D --- */
+    .v3d-simple-preloader-background {
+      /* Cambia el fondo (puede ser color o imagen) */
+      background: url("media/mi_fondo_personalizado.png") center/cover no-repeat;
+    }
+    .v3d-simple-preloader-container {
+      /* Ejemplo: centrar o cambiar tamaño del preloader */
+      width: 120px;
+      height: 120px;
+      margin: auto;
+    }
+    .v3d-simple-preloader-logo {
+      /* Cambia la imagen del logo en el preloader */
+      background-image: url("media/mi_logo_personalizado.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .v3d-simple-preloader-bar {
+      /* Color de la barra de progreso */
+      background-color: #FF0000; /* rojo, por ejemplo */
+    }
+  </style>
 </head>
 
 <body>
@@ -42,5 +67,4 @@
     <div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"></div>
   </div>
 </body>
-
 </html>
