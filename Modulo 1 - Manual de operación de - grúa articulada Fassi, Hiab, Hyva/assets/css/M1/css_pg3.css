@@ -136,7 +136,7 @@
 /* SECCIÓN DISPOSITIVOS DE SEGURIDAD                                  */
 /* =================================================================== */
 .seg-ind-dispositivos-list {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 8px;
     margin: 10px 0 0 0;
@@ -183,15 +183,17 @@
 }
 
 .seg-ind-etiqueta-advertencia {
-    background: #FF0000;
+    background: orangered;
+    color: #031794;
 }
 
 .seg-ind-etiqueta-precaucion {
-    background: #2A5BDF;
+    background: rgb(236, 236, 0);
+    color: blue;
 }
 
 .seg-ind-etiqueta-peligro {
-    background: #031794;
+    background: #ff0000;
 }
 
 /* =================================================================== */
@@ -291,6 +293,9 @@
     .seg-ind-etiquetas-container {
         grid-template-columns: 1fr;
     }
+    .seg-ind-dispositivos-list{
+        display: grid;
+    }
 }
 
 /* Pantallas HD */
@@ -302,4 +307,11 @@
     .seg-ind-content {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+ 
+.img{
+    display: block; 
+    margin: auto;
+    border-radius: 30px;
+    cursor: zoom-in;
 }

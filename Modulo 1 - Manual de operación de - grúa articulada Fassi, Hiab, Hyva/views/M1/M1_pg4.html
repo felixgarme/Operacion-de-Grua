@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
+    <link rel="stylesheet" href="../../assets/css/M1/css_pg4.css" />
+
 
   <!-- Scripts -->
   <script src="../../js/sidebar.js" defer></script>
@@ -20,6 +22,7 @@
     <button class="back-page-btn" onclick="backPage()">
         <span class="arrow">❮</span>
     </button>
+
     <nav id="sidebar" class="close">
         <div id="logo-seccion">
             <a href="../../index">
@@ -42,18 +45,112 @@
     </nav>
 
 
-  <!-- Logo inferior -->
-  <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
-  <!-- Título principal -->
-  <header><h1 class="titulo-epp"><span class="gradient-text2">Titulo</span></h1></header>
+    <!-- Logo inferior -->
+    <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
+    <!-- Título principal -->
+    <header><h1 class="titulo-epp"><span class="gradient-text2">Dispositivos de Seguridad en la Máquina</span></h1></header>
 
-  <!-- Contenido principal -->
-  <main>
- 
-        <h1 style="text-align: center;">Contenido</h1>
+    <!-- Contenido principal -->
 
-  </main>
+    <div class="contenido">
+   
+        <div class="safety-carousel-container contenidos">
+            <!-- <h1 class="safety-carousel-header">Dispositivos de Seguridad en la Máquina</h1> -->
+            
+            <div class="safety-carousel-wrapper">
+                <div class="safety-carousel-slides" id="safetySlides">
+                    <!-- Slide 1: Extintores -->
+                    <div class="safety-carousel-slide">
+                        <div class="safety-slide-title">1. Extintores de Incendios</div>
+                        <div class="safety-slide-content">
+                            <p>Los extintores de incendios son dispositivos que contienen polvo químico seco presurizado.</p>
+                            <p>El agente extintor se utiliza para aislar químicamente la fuente del fuego y evitar su propagación.</p>
+                            <p>La máquina está equipada con ubicaciones designadas para los extintores.</p>
+                            
+                            <h3>Grado y tipo de incendio</h3>
+                            <div class="safety-fire-classes">
+                                <div class="safety-fire-class">
+                                    <strong>Clase A:</strong> Incendios de materiales comunes que se queman con llama o brillo (ejemplo: interiores).
+                                </div>
+                                <div class="safety-fire-class">
+                                    <strong>Clase B:</strong> Incendios por fluidos con hidrocarburos como combustible, grasas y aceites.
+                                </div>
+                                <div class="safety-fire-class">
+                                    <strong>Clase C:</strong> Incendios de gases inflamables.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Slide 2: Procedimiento -->
+                    <div class="safety-carousel-slide">
+                        <div class="safety-slide-title">2. Procedimiento frente a un amago de incendio</div>
+                        <div class="safety-slide-content">
+                            <div class="safety-procedure-steps">
+                                <div class="safety-procedure-step">
+                                    <strong>1.</strong> Detener el equipo
+                                </div>
+                                <div class="safety-procedure-step">
+                                    <strong>2.</strong> Aplicar el freno de estacionamiento
+                                </div>
+                                <div class="safety-procedure-step">
+                                    <strong>3.</strong> Apagar el motor
+                                </div>
+                                <div class="safety-procedure-step">
+                                    <strong>4.</strong> Reportar a la central de emergencia
+                                </div>
+                                <div class="safety-procedure-step">
+                                    <strong>5.</strong> Utilizar el extintor de incendios
+                                </div>
+                                <div class="safety-procedure-step">
+                                    <strong>6.</strong> Desconectar el interruptor de corriente
+                                </div>
+                            </div>
+                            <p><strong>Importante:</strong> Seguir este procedimiento en el orden establecido para garantizar la seguridad personal y del equipo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Tarjeta y bloqueo -->
+                    <div class="safety-carousel-slide">
+                        <div class="safety-slide-title">3. Tarjeta y Bloqueo</div>
+                        <div class="safety-slide-content">
+                            <p>La etiqueta de bloqueo cumple la función de brindar una advertencia visual, indicando:</p>
+                            
+                            <ul>
+                                <li>Que existe un desperfecto</li>
+                                <li>Que hay alguien trabajando o inspeccionando la máquina</li>
+                            </ul>
+
+                            <div class="safety-warning-box">
+                                ADVERTENCIA: La máquina NO debe encenderse mientras la tarjeta esté colocada
+                            </div>
+
+                            <p>Este sistema de bloqueo es fundamental para:</p>
+                            <ul>
+                                <li>Prevenir accidentes laborales</li>
+                                <li>Proteger al personal de mantenimiento</li>
+                                <li>Evitar daños en el equipo</li>
+                                <li>Cumplir con las normas de seguridad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="safety-carousel-navigation">
+                <button class="safety-nav-btn" id="prevBtn">‹</button>
+                <div class="safety-slide-indicator" id="indicators"></div>
+                <div class="safety-slide-counter" id="counter">1 / 3</div>
+                <button class="safety-nav-btn" id="nextBtn">›</button>
+            </div>
+        </div>
+        
+        <div class="contenidos">
+            <iframe src="../componentes/Fire/Fire.html" frameborder="0"></iframe>
+        </div>
+        
+
+    </div>
 
   <!-- Botón de continuar -->
   <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
@@ -129,15 +226,15 @@
           </audio>
       </div>
   </div>
-
-  <script src="../../js/audioPlayer.js"></script>
+    <script src="../../js/M1/js_pg4.js"></script>
+    <script src="../../js/audioPlayer.js"></script>
   <!--///////-->
   <!-- Scripts funcionales -->
   <script src="../../js/SCORM.js"></script>
   <script>
     // Navegación
     function goHome() { window.location.href = 'index.html'; }
-    function backPage() { window.location.href = 'M1_inicio.html'; }
+    function backPage() { window.location.href = 'M1_pg3.html'; }
     function goToNextPage() { window.location.href = 'M1_pg5.html'; }
 
     ScormManager.init();
