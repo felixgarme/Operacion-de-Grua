@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="96.94400898163508" scrolly="-15.62775079939098" scale="0.5568374181775593">
+  <tab name="General" type="CommonTab" active="true" scrollx="-171.16669507914185" scrolly="83.7869161934253" scale="0.6937977888571657">
     <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
@@ -15,11 +15,11 @@
               <value name="TEXT">
                 <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
                   <field name="HIGHLIGHT_MODE">javascript</field>
-                  <field name="TEXT" editor-height="3" editor-width="520">app.controls.enableZoom = false;</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
                 </shadow>
               </value>
               <next>
-                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t" disabled="true">
+                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
                   <field name="ON_OFF">ON</field>
                   <value name="SPEED">
                     <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
@@ -89,94 +89,19 @@
           </value>
           <value name="TARGET">
             <shadow type="objectList" id="=uQAIo]B-CY6QLUaI2`)">
-              <field name="FIELDNAME">black</field>
+              <field name="FIELDNAME">Circle</field>
             </shadow>
           </value>
           <value name="CONTENTS">
             <shadow type="text" id="v_B@WHB*{z[9W4WjQ}f*">
-              <field name="TEXT"></field>
+              <field name="TEXT">Point of interest #1</field>
             </shadow>
           </value>
           <value name="ID">
             <shadow type="text" id="OsFrLH4D?IX),~DJREC1">
-              <field name="TEXT">1</field>
+              <field name="TEXT">poi1</field>
             </shadow>
           </value>
-          <next>
-            <block type="addAnnotation" id="jl5Ci}XN/*n#ed$?h`sP">
-              <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
-              <value name="ANNOTATION">
-                <shadow type="text" id="0;}Z[3t9(t^pv!EPD*H2">
-                  <field name="TEXT">2</field>
-                </shadow>
-              </value>
-              <value name="TARGET">
-                <shadow type="objectList" id=";iEU|a?35WumdA@PCJfH">
-                  <field name="FIELDNAME">clip</field>
-                </shadow>
-              </value>
-              <value name="CONTENTS">
-                <shadow type="text" id="]C[,nT,4hzR+`24W@WJe">
-                  <field name="TEXT"></field>
-                </shadow>
-              </value>
-              <value name="ID">
-                <shadow type="text" id="raR#hBg$O3zg6Ys~e~Ze">
-                  <field name="TEXT">2</field>
-                </shadow>
-              </value>
-              <next>
-                <block type="addAnnotation" id="N!;2hjP/|=vka%Zx*h~Q">
-                  <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
-                  <value name="ANNOTATION">
-                    <shadow type="text" id="72+j=^g=H@/Cd68!Eq7%">
-                      <field name="TEXT">3</field>
-                    </shadow>
-                  </value>
-                  <value name="TARGET">
-                    <shadow type="objectList" id="pOn%Obn?@XHUJL3TkG8?">
-                      <field name="FIELDNAME">red</field>
-                    </shadow>
-                  </value>
-                  <value name="CONTENTS">
-                    <shadow type="text" id="8M%RX#tL#?sfYR),(X=0">
-                      <field name="TEXT"></field>
-                    </shadow>
-                  </value>
-                  <value name="ID">
-                    <shadow type="text" id="KQbDbK%rkb1{gQ|_/5QF">
-                      <field name="TEXT">3</field>
-                    </shadow>
-                  </value>
-                  <next>
-                    <block type="addAnnotation" id="L15BdXaF^A?a|{9}WjrN">
-                      <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
-                      <value name="ANNOTATION">
-                        <shadow type="text" id="vep=|~R|#bO2kq|=9t;d">
-                          <field name="TEXT">4</field>
-                        </shadow>
-                      </value>
-                      <value name="TARGET">
-                        <shadow type="objectList" id="=ywV;@l4z1HABxNa;^!u">
-                          <field name="FIELDNAME">gancho</field>
-                        </shadow>
-                      </value>
-                      <value name="CONTENTS">
-                        <shadow type="text" id="vH.M0`)v.cES)6,msbzf">
-                          <field name="TEXT"></field>
-                        </shadow>
-                      </value>
-                      <value name="ID">
-                        <shadow type="text" id="5H$EUXAXY@?uYf}%wtT:">
-                          <field name="TEXT">4</field>
-                        </shadow>
-                      </value>
-                    </block>
-                  </next>
-                </block>
-              </next>
-            </block>
-          </next>
         </block>
       </statement>
     </block>

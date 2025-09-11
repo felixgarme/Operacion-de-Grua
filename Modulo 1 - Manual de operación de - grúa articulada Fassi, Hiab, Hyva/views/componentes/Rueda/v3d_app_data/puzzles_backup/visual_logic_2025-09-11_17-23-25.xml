@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="96.94400898163508" scrolly="-15.62775079939098" scale="0.5568374181775593">
+  <tab name="General" type="CommonTab" active="true" scrollx="-275.75152379554686" scrolly="-154.19842086597225" scale="0.8894994466151905">
     <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
@@ -89,7 +89,7 @@
           </value>
           <value name="TARGET">
             <shadow type="objectList" id="=uQAIo]B-CY6QLUaI2`)">
-              <field name="FIELDNAME">black</field>
+              <field name="FIELDNAME">diente</field>
             </shadow>
           </value>
           <value name="CONTENTS">
@@ -112,7 +112,7 @@
               </value>
               <value name="TARGET">
                 <shadow type="objectList" id=";iEU|a?35WumdA@PCJfH">
-                  <field name="FIELDNAME">clip</field>
+                  <field name="FIELDNAME">anilloex</field>
                 </shadow>
               </value>
               <value name="CONTENTS">

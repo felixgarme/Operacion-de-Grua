@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="96.94400898163508" scrolly="-15.62775079939098" scale="0.5568374181775593">
+  <tab name="Init" type="InitTab" active="false" scrollx="419" scrolly="0" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="-275.75152379554686" scrolly="-154.19842086597225" scale="0.8894994466151905">
     <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
@@ -89,7 +89,7 @@
           </value>
           <value name="TARGET">
             <shadow type="objectList" id="=uQAIo]B-CY6QLUaI2`)">
-              <field name="FIELDNAME">black</field>
+              <field name="FIELDNAME">diente</field>
             </shadow>
           </value>
           <value name="CONTENTS">
@@ -112,7 +112,7 @@
               </value>
               <value name="TARGET">
                 <shadow type="objectList" id=";iEU|a?35WumdA@PCJfH">
-                  <field name="FIELDNAME">clip</field>
+                  <field name="FIELDNAME">torni</field>
                 </shadow>
               </value>
               <value name="CONTENTS">
@@ -135,7 +135,7 @@
                   </value>
                   <value name="TARGET">
                     <shadow type="objectList" id="pOn%Obn?@XHUJL3TkG8?">
-                      <field name="FIELDNAME">red</field>
+                      <field name="FIELDNAME">anilloin</field>
                     </shadow>
                   </value>
                   <value name="CONTENTS">
@@ -158,7 +158,7 @@
                       </value>
                       <value name="TARGET">
                         <shadow type="objectList" id="=ywV;@l4z1HABxNa;^!u">
-                          <field name="FIELDNAME">gancho</field>
+                          <field name="FIELDNAME">anilloex</field>
                         </shadow>
                       </value>
                       <value name="CONTENTS">
@@ -171,6 +171,56 @@
                           <field name="TEXT">4</field>
                         </shadow>
                       </value>
+                      <next>
+                        <block type="addAnnotation" id="b$Yz`D=s#Q4!H,]tp}o9">
+                          <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+                          <value name="ANNOTATION">
+                            <shadow type="text" id="x$g1Zam-#8o!EW$ebF3a">
+                              <field name="TEXT">5</field>
+                            </shadow>
+                          </value>
+                          <value name="TARGET">
+                            <shadow type="objectList" id="llf4;M+a`_.K,6LiZUL:">
+                              <field name="FIELDNAME">torni2</field>
+                            </shadow>
+                          </value>
+                          <value name="CONTENTS">
+                            <shadow type="text" id="6(W=/Z?wuY)xxQ;:6?NT">
+                              <field name="TEXT"></field>
+                            </shadow>
+                          </value>
+                          <value name="ID">
+                            <shadow type="text" id=")3]m1h3f)rJE{..,Iug2">
+                              <field name="TEXT">5</field>
+                            </shadow>
+                          </value>
+                          <next>
+                            <block type="addAnnotation" id="Y8ZD#)@HDZsXfwAv)+!2">
+                              <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+                              <value name="ANNOTATION">
+                                <shadow type="text" id="J0wo[a%k7BViTSH-!gX8">
+                                  <field name="TEXT">6</field>
+                                </shadow>
+                              </value>
+                              <value name="TARGET">
+                                <shadow type="objectList" id="m$f9q$KnDJ7mY,z_J3[$">
+                                  <field name="FIELDNAME">torni2.001</field>
+                                </shadow>
+                              </value>
+                              <value name="CONTENTS">
+                                <shadow type="text" id="=(VOm3ppE*:n~+#Evh8h">
+                                  <field name="TEXT"></field>
+                                </shadow>
+                              </value>
+                              <value name="ID">
+                                <shadow type="text" id="1il{T!4,`O(F=gkG(E:-">
+                                  <field name="TEXT">5</field>
+                                </shadow>
+                              </value>
+                            </block>
+                          </next>
+                        </block>
+                      </next>
                     </block>
                   </next>
                 </block>
