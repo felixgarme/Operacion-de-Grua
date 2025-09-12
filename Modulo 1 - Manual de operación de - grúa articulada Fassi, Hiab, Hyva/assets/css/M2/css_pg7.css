@@ -1,0 +1,414 @@
+
+/* ================================
+   📌 Estructura principal
+=================================== */
+.course-slide-container {
+  margin: 0 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.course-slide-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 540px;
+}
+
+/* Paneles */
+.course-slide-left {
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #DDE8F5;
+  overflow-y: auto;
+}
+
+.course-slide-right {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #DDE8F5;
+  overflow: hidden;
+}
+
+/* Textos */
+.course-slide-subtitle {
+  color: #031794;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #DDE8F5;
+}
+
+.course-slide-text {
+  color: #4D4D4E;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Items (Anki-like) */
+.course-slide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-slide-item {
+  position: relative; /* para el badge ✓ */
+  border-radius: 10px;
+  border: 1px solid #DDE8F5;
+  overflow: visible;
+  transition: all 0.4s ease;
+  background: #031794;
+  color: #fff;
+  perspective: 1000px; /* efecto 3D */
+  cursor: pointer;
+}
+
+/* Botón (frente) */
+.course-slide-item-title {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Contenido (reverso) */
+.course-slide-item-content {
+  max-height: 0;
+  overflow: hidden; /* por defecto cerrado */
+  padding: 0 12px;
+  background: #FFFFFF;
+  color: #4D4D4E;
+  transition: max-height 0.45s ease, padding 0.3s ease;
+  text-align: justify;
+  border-top: none;
+}
+
+/* Cuando está abierto: permitimos scroll dentro del panel */
+.course-slide-item.open .course-slide-item-content {
+  max-height: 300px; /* ajusta según necesidad */
+  padding: 16px;
+  border-top: 1px solid #DDE8F5;
+  background: #F9FBFD;
+  animation: flipIn 0.5s ease forwards;
+  overflow: auto; /* <- CORRECCIÓN importante: permitir scroll */
+}
+
+/* Animación estilo Anki (flip card) */
+@keyframes flipIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Iframe */
+.course-slide-iframe-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #DDE8F5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(45deg, #E5F0F9, #FFFFFF);
+  display: flex;
+  position: relative;
+}
+
+.course-slide-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+/* Botón continuar (oculto hasta completar) */
+/* .start-button {
+  display: none;
+  margin: 18px auto 0;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #3479F6, #1F87C6);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(52,121,246,0.25);
+} */
+
+.start-button.show {
+  display: inline-block;
+  animation: popIn 360ms ease;
+}
+
+@keyframes popIn {
+  from { transform: translateY(6px) scale(0.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1);    opacity: 1; }
+}
+
+/* Indicador visual cuando un item ha sido "visto" */
+.course-slide-item.read {
+  outline: 3px solid rgba(31,135,198,0.12);
+  box-shadow: 0 6px 18px rgba(3,23,148,0.06);
+}
+
+/* badge ✓ */
+.course-slide-item.read::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: #28a745;
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  pointer-events: none;
+}
+
+/* Canvas confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .course-slide-main { grid-template-columns: 1fr; gap: 20px; height: auto; }
+  .course-slide-iframe-container { aspect-ratio: 16 / 9; height: auto; }
+}
+@media (max-width: 768px) {
+  .course-slide-container { margin: 0 20px; }
+  .course-slide-left, .course-slide-right { padding: 10px; }
+  .course-slide-iframe-container { aspect-ratio: 1 / 1; }
+}
+@media (max-width: 480px) {
+  .course-slide-container { margin: 0 10px; }
+  .course-slide-left, .course-slide-right { padding: 8px; }
+  .course-slide-iframe-container { aspect-ratio: 1 / 1; }
+}
+/* ================================
+   📌 Estructura principal
+=================================== */
+.course-slide-container {
+  margin: 0 100px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.course-slide-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  height: 540px;
+}
+
+/* Paneles */
+.course-slide-left {
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #DDE8F5;
+  overflow-y: auto;
+}
+
+.course-slide-right {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #DDE8F5;
+  overflow: hidden;
+}
+
+/* Textos */
+.course-slide-subtitle {
+  color: #031794;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #DDE8F5;
+}
+
+.course-slide-text {
+  color: #4D4D4E;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Items (Anki-like) */
+.course-slide-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-slide-item {
+  position: relative; /* para el badge ✓ */
+  border-radius: 10px;
+  border: 1px solid #DDE8F5;
+  overflow: visible;
+  transition: all 0.4s ease;
+  background: #031794;
+  color: #fff;
+  perspective: 1000px; /* efecto 3D */
+  cursor: pointer;
+}
+
+/* Botón (frente) */
+.course-slide-item-title {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Contenido (reverso) */
+.course-slide-item-content {
+  max-height: 0;
+  overflow: hidden; /* por defecto cerrado */
+  padding: 0 12px;
+  background: #FFFFFF;
+  color: #4D4D4E;
+  transition: max-height 0.45s ease, padding 0.3s ease;
+  text-align: justify;
+  border-top: none;
+}
+
+/* Cuando está abierto: permitimos scroll dentro del panel */
+.course-slide-item.open .course-slide-item-content {
+  max-height: 300px; /* ajusta según necesidad */
+  padding: 16px;
+  border-top: 1px solid #DDE8F5;
+  background: #F9FBFD;
+  animation: flipIn 0.5s ease forwards;
+  overflow: auto; /* <- CORRECCIÓN importante: permitir scroll */
+}
+
+/* Animación estilo Anki (flip card) */
+@keyframes flipIn {
+  from {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Iframe */
+.course-slide-iframe-container {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #DDE8F5;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(45deg, #E5F0F9, #FFFFFF);
+  display: flex;
+  position: relative;
+}
+
+.course-slide-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+/* Botón continuar (oculto hasta completar) */
+.start-button {
+  display: none;
+
+}
+
+.start-button.show {
+  display: inline-block;
+  animation: popIn 360ms ease;
+}
+
+@keyframes popIn {
+  from { transform: translateY(6px) scale(0.98); opacity: 0; }
+  to   { transform: translateY(0) scale(1);    opacity: 1; }
+}
+
+/* Indicador visual cuando un item ha sido "visto" */
+.course-slide-item.read {
+  outline: 3px solid rgba(31,135,198,0.12);
+  box-shadow: 0 6px 18px rgba(3,23,148,0.06);
+}
+
+/* badge ✓ */
+.course-slide-item.read::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: #28a745;
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  pointer-events: none;
+}
+
+/* Canvas confetti */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .course-slide-main { grid-template-columns: 1fr; gap: 20px; height: auto; }
+  .course-slide-iframe-container { aspect-ratio: 16 / 9; height: auto; }
+}
+@media (max-width: 768px) {
+  .course-slide-container { margin: 0 20px; }
+  .course-slide-left, .course-slide-right { padding: 10px; }
+  .course-slide-iframe-container { aspect-ratio: 1 / 1; }
+}
+@media (max-width: 480px) {
+  .course-slide-container { margin: 0 10px; }
+  .course-slide-left, .course-slide-right { padding: 8px; }
+  .course-slide-iframe-container { aspect-ratio: 1 / 1; }
+}

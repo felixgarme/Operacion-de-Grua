@@ -1,0 +1,245 @@
+.machine-description-component {
+  max-width: 100%;
+  margin: 0 10%;
+  padding: 8px;
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px;
+}
+
+/* ======= Encabezado ======= */
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.main-title {
+  background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  padding-right: 130px;
+}
+
+.subtitle {
+  color: #031794;
+  font-size: 16px;
+  margin: 0;
+
+}
+
+/* ======= Contenido ======= */
+.content-container {
+  display: flex;
+  gap: 25px;
+  align-items: stretch; /* ✅ asegura que ambos tengan misma altura */
+  flex-wrap: wrap;
+}
+
+.text-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.diagram-section {
+  flex: 1; /* ✅ mismo ancho que text-section */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diagram {
+  width: 100%;
+  height: 100%; /* ✅ ocupa el alto completo del div */
+  object-fit: contain; /* ✅ mantiene proporción de la imagen */
+  border-radius: 6px;
+}
+
+/* ======= Intro ======= */
+.intro-text {
+  background: #E5F0F9;
+  border: 2px solid #DDE8F5;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+  color: #4D4D4E;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ======= Secciones colapsables ======= */
+.section {
+  background: #FFFFFF;
+  border: 1px solid #DDE8F5;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.section-header {
+  background: linear-gradient(90deg, #031794, #34C0C0);
+  color: #FFFFFF;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.section-header:hover { opacity: 0.9; }
+
+.toggle-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.section.active .toggle-icon { transform: rotate(180deg); }
+
+.section-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: #FFFFFF;
+}
+
+.section.active .section-content { max-height: 500px; }
+
+.section-body { padding: 8px; }
+
+/* ======= Listas ======= */
+.item-list { padding-left: 10px; }
+
+.item {
+  color: #4D4D4E;
+  font-size: 12px;
+  margin-bottom: 3px;
+  line-height: 1.3;
+  position: relative;
+  padding-left: 8px;
+}
+
+.item:before {
+  content: "•";
+  color: #031794;
+  position: absolute;
+  left: 0;
+}
+
+.sub-numbered-list {
+  counter-reset: sub-counter;
+  padding-left: 8px;
+}
+
+.sub-numbered-item {
+  counter-increment: sub-counter;
+  color: #4D4D4E;
+  font-size: 12px;
+  margin-bottom: 3px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.sub-numbered-item:before {
+  content: counter(sub-counter, lower-alpha) ")";
+  position: absolute;
+  left: 0;
+  color: #031794;
+  font-weight: bold;
+}
+
+/* ======= Diagrama container ======= */
+.diagram-container {
+  background: #FFFFFF;
+  border: 3px solid #FF0000;
+  border-radius: 8px;
+  padding: 8px;
+  text-align: center;
+}
+
+/* ======= Progreso ======= */
+.progress-bar {
+  background: #DDE8F5;
+  height: 6px;
+  border-radius: 3px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #031794, #34C0C0);
+  width: 0%;
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+.completion-message {
+  text-align: center;
+  color: #031794;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 8px 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.completion-message.show { opacity: 1; }
+
+/* ======= Confetti ======= */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #FF0000;
+  animation: confetti-fall 3s linear forwards;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.confetti:nth-child(2n) { background: #031794; }
+.confetti:nth-child(3n) { background: #3479F6; }
+.confetti:nth-child(4n) { background: #1F87C6; }
+.confetti:nth-child(5n) { background: #34C0C0; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+/* ======= Responsivo ======= */
+@media (max-width: 768px) {
+  .machine-description-component { padding: 6px; }
+  .content-container { flex-direction: column; }
+  .main-title { font-size: 20px; padding-right: 110px; }
+  .subtitle { font-size: 14px; }
+  .text-section { min-width: 100%; order: 2; margin-bottom: 80px;}
+  .diagram-section { order: 1; max-width: 100%; min-width: 100%; }
+  .diagram-container { margin-bottom: 10px; }
+  
+}
+
+@media (max-width: 480px) {
+  .main-title { font-size: 18px; }
+  .subtitle { font-size: 13px; }
+  .section-header { font-size: 13px; padding: 6px; }
+  .item, .numbered-item, .sub-numbered-item { font-size: 11px; }
+}
+/* Button */
+/* Estilo cuando se muestra (curso completado) */
+.start-button.show {
+  display: inline-flex; /* o block / inline-block según prefieras */
+  /* background: linear-gradient(90deg, #031794, #34C0C0); */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* (opcional) estado deshabilitado visual */
+.start-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

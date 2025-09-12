@@ -1,0 +1,110 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="-171.16669507914185" scrolly="83.7869161934253" scale="0.6937977888571657">
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
+      <statement name="DO">
+        <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="C43W)okokQ_CRhs1|6S4">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="17" editor-width="520">&amp;#10;// Solo si app ya fue creado anteriormente (por ejemplo, en Puzzles o en init global)&amp;#10;(function(app) {&amp;#10;  app.renderer.setClearColor(0x000000, 0);&amp;#10;  app.scene.background = null;&amp;#10;  const container = app.container || document.getElementById('v3d-container');&amp;#10;  if (container) {&amp;#10;    container.style.background = 'transparent';&amp;#10;    if (app.renderer.domElement) {&amp;#10;      app.renderer.domElement.style.background = 'transparent';&amp;#10;    }&amp;#10;  }&amp;#10;})(app);&amp;#10;app.renderer.setClearAlpha(0);  // asegura transparencia total&amp;#10;</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="execScript" id="du;sic8ifTO|p}t*=^v}">
+              <value name="TEXT">
+                <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
+                  <field name="HIGHLIGHT_MODE">javascript</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
+                  <field name="ON_OFF">ON</field>
+                  <value name="SPEED">
+                    <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
+                      <field name="NUM">2</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="tweenCameraExt" id="D(`C/VRJ;l@[54Hyf|{M">
+                      <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+                      <field name="MOVEMENT_TYPE">LINEAR</field>
+                      <value name="POSITION">
+                        <block type="objectList" id="!jVT-=9^(G^)w8j|~g^(">
+                          <field name="FIELDNAME">camerax</field>
+                        </block>
+                      </value>
+                      <value name="DURATION">
+                        <shadow type="math_number" id="hVyyfxp5g,Y%/cxzR_gA">
+                          <field name="NUM">1</field>
+                        </shadow>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="connectorSlot" id="MR:RW,s!wX0l0q%3^$l{">
+          <statement name="DO">
+            <block type="setInterval" id="3#Z=3#nHP=c$!7kC}T[N">
+              <value name="VALUE">
+                <shadow type="math_number" id=")7!II/^M^=T9xSPtIu~R">
+                  <field name="NUM">3</field>
+                </shadow>
+              </value>
+              <statement name="DO">
+                <block type="tweenCameraExt" id="%=#9zo4C;Ji3b4E0tcs6">
+                  <mutation xmlns="http://www.w3.org/1999/xhtml" whenfinishedslot="false"></mutation>
+                  <field name="MOVEMENT_TYPE">LINEAR</field>
+                  <value name="POSITION">
+                    <block type="objectList" id="^cj(;l(BrGJ?#Qs0QZiQ">
+                      <field name="FIELDNAME">camerax</field>
+                    </block>
+                  </value>
+                  <value name="DURATION">
+                    <shadow type="math_number" id="`RRcDQiVh)vFH`|9n~Ea">
+                      <field name="NUM">1</field>
+                    </shadow>
+                  </value>
+                </block>
+              </statement>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="ishzwS~ZxZ6H#P!8XDV," x="829" y="362">
+      <statement name="DO">
+        <block type="addAnnotation" id="o/?|$.n/+LCD?#cVPqV*">
+          <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+          <value name="ANNOTATION">
+            <shadow type="text" id="c,RQliU7uN$0Grj6s5I(">
+              <field name="TEXT">1</field>
+            </shadow>
+          </value>
+          <value name="TARGET">
+            <shadow type="objectList" id="=uQAIo]B-CY6QLUaI2`)">
+              <field name="FIELDNAME">Circle</field>
+            </shadow>
+          </value>
+          <value name="CONTENTS">
+            <shadow type="text" id="v_B@WHB*{z[9W4WjQ}f*">
+              <field name="TEXT">Point of interest #1</field>
+            </shadow>
+          </value>
+          <value name="ID">
+            <shadow type="text" id="OsFrLH4D?IX),~DJREC1">
+              <field name="TEXT">poi1</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="639" viewport-y="48" viewport-w="710" viewport-h="398.5" viewport-hidden="true" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
