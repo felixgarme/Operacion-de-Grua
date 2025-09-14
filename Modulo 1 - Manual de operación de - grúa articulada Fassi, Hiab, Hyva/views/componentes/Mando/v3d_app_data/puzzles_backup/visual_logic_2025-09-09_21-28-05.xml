@@ -1,0 +1,28 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="19.7777099609375" scrolly="19.5555419921875" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="76.35879516601585" scrolly="-97.93750268441619" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
+      <statement name="DO">
+        <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="C43W)okokQ_CRhs1|6S4">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="17" editor-width="520">&amp;#10;// Solo si app ya fue creado anteriormente (por ejemplo, en Puzzles o en init global)&amp;#10;(function(app) {&amp;#10;  app.renderer.setClearColor(0x000000, 0);&amp;#10;  app.scene.background = null;&amp;#10;  const container = app.container || document.getElementById('v3d-container');&amp;#10;  if (container) {&amp;#10;    container.style.background = 'transparent';&amp;#10;    if (app.renderer.domElement) {&amp;#10;      app.renderer.domElement.style.background = 'transparent';&amp;#10;    }&amp;#10;  }&amp;#10;})(app);&amp;#10;app.renderer.setClearAlpha(0);  // asegura transparencia total&amp;#10;</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="execScript" id="du;sic8ifTO|p}t*=^v}">
+              <value name="TEXT">
+                <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
+                  <field name="HIGHLIGHT_MODE">javascript</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1047" viewport-y="37" viewport-w="710" viewport-h="398.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

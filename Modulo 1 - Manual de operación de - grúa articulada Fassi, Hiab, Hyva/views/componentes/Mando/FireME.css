@@ -1,0 +1,24 @@
+
+
+    /* --- Personalización del Preloader de Verge3D --- */
+    .v3d-simple-preloader-background {
+      /* Cambia el fondo (puede ser color o imagen) */
+      background: url("media/mi_fondo_personalizado.png") center/cover no-repeat;
+    }
+    .v3d-simple-preloader-container {
+      /* Ejemplo: centrar o cambiar tamaño del preloader */
+      width: 120px;
+      height: 120px;
+      margin: auto;
+    }
+    .v3d-simple-preloader-logo {
+      /* Cambia la imagen del logo en el preloader */
+      background-image: url("media/mi_logo_personalizado.png");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .v3d-simple-preloader-bar {
+      /* Color de la barra de progreso */
+      background-color: #FF0000; /* rojo, por ejemplo */
+    }

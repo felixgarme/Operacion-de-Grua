@@ -1,0 +1,387 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="11.0333251953125" scrolly="67.0999755859375" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="-245.09463976585835" scrolly="12.14621634613934" scale="0.7912092655287302">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="B})@rh#O@P%-kBl}Rft7">animationA</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="b%ER:@L=w_6^5;_4rXd{" x="843" y="93">
+      <field name="NAME">arriba</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="removeAnnotation" id="[PEwN?i7rD#Ha1kb;S3J">
+          <value name="TARGET">
+            <shadow type="objectList" id="]w~nm9ik0qP}4P~5{=yE">
+              <field name="FIELDNAME">&lt;none&gt;</field>
+            </shadow>
+            <block type="allObjectList" id="FGphUa5?L}cBGc|uuy.K"></block>
+          </value>
+          <next>
+            <block type="addAnnotation" id="t=HFF~Ig.Y]QzbHL-cfn">
+              <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+              <value name="ANNOTATION">
+                <shadow type="text" id="lvV8JT_2H{+brM)?wIIA">
+                  <field name="TEXT">1</field>
+                </shadow>
+                <block type="variables_get" id="Z$3d;kqDgT$z^D9^]=W6">
+                  <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                </block>
+              </value>
+              <value name="TARGET">
+                <shadow type="objectList" id="O;wHVhnmJL/Y!n5}xAOA">
+                  <field name="FIELDNAME">Cube</field>
+                </shadow>
+              </value>
+              <value name="CONTENTS">
+                <shadow type="text" id="=;lyw9i3K(B8?h{#|h.o">
+                  <field name="TEXT">Point of interest #1</field>
+                </shadow>
+              </value>
+              <value name="ID">
+                <shadow type="text" id="BOVz`w%5OhIc0HV]e!y4">
+                  <field name="TEXT">xd</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="controls_if" id="V$WB*ng^CF)4QupAtqpZ">
+                  <mutation else="1"></mutation>
+                  <value name="IF0">
+                    <block type="logic_compare" id="+dV+|NzfaZR{*M!~fYrF">
+                      <field name="OP">EQ</field>
+                      <value name="A">
+                        <block type="variables_get" id="Xg[iV4,kmp=B1G{B:do:">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="math_number" id="xFbn0$8Swn,JPK.Ik4;|">
+                          <field name="NUM">300</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="connectorSlot" id="rCH`r`bP_pE^{tg@_ql+" disabled="true">
+                      <statement name="DO">
+                        <block type="variables_set" id=",JM~y_M8UYUVI0Uru43t">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="4RB@;Wiy?m-*kY:tz8nh">
+                              <field name="NUM">200</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="variables_set" id="vHl$Qzp)ZdMB*+f$22M9">
+                              <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="|eFQP=e$hjdadrkg.Fzl">
+                                  <field name="OP">ADD</field>
+                                  <value name="A">
+                                    <shadow type="math_number" id=".Zj9sBk:B:X~].X#^|m[">
+                                      <field name="NUM">2</field>
+                                    </shadow>
+                                    <block type="variables_get" id="u-v`Can^DV?iaW0*DWtI">
+                                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="tqqf;+nb*flSv,M`aVnr">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="Bxh(3%5_]zC{7Hb.]oM.">
+                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="qy*!SG3NyUTx`cAxU?.%">
+                          <field name="OP">ADD</field>
+                          <value name="A">
+                            <shadow type="math_number" id=".Zj9sBk:B:X~].X#^|m[">
+                              <field name="NUM">2</field>
+                            </shadow>
+                            <block type="variables_get" id="v#,GYo}8)4)!o,*([i9y">
+                              <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow type="math_number" id="Vhr)fdl{,5pk(Ojs`sZ}">
+                              <field name="NUM">1</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                    </block>
+                  </statement>
+                  <next>
+                    <block type="setAnimationFrame" id="xH4_p(!lyt?.tEEqb*E8">
+                      <value name="VALUE">
+                        <shadow type="animationList" id="m#LLh?Y:;9XP63|lSJcf">
+                          <field name="FIELDNAME">Cube.002</field>
+                        </shadow>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="jAQnZ:WhFg_~z9_(8EDf">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="FNpCbCFS8q,-xl3z{1+g">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
+      <statement name="DO">
+        <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="C43W)okokQ_CRhs1|6S4">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="17" editor-width="520">&amp;#10;// Solo si app ya fue creado anteriormente (por ejemplo, en Puzzles o en init global)&amp;#10;(function(app) {&amp;#10;  app.renderer.setClearColor(0x000000, 0);&lt;!DOCTYPE html&gt;&amp;#10;&lt;!-- __V3D_PUZZLES__ - enable Puzzles button in the App Manager --&gt;&amp;#10;&lt;!-- __V3D_TEMPLATE__ - template-based file; delete this line to prevent this file from being updated --&gt;&amp;#10;&lt;html lang="en"&gt;&amp;#10;&lt;head&gt;&amp;#10;  &lt;title&gt;Verge3D Web Interactive&lt;/title&gt;&amp;#10;  &lt;meta charset="utf-8"&gt;&amp;#10;  &lt;meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"&gt;&amp;#10;&amp;#10;  &lt;!-- Search Engines --&gt;&amp;#10;  &lt;meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies."&gt;&amp;#10;  &lt;!-- Twitter --&gt;&amp;#10;  &lt;meta name="twitter:card" content="summary"&gt;&amp;#10;  &lt;meta name="twitter:title" content="Verge3D Web Interactive"&gt;&amp;#10;  &lt;meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies."&gt;&amp;#10;  &lt;meta name="twitter:image:src" content="https://cdn.soft8soft.com/images/player_socials.jpg"&gt;&amp;#10;  &lt;!-- Open Graph --&gt;&amp;#10;  &lt;meta property="og:title" content="Verge3D Web Interactive"&gt;&amp;#10;  &lt;meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies."&gt;&amp;#10;  &lt;meta property="og:image" content="https://cdn.soft8soft.com/images/player_socials.jpg"&gt;&amp;#10;  &lt;meta property="og:type" content="website"&gt;&amp;#10;&amp;#10;  &lt;meta name="generator" content="Verge3D 4.8.0"&gt;&amp;#10;&amp;#10;  &lt;!-- favicons --&gt;&amp;#10;  &lt;link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png"&gt;&amp;#10;  &lt;link rel="icon" type="image/png" sizes="48x48" href="media/favicon-48x48.png"&gt;&amp;#10;  &lt;link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png"&gt;&amp;#10;  &lt;link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png"&gt;&amp;#10;  &lt;link rel="manifest" href="media/manifest.json"&gt;&amp;#10;  &lt;link rel="mask-icon" href="media/safari-pinned-tab.svg" color="#0048a5"&gt;&amp;#10;  &lt;meta name="theme-color" content="#ffffff"&gt;&amp;#10;&amp;#10;  &lt;script src="v3d.js"&gt;&lt;/script&gt;&amp;#10;  &lt;script src="Fire.js"&gt;&lt;/script&gt;&amp;#10;&amp;#10;  &lt;link rel="stylesheet" type="text/css" href="Fire.css"&gt;&amp;#10;  &lt;link rel="stylesheet" type="text/css" href="FireME.css"&gt;&amp;#10;&amp;#10;&lt;/head&gt;&amp;#10;&amp;#10;&lt;body&gt;&amp;#10;  &lt;div id="v3d-container"&gt;&amp;#10;    &lt;div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"&gt;&lt;/div&gt;&amp;#10;  &lt;/div&gt;&amp;#10;&amp;#10;  &lt;!-- ------------- JOYSTICK OVERLAY (NO BORRA NADA) ------------- --&gt;&amp;#10;  &lt;style&gt;&amp;#10;    /* Joystick container (fixed overlay) */&amp;#10;    #v3d-joystick {&amp;#10;      position: fixed;&amp;#10;      left: 24px;&amp;#10;      bottom: 24px;&amp;#10;      width: 120px;&amp;#10;      height: 120px;&amp;#10;      z-index: 99999;&amp;#10;      pointer-events: auto;&amp;#10;      touch-action: none;&amp;#10;      user-select: none;&amp;#10;    }&amp;#10;&amp;#10;    /* Base del joystick (círculo difuminado) */&amp;#10;    #v3d-joystick-base {&amp;#10;      position: absolute;&amp;#10;      inset: 0;&amp;#10;      border-radius: 50%;&amp;#10;      background: rgba(0,0,0,0.25);&amp;#10;      backdrop-filter: blur(2px);&amp;#10;      display: flex;&amp;#10;      align-items: center;&amp;#10;      justify-content: center;&amp;#10;      box-shadow: 0 6px 18px rgba(0,0,0,0.35);&amp;#10;      touch-action: none;&amp;#10;    }&amp;#10;&amp;#10;    /* Knob (la "perilla" que se mueve) */&amp;#10;    #v3d-joystick-knob {&amp;#10;      width: 52px;&amp;#10;      height: 52px;&amp;#10;      border-radius: 50%;&amp;#10;      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(230,230,230,0.9));&amp;#10;      box-shadow: 0 4px 12px rgba(0,0,0,0.45);&amp;#10;      transform: translate3d(0px, 0px, 0);&amp;#10;      transition: transform 0.12s cubic-bezier(.2,.9,.2,1);&amp;#10;      cursor: grab;&amp;#10;      touch-action: none;&amp;#10;    }&amp;#10;    #v3d-joystick-knob:active { cursor: grabbing; }&amp;#10;&amp;#10;    /* indicador sutil de dirección (opcional) */&amp;#10;    #v3d-joystick-base::after {&amp;#10;      content: '';&amp;#10;      position: absolute;&amp;#10;      left: 50%;&amp;#10;      top: 50%;&amp;#10;      width: 2px;&amp;#10;      height: 56%;&amp;#10;      background: rgba(255,255,255,0.03);&amp;#10;      transform: translate(-50%,-50%);&amp;#10;      pointer-events: none;&amp;#10;    }&amp;#10;  &lt;/style&gt;&amp;#10;&amp;#10;  &lt;div id="v3d-joystick" aria-label="Joystick" role="application"&gt;&amp;#10;    &lt;div id="v3d-joystick-base"&gt;&amp;#10;      &lt;div id="v3d-joystick-knob" title="Joystick"&gt;&lt;/div&gt;&amp;#10;    &lt;/div&gt;&amp;#10;  &lt;/div&gt;&amp;#10;&amp;#10;  &lt;script&gt;&amp;#10;    (function () {&amp;#10;      const container = document.getElementById('v3d-joystick');&amp;#10;      const knob = document.getElementById('v3d-joystick-knob');&amp;#10;      const base = document.getElementById('v3d-joystick-base');&amp;#10;&amp;#10;      // tamaño y centro dinámicos&amp;#10;      let rect = container.getBoundingClientRect();&amp;#10;      const center = { x: rect.width / 2, y: rect.height / 2 };&amp;#10;      let maxRadius = Math.min(rect.width, rect.height) / 2 - 8;&amp;#10;      const deadZone = 10; // px mínimo para considerar movimiento&amp;#10;      let dragging = false;&amp;#10;      let lastDirection = null;&amp;#10;&amp;#10;      function refreshMetrics() {&amp;#10;        rect = container.getBoundingClientRect();&amp;#10;        center.x = rect.width / 2;&amp;#10;        center.y = rect.height / 2;&amp;#10;        maxRadius = Math.min(rect.width, rect.height) / 2 - 8;&amp;#10;      }&amp;#10;&amp;#10;      function setKnobPosition(x, y, animate = false) {&amp;#10;        // x,y son números en px&amp;#10;        knob.style.transition = animate ? 'transform 0.12s cubic-bezier(.2,.9,.2,1)' : 'transform 0s';&amp;#10;        knob.style.transform = `translate3d(${x}px, ${y}px, 0)`;&amp;#10;      }&amp;#10;&amp;#10;      function toLocalCoords(clientX, clientY) {&amp;#10;        const r = container.getBoundingClientRect();&amp;#10;        return {&amp;#10;          x: clientX - r.left,&amp;#10;          y: clientY - r.top&amp;#10;        };&amp;#10;      }&amp;#10;&amp;#10;      function determineDirection(dx, dy) {&amp;#10;        if (Math.hypot(dx, dy) &lt; deadZone) return null;&amp;#10;        if (Math.abs(dx) &gt; Math.abs(dy)) {&amp;#10;          return dx &gt; 0 ? 'derecha' : 'izquierda';&amp;#10;        } else {&amp;#10;          return dy &lt; 0 ? 'arriba' : 'abajo';&amp;#10;        }&amp;#10;      }&amp;#10;&amp;#10;      function callProcedure(direction) {&amp;#10;        if (!direction) return;&amp;#10;        try {&amp;#10;          if (window.v3d &amp;&amp; v3d.puzzles &amp;&amp; v3d.puzzles.procedures &amp;&amp; typeof v3d.puzzles.procedures[direction] === 'function') {&amp;#10;            v3d.puzzles.procedures[direction]();&amp;#10;          } else {&amp;#10;            // silencio si no existe&amp;#10;          }&amp;#10;        } catch (e) {&amp;#10;          console.error('Error llamando a procedimiento v3d:', e);&amp;#10;        }&amp;#10;      }&amp;#10;&amp;#10;      // --- Eventos ---&amp;#10;      knob.addEventListener('mousedown', function (ev) {&amp;#10;        ev.preventDefault();&amp;#10;        dragging = true;&amp;#10;        lastDirection = null;&amp;#10;      });&amp;#10;&amp;#10;      document.addEventListener('mousemove', function (ev) {&amp;#10;        if (!dragging) return;&amp;#10;        const p = toLocalCoords(ev.clientX, ev.clientY);&amp;#10;        let dx = p.x - center.x;&amp;#10;        let dy = p.y - center.y;&amp;#10;        const dist = Math.hypot(dx, dy);&amp;#10;        if (dist &gt; maxRadius) {&amp;#10;          const s = maxRadius / dist;&amp;#10;          dx *= s;&amp;#10;          dy *= s;&amp;#10;        }&amp;#10;        setKnobPosition(dx, dy, false);&amp;#10;        lastDirection = determineDirection(dx, dy);&amp;#10;      });&amp;#10;&amp;#10;      document.addEventListener('mouseup', function (ev) {&amp;#10;        if (!dragging) return;&amp;#10;        dragging = false;&amp;#10;        if (lastDirection) callProcedure(lastDirection);&amp;#10;        lastDirection = null;&amp;#10;        setKnobPosition(0, 0, true);&amp;#10;      });&amp;#10;&amp;#10;      // touch support&amp;#10;      knob.addEventListener('touchstart', function (ev) {&amp;#10;        ev.preventDefault();&amp;#10;        dragging = true;&amp;#10;        lastDirection = null;&amp;#10;      }, { passive: false });&amp;#10;&amp;#10;      document.addEventListener('touchmove', function (ev) {&amp;#10;        if (!dragging) return;&amp;#10;        const t = ev.touches[0];&amp;#10;        if (!t) return;&amp;#10;        const p = toLocalCoords(t.clientX, t.clientY);&amp;#10;        let dx = p.x - center.x;&amp;#10;        let dy = p.y - center.y;&amp;#10;        const dist = Math.hypot(dx, dy);&amp;#10;        if (dist &gt; maxRadius) {&amp;#10;          const s = maxRadius / dist;&amp;#10;          dx *= s;&amp;#10;          dy *= s;&amp;#10;        }&amp;#10;        setKnobPosition(dx, dy, false);&amp;#10;        lastDirection = determineDirection(dx, dy);&amp;#10;      }, { passive: false });&amp;#10;&amp;#10;      document.addEventListener('touchend', function (ev) {&amp;#10;        if (!dragging) return;&amp;#10;        dragging = false;&amp;#10;        if (lastDirection) callProcedure(lastDirection);&amp;#10;        lastDirection = null;&amp;#10;        setKnobPosition(0, 0, true);&amp;#10;      });&amp;#10;&amp;#10;      // click en la base para pulsación rápida&amp;#10;      base.addEventListener('click', function (ev) {&amp;#10;        const p = toLocalCoords(ev.clientX, ev.clientY);&amp;#10;        let dx = p.x - center.x;&amp;#10;        let dy = p.y - center.y;&amp;#10;        const dist = Math.hypot(dx, dy);&amp;#10;        if (dist &gt; maxRadius) {&amp;#10;          const s = maxRadius / dist;&amp;#10;          dx *= s;&amp;#10;          dy *= s;&amp;#10;        }&amp;#10;        setKnobPosition(dx, dy, true);&amp;#10;        const dir = determineDirection(dx, dy);&amp;#10;        if (dir) callProcedure(dir);&amp;#10;        setTimeout(() =&gt; setKnobPosition(0, 0, true), 120);&amp;#10;      });&amp;#10;&amp;#10;      // mantener métricas actualizadas si cambia tamaño o escala&amp;#10;      const ro = new ResizeObserver(refreshMetrics);&amp;#10;      try { ro.observe(container); } catch (e) { /* no crítico */ }&amp;#10;&amp;#10;      // inicial&amp;#10;      refreshMetrics();&amp;#10;      setKnobPosition(0, 0, false);&amp;#10;&amp;#10;      // Exponer para debug si hace falta&amp;#10;      window.__v3dJoystick = { setKnobPosition, refreshMetrics, callProcedure };&amp;#10;    })();&amp;#10;  &lt;/script&gt;&amp;#10;  &lt;!-- ------------- FIN JOYSTICK OVERLAY ------------- --&gt;&amp;#10;&amp;#10;&lt;/body&gt;&amp;#10;&lt;/html&gt;&amp;#10;&amp;#10;  app.scene.background = null;&amp;#10;  const container = app.container || document.getElementById('v3d-container');&amp;#10;  if (container) {&amp;#10;    container.style.background = 'transparent';&amp;#10;    if (app.renderer.domElement) {&amp;#10;      app.renderer.domElement.style.background = 'transparent';&amp;#10;    }&amp;#10;  }&amp;#10;})(app);&amp;#10;app.renderer.setClearAlpha(0);  // asegura transparencia total&amp;#10;</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="execScript" id="du;sic8ifTO|p}t*=^v}" disabled="true">
+              <value name="TEXT">
+                <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
+                  <field name="HIGHLIGHT_MODE">javascript</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="connectorSlot" id="MR:RW,s!wX0l0q%3^$l{">
+          <statement name="DO">
+            <block type="stopAnimation" id="Oj/de$r%qdlP^7^B/;:%">
+              <value name="VALUE">
+                <shadow type="animationList" id="Gcbz9A21^VNt5WfWFV]o">
+                  <field name="FIELDNAME">Cube.002</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="stopAnimation" id="FC]!4B_Lm2Z+-c~HWZ8(">
+                  <value name="VALUE">
+                    <shadow type="animationList" id="{.L%TzH-)K0!c^4qnSTM">
+                      <field name="FIELDNAME">Sphere.001</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="variables_set" id="=meF,WBft/e!fTmacAi?">
+                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="HSlm!H%V6{U-$glboQ5Z">
+                          <field name="NUM">250</field>
+                        </block>
+                      </value>
+                      <next>
+                        <block type="addAnnotation" id="i~C0EZ(7#2:LBmxKnew=">
+                          <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+                          <value name="ANNOTATION">
+                            <shadow type="text" id="lvV8JT_2H{+brM)?wIIA">
+                              <field name="TEXT">1</field>
+                            </shadow>
+                            <block type="variables_get" id="0=ZXk7!+7sbHNo0qgp,A">
+                              <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                            </block>
+                          </value>
+                          <value name="TARGET">
+                            <shadow type="objectList" id="kR$i:y$F88f1MzvxDp]B">
+                              <field name="FIELDNAME">Cube</field>
+                            </shadow>
+                          </value>
+                          <value name="CONTENTS">
+                            <shadow type="text" id=")EQ!7;qbo^^C*@:2rF#q">
+                              <field name="TEXT">Point of interest #1</field>
+                            </shadow>
+                          </value>
+                          <value name="ID">
+                            <shadow type="text" id="{poK@t_c|eBZsh1IX)H,">
+                              <field name="TEXT">xd</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </next>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="D2+yv)W,;d@);{fc*|O2" x="852" y="514">
+      <field name="NAME">abajo</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="removeAnnotation" id="srL2d:MjC~@t?`5UVzK@">
+          <value name="TARGET">
+            <shadow type="objectList" id="]w~nm9ik0qP}4P~5{=yE">
+              <field name="FIELDNAME">&lt;none&gt;</field>
+            </shadow>
+            <block type="allObjectList" id="J+Gf*{)XKg|$7svhvi;C"></block>
+          </value>
+          <next>
+            <block type="addAnnotation" id="WdS~|a/sE^a)lS`oKLcV">
+              <mutation xmlns="http://www.w3.org/1999/xhtml" usenameslot="false"></mutation>
+              <value name="ANNOTATION">
+                <shadow type="text" id="lvV8JT_2H{+brM)?wIIA">
+                  <field name="TEXT">1</field>
+                </shadow>
+                <block type="variables_get" id="l~8IRDjnaj5?GFdyF1,l">
+                  <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                </block>
+              </value>
+              <value name="TARGET">
+                <shadow type="objectList" id="O3v%21@HXR*ujT-@}PkC">
+                  <field name="FIELDNAME">Cube</field>
+                </shadow>
+              </value>
+              <value name="CONTENTS">
+                <shadow type="text" id="xNf]S#9q3I}nh]ksOjWC">
+                  <field name="TEXT">Point of interest #1</field>
+                </shadow>
+              </value>
+              <value name="ID">
+                <shadow type="text" id="1ZkeCtTTAZ[K*1t5^j7C">
+                  <field name="TEXT">xd</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="controls_if" id="J%_w/m(!{b:WhF.tK;jZ">
+                  <mutation else="1"></mutation>
+                  <value name="IF0">
+                    <block type="logic_compare" id=",_LE!CMoDzC6vD-q2oM]">
+                      <field name="OP">EQ</field>
+                      <value name="A">
+                        <block type="variables_get" id="6*bdPE?3bZDE)@X0q.N!">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="math_number" id="Z_sdW=aP4+4%q!zF,OtS">
+                          <field name="NUM">200</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="connectorSlot" id=")pu9Nd6g*4k9m*Jf[Xjc" disabled="true">
+                      <statement name="DO">
+                        <block type="variables_set" id="_R;4c#I[rE;76qts!F8O">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                          <value name="VALUE">
+                            <block type="math_number" id="Y-UrOsUFgd@5P.E*$!jG">
+                              <field name="NUM">300</field>
+                            </block>
+                          </value>
+                          <next>
+                            <block type="variables_set" id="2Vtm-WRI{`qL~x67.46F">
+                              <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                              <value name="VALUE">
+                                <block type="math_arithmetic" id="eMcVRQaC[0.!N)|Uh#V^">
+                                  <field name="OP">MINUS</field>
+                                  <value name="A">
+                                    <shadow type="math_number" id=".Zj9sBk:B:X~].X#^|m[">
+                                      <field name="NUM">2</field>
+                                    </shadow>
+                                    <block type="variables_get" id="q.I`p_/##O@yrTm?uKs9">
+                                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                                    </block>
+                                  </value>
+                                  <value name="B">
+                                    <shadow type="math_number" id="e*qX743wpu3%$ay;8vT?">
+                                      <field name="NUM">1</field>
+                                    </shadow>
+                                  </value>
+                                </block>
+                              </value>
+                            </block>
+                          </next>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                  <statement name="ELSE">
+                    <block type="variables_set" id="qQp48K@%JTMN!5wnPu[C">
+                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                      <value name="VALUE">
+                        <block type="math_arithmetic" id="~6)89xl+~3h!1GG$CQRV">
+                          <field name="OP">MINUS</field>
+                          <value name="A">
+                            <shadow type="math_number" id=".Zj9sBk:B:X~].X#^|m[">
+                              <field name="NUM">2</field>
+                            </shadow>
+                            <block type="variables_get" id="@^xs_|^vL;6F3EK[rRy[">
+                              <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <shadow type="math_number" id="!L{UhD%W%(j@^u:L}zc]">
+                              <field name="NUM">1</field>
+                            </shadow>
+                          </value>
+                        </block>
+                      </value>
+                    </block>
+                  </statement>
+                  <next>
+                    <block type="setAnimationFrame" id="nVZCGQn}^LSzQX~L^#^k">
+                      <value name="VALUE">
+                        <shadow type="animationList" id="1^Lr-P|:/I*`,zd9fdC4">
+                          <field name="FIELDNAME">Cube.002</field>
+                        </shadow>
+                      </value>
+                      <value name="FROM">
+                        <shadow type="math_number" id="jAQnZ:WhFg_~z9_(8EDf">
+                          <field name="NUM">0</field>
+                        </shadow>
+                        <block type="variables_get" id="F2O|vF6jxo.Tfc@w_%JY">
+                          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="h!Ie[8CaM`R^^W(vv1|i" x="-22" y="1505">
+      <field name="NAME">derecha</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="execScript" id="wmdSrl_NqY1)Y|OH.UpX">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="D6}Cr~0n+28g3xVbcAQp">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">// Built-in variables: app, v3d, puzzles, VARS, PROC&amp;#10;app.scene.traverse(function(obj) {&amp;#10;    obj.material = new v3d.MeshBasicMaterial({&amp;#10;        color: new v3d.Color(&amp;#10;            Math.random(),&amp;#10;            Math.random(),&amp;#10;            Math.random()&amp;#10;        ),&amp;#10;    });&amp;#10;});</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="UIR`ycdlCkqF2-mA)hNI" x="47" y="1720">
+      <field name="NAME">izquierda</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+  </tab>
+  <editorsettings viewport-x="768.9500732421875" viewport-y="92.83333969116211" viewport-w="710" viewport-h="398.5" viewport-hidden="true" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

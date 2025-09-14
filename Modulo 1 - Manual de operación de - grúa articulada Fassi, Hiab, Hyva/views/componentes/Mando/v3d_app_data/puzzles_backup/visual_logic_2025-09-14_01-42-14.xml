@@ -1,0 +1,57 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="178.30454100693237" scrolly="-621.1964212089184" scale="0.6937977888571657">
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
+      <statement name="DO">
+        <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="C43W)okokQ_CRhs1|6S4">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="17" editor-width="520">&amp;#10;// Solo si app ya fue creado anteriormente (por ejemplo, en Puzzles o en init global)&amp;#10;(function(app) {&amp;#10;  app.renderer.setClearColor(0x000000, 0);&amp;#10;  app.scene.background = null;&amp;#10;  const container = app.container || document.getElementById('v3d-container');&amp;#10;  if (container) {&amp;#10;    container.style.background = 'transparent';&amp;#10;    if (app.renderer.domElement) {&amp;#10;      app.renderer.domElement.style.background = 'transparent';&amp;#10;    }&amp;#10;  }&amp;#10;})(app);&amp;#10;app.renderer.setClearAlpha(0);  // asegura transparencia total&amp;#10;</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="execScript" id="du;sic8ifTO|p}t*=^v}" disabled="true">
+              <value name="TEXT">
+                <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
+                  <field name="HIGHLIGHT_MODE">javascript</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="connectorSlot" id="MR:RW,s!wX0l0q%3^$l{"></block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="b%ER:@L=w_6^5;_4rXd{" x="50" y="826">
+      <field name="NAME">arriba</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="execScript" id="wmdSrl_NqY1)Y|OH.UpX">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="D6}Cr~0n+28g3xVbcAQp">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">// Built-in variables: app, v3d, puzzles, VARS, PROC&amp;#10;app.scene.traverse(function(obj) {&amp;#10;    obj.material = new v3d.MeshBasicMaterial({&amp;#10;        color: new v3d.Color(&amp;#10;            Math.random(),&amp;#10;            Math.random(),&amp;#10;            Math.random()&amp;#10;        ),&amp;#10;    });&amp;#10;});</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="D2+yv)W,;d@);{fc*|O2" x="47" y="1130">
+      <field name="NAME">abajo</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="h!Ie[8CaM`R^^W(vv1|i" x="43" y="1427">
+      <field name="NAME">derecha</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="UIR`ycdlCkqF2-mA)hNI" x="47" y="1720">
+      <field name="NAME">izquierda</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1047" viewport-y="37" viewport-w="710" viewport-h="398.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

@@ -1,0 +1,140 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="Init" type="InitTab" active="false" scrollx="11.0333251953125" scrolly="67.0999755859375" scale="0.9"></tab>
+  <tab name="General" type="CommonTab" active="true" scrollx="153.4160807206813" scrolly="-522.5833129882812" scale="1">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="B})@rh#O@P%-kBl}Rft7">animationA</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
+      <statement name="DO">
+        <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="C43W)okokQ_CRhs1|6S4">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="17" editor-width="520">&amp;#10;// Solo si app ya fue creado anteriormente (por ejemplo, en Puzzles o en init global)&amp;#10;(function(app) {&amp;#10;  app.renderer.setClearColor(0x000000, 0);&amp;#10;  app.scene.background = null;&amp;#10;  const container = app.container || document.getElementById('v3d-container');&amp;#10;  if (container) {&amp;#10;    container.style.background = 'transparent';&amp;#10;    if (app.renderer.domElement) {&amp;#10;      app.renderer.domElement.style.background = 'transparent';&amp;#10;    }&amp;#10;  }&amp;#10;})(app);&amp;#10;app.renderer.setClearAlpha(0);  // asegura transparencia total&amp;#10;</field>
+            </shadow>
+          </value>
+          <next>
+            <block type="execScript" id="du;sic8ifTO|p}t*=^v}" disabled="true">
+              <value name="TEXT">
+                <shadow type="textMultiline" id="d`{Ap/rq,z;f@IXL$.z(">
+                  <field name="HIGHLIGHT_MODE">javascript</field>
+                  <field name="TEXT" editor-height="4" editor-width="520">app.controls.enableZoom = false;</field>
+                </shadow>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+      <next>
+        <block type="connectorSlot" id="MR:RW,s!wX0l0q%3^$l{">
+          <statement name="DO">
+            <block type="stopAnimation" id="Oj/de$r%qdlP^7^B/;:%">
+              <value name="VALUE">
+                <shadow type="animationList" id="Gcbz9A21^VNt5WfWFV]o">
+                  <field name="FIELDNAME">Cube.002</field>
+                </shadow>
+              </value>
+              <next>
+                <block type="stopAnimation" id="FC]!4B_Lm2Z+-c~HWZ8(">
+                  <value name="VALUE">
+                    <shadow type="animationList" id="{.L%TzH-)K0!c^4qnSTM">
+                      <field name="FIELDNAME">Sphere.001</field>
+                    </shadow>
+                  </value>
+                  <next>
+                    <block type="variables_set" id="=meF,WBft/e!fTmacAi?">
+                      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                      <value name="VALUE">
+                        <block type="math_number" id="HSlm!H%V6{U-$glboQ5Z">
+                          <field name="NUM">0</field>
+                        </block>
+                      </value>
+                    </block>
+                  </next>
+                </block>
+              </next>
+            </block>
+          </statement>
+        </block>
+      </next>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="b%ER:@L=w_6^5;_4rXd{" x="50" y="826">
+      <field name="NAME">arriba</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="variables_set" id="Bxh(3%5_]zC{7Hb.]oM.">
+          <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+          <value name="VALUE">
+            <block type="math_arithmetic" id="qy*!SG3NyUTx`cAxU?.%">
+              <field name="OP">ADD</field>
+              <value name="A">
+                <shadow type="math_number" id=".Zj9sBk:B:X~].X#^|m[">
+                  <field name="NUM">2</field>
+                </shadow>
+                <block type="variables_get" id="v#,GYo}8)4)!o,*([i9y">
+                  <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                </block>
+              </value>
+              <value name="B">
+                <shadow type="math_number" id="Vhr)fdl{,5pk(Ojs`sZ}">
+                  <field name="NUM">2</field>
+                </shadow>
+              </value>
+            </block>
+          </value>
+          <next>
+            <block type="setAnimationFrame" id="xH4_p(!lyt?.tEEqb*E8">
+              <value name="VALUE">
+                <shadow type="animationList" id="m#LLh?Y:;9XP63|lSJcf">
+                  <field name="FIELDNAME">&lt;none&gt;</field>
+                </shadow>
+              </value>
+              <value name="FROM">
+                <shadow type="math_number" id="jAQnZ:WhFg_~z9_(8EDf">
+                  <field name="NUM">0</field>
+                </shadow>
+                <block type="variables_get" id="FNpCbCFS8q,-xl3z{1+g">
+                  <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+                </block>
+              </value>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="math_number" id="Uo$rDT#_?7B+4oYz5w?T" x="279" y="890">
+      <field name="NUM">0</field>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="math_change" id="!XM9uV2E[B|/w_4QC0nj" x="147" y="986">
+      <field name="VAR" id="B})@rh#O@P%-kBl}Rft7">animationA</field>
+      <value name="DELTA">
+        <shadow type="math_number" id="e@?}=*%@sWZ{L(poN^2a">
+          <field name="NUM">1</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="D2+yv)W,;d@);{fc*|O2" x="47" y="1130">
+      <field name="NAME">abajo</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="h!Ie[8CaM`R^^W(vv1|i" x="43" y="1427">
+      <field name="NAME">derecha</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+      <statement name="STACK">
+        <block type="execScript" id="wmdSrl_NqY1)Y|OH.UpX">
+          <value name="TEXT">
+            <shadow type="textMultiline" id="D6}Cr~0n+28g3xVbcAQp">
+              <field name="HIGHLIGHT_MODE">javascript</field>
+              <field name="TEXT" editor-height="10" editor-width="520">// Built-in variables: app, v3d, puzzles, VARS, PROC&amp;#10;app.scene.traverse(function(obj) {&amp;#10;    obj.material = new v3d.MeshBasicMaterial({&amp;#10;        color: new v3d.Color(&amp;#10;            Math.random(),&amp;#10;            Math.random(),&amp;#10;            Math.random()&amp;#10;        ),&amp;#10;    });&amp;#10;});</field>
+            </shadow>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="procedures_defnoreturn" id="UIR`ycdlCkqF2-mA)hNI" x="47" y="1720">
+      <field name="NAME">izquierda</field>
+      <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1047" viewport-y="37" viewport-w="710" viewport-h="398.5" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>

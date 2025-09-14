@@ -1,7 +1,7 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="11" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="-101.47225186949186" scrolly="-98.6413720338632" scale="0.6937977888571657">
-    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-13" y="168">
+  <tab name="General" type="CommonTab" active="true" scrollx="40.812205511560364" scrolly="-66.2130838065747" scale="0.6937977888571657">
+    <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
           <value name="TEXT">
@@ -19,23 +19,13 @@
                 </shadow>
               </value>
               <next>
-                <block type="execScript" id="Qffj;ZssE%~~{kvWJq!a">
-                  <value name="TEXT">
-                    <shadow type="textMultiline" id="dZ[,X3x4tEHF%5FNeW#A">
-                      <field name="HIGHLIGHT_MODE">javascript</field>
-                      <field name="TEXT" editor-height="12" editor-width="520">&amp;#10;// Ejemplo: un poquito menos que 90°&amp;#10;// 1.57 rad = 90° exacto&amp;#10;// 1.4 rad ≈ 80°&amp;#10;app.controls.maxPolarAngle = 1.4;  // unos 80°, no llega a ver por debajo</field>
+                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
+                  <field name="ON_OFF">ON</field>
+                  <value name="SPEED">
+                    <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
+                      <field name="NUM">2</field>
                     </shadow>
                   </value>
-                  <next>
-                    <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
-                      <field name="ON_OFF">ON</field>
-                      <value name="SPEED">
-                        <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
-                          <field name="NUM">2</field>
-                        </shadow>
-                      </value>
-                    </block>
-                  </next>
                 </block>
               </next>
             </block>
@@ -74,7 +64,7 @@
                       </value>
                       <value name="DURATION">
                         <shadow type="math_number" id="?YCUXzN(XRN5.pdCP/^9">
-                          <field name="NUM">0.5</field>
+                          <field name="NUM">1</field>
                         </shadow>
                       </value>
                     </block>
