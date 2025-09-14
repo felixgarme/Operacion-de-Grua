@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="419" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="408.46515100914064" scrolly="-174.04842696948788" scale="0.8894994466151905">
+  <tab name="General" type="CommonTab" active="true" scrollx="-266.75152379554686" scrolly="-141.19842086597225" scale="0.8894994466151905">
     <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
@@ -19,11 +19,11 @@
                 </shadow>
               </value>
               <next>
-                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
+                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t" disabled="true">
                   <field name="ON_OFF">ON</field>
                   <value name="SPEED">
                     <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
-                      <field name="NUM">0.5</field>
+                      <field name="NUM">2</field>
                     </shadow>
                   </value>
                   <next>
@@ -33,11 +33,6 @@
                       <value name="POSITION">
                         <block type="objectList" id="!jVT-=9^(G^)w8j|~g^(">
                           <field name="FIELDNAME">camerax</field>
-                        </block>
-                      </value>
-                      <value name="LOOKAT">
-                        <block type="objectList" id="h8Fzwbp(,.Zvhi!{%f9M">
-                          <field name="FIELDNAME">Placa</field>
                         </block>
                       </value>
                       <value name="DURATION">
@@ -94,7 +89,7 @@
           </value>
           <value name="TARGET">
             <shadow type="objectList" id="=uQAIo]B-CY6QLUaI2`)">
-              <field name="FIELDNAME">paloooo</field>
+              <field name="FIELDNAME">cable fuera</field>
             </shadow>
           </value>
           <value name="CONTENTS">
@@ -117,7 +112,7 @@
               </value>
               <value name="TARGET">
                 <shadow type="objectList" id=";iEU|a?35WumdA@PCJfH">
-                  <field name="FIELDNAME">Placa</field>
+                  <field name="FIELDNAME">Tamborinfo</field>
                 </shadow>
               </value>
               <value name="CONTENTS">
@@ -140,7 +135,7 @@
                   </value>
                   <value name="TARGET">
                     <shadow type="objectList" id="pOn%Obn?@XHUJL3TkG8?">
-                      <field name="FIELDNAME">ganvho</field>
+                      <field name="FIELDNAME">Tambor</field>
                     </shadow>
                   </value>
                   <value name="CONTENTS">

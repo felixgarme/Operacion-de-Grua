@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg7.css" />
+    <link rel="stylesheet" href="../../assets/css/M2/css_pg8.css" />
 
 
   <!-- Scripts -->
@@ -47,95 +47,17 @@
   <!-- Logo inferior -->
   <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
   <!-- Título principal -->
-  <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">DESCRIPCION DE LA MAQUINA</span></h1>
-    <h2 class="subtitle">Componentes del Gancho de los Estabilizadores</h2>
-  </header>
-  
+  <header><h1 class="titulo-epp"><span class="gradient-text2">DESCRIPCIÓN DE LA MÁQUINA</span></h1></header>
 
-  <!-- Contenido principal -->
-
-<div class="course-slide-container">
-  <div class="course-slide-main">
-    
-    <!-- Panel izquierdo -->
-    <div class="course-slide-left">
-      <h2 class="course-slide-subtitle">Componentes del Platillo de los Estabilizadores</h2>
-      
-      <div class="course-slide-content">
-        <!-- Item 1 -->
-        <div class="course-slide-item">
-          <button class="course-slide-item-title" aria-expanded="false">
-            Atención al accionar los estabilizadores
-          </button>
-          <div class="course-slide-item-content" tabindex="0">
-            <p class="course-slide-text">
-              Prestar la máxima atención para accionar los estabilizadores del camión para garantizar la 
-              nivelación correcta. Asegurarse de que no hayan obstáculos o personas en el radio de los 
-              estabilizadores, mantener una visión clara de los movimientos sobre todo cuando se opera del 
-              lado opuesto.
-            </p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="course-slide-item">
-          <button class="course-slide-item-title" aria-expanded="false">
-            Peligros por no respetar el espacio de seguridad
-          </button>
-          <div class="course-slide-item-content" tabindex="0">
-            <p class="course-slide-text">
-              El no respetar el espacio mínimo de seguridad ocasiona peligros de: Aplastamiento, 
-              aprisionamiento, cizallamiento o accidentes más graves.
-            </p>
-          </div>
-        </div>
-      </div>
+    <!-- Contenido principal -->
+    <div class="contenido">
+        <iframe src="../componentes/Carrucel_M2pg8.html" frameborder="0" class="iframe-carrusel"> </iframe>
     </div>
 
-    <!-- Panel derecho -->
-    <div class="course-slide-right">
-      <div class="course-slide-iframe-container">
-        <iframe src="../componentes/Palo/Fire.html" frameborder="0" class="course-slide-iframe"></iframe>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botón de continuar (lo dejo dentro del contenedor para mejor centrado) -->
-  <div style="text-align:center; margin-top:12px;">
-    <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
-  </div>
-</div>
-
-<!-- -----------------------------------
-     Script original simple de toggle
-     ----------------------------------- -->
-<script>
-document.querySelectorAll('.course-slide-item-title').forEach(button => {
-  button.addEventListener('click', () => {
-    const item = button.closest('.course-slide-item');
-    const content = item.querySelector('.course-slide-item-content');
-    item.classList.toggle('open');
-
-    // Actualizar atributo aria-expanded del botón
-    const expanded = item.classList.contains('open');
-    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-
-    // si se abre, dar foco al contenido para permitir scroll por teclado
-    if (expanded) {
-      setTimeout(() => {
-        content.focus();
-      }, 220);
-    }
-  });
-});
-</script>
 
 
-
-
-<script src="../../js/M2/js_pg7.js"></script>
-
+  <!-- Botón de continuar -->
+  <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
 
   <!--AUDIOv2-->
   <div class="audio-control-wrapper" style="z-index: 9999;">
@@ -216,8 +138,8 @@ document.querySelectorAll('.course-slide-item-title').forEach(button => {
   <script>
     // Navegación
     function goHome() { window.location.href = 'index.html'; }
-    function backPage() { window.location.href = 'M2_pg6.html'; }
-    function goToNextPage() { window.location.href = 'M2_pg8.html'; }
+    function backPage() { window.location.href = 'M1_inicio.html'; }
+    function goToNextPage() { window.location.href = 'M1_pg2.html'; }
 
     ScormManager.init();
     ScormManager.guardarProgreso("M1_pg1.html");
@@ -232,4 +154,3 @@ document.querySelectorAll('.course-slide-item-title').forEach(button => {
 
 </body>
 </html>
-t

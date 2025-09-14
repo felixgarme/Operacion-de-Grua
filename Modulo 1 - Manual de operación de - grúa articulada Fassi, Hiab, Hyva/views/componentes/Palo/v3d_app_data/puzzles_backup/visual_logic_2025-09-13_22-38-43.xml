@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
   <tab name="Init" type="InitTab" active="false" scrollx="419" scrolly="0" scale="0.9"></tab>
-  <tab name="General" type="CommonTab" active="true" scrollx="408.46515100914064" scrolly="-174.04842696948788" scale="0.8894994466151905">
+  <tab name="General" type="CommonTab" active="true" scrollx="187.3651143880469" scrolly="-162.88173995776913" scale="0.8894994466151905">
     <block xmlns="https://developers.google.com/blockly/xml" type="connectorSlot" id="t@!${|F!*tsz+l+AQ@fr" x="-43" y="143">
       <statement name="DO">
         <block type="execScript" id="B7)+r^f6fD_6K9O.Ool-">
@@ -19,11 +19,11 @@
                 </shadow>
               </value>
               <next>
-                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t">
+                <block type="autoRotateCamera" id="(}MKZf-Wd4athLa=3$`t" disabled="true">
                   <field name="ON_OFF">ON</field>
                   <value name="SPEED">
                     <shadow type="math_number" id="#fUodm1Q=MHtLrDk./40">
-                      <field name="NUM">0.5</field>
+                      <field name="NUM">2</field>
                     </shadow>
                   </value>
                   <next>
@@ -140,7 +140,7 @@
                   </value>
                   <value name="TARGET">
                     <shadow type="objectList" id="pOn%Obn?@XHUJL3TkG8?">
-                      <field name="FIELDNAME">ganvho</field>
+                      <field name="FIELDNAME">Tambor</field>
                     </shadow>
                   </value>
                   <value name="CONTENTS">

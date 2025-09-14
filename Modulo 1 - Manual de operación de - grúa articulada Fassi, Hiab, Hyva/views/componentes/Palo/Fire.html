@@ -1,39 +1,12 @@
 <!DOCTYPE html>
-<!-- __V3D_PUZZLES__ - enable Puzzles button in the App Manager -->
-<!-- __V3D_TEMPLATE__ - template-based file; delete this line to prevent this file from being updated -->
 <html lang="en">
 <head>
   <title>Verge3D Web Interactive</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-  <!-- Search Engines -->
-  <meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Verge3D Web Interactive">
-  <meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
-  <meta name="twitter:image:src" content="https://cdn.soft8soft.com/images/player_socials.jpg">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Verge3D Web Interactive">
-  <meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
-  <meta property="og:image" content="https://cdn.soft8soft.com/images/player_socials.jpg">
-  <meta property="og:type" content="website">
-
-  <meta name="generator" content="Verge3D 4.8.0">
-
-  <!-- favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="media/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
-  <link rel="manifest" href="media/manifest.json">
-  <link rel="mask-icon" href="media/safari-pinned-tab.svg" color="#0048a5">
-  <meta name="theme-color" content="#ffffff">
-
   <script src="v3d.js"></script>
   <script src="Fire.js"></script>
-
   <link rel="stylesheet" type="text/css" href="Fire.css">
 
   <style>
@@ -85,8 +58,7 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    /* 📱 Responsive: en móviles los cuadros ARRIBA, sin descripción */
+        /* 📱 Responsive: en móviles los cuadros ARRIBA, sin descripción */
     @media (max-width: 768px) {
       #boxes-column {
         position: fixed;
@@ -155,31 +127,21 @@
       <path id="path-1" class="conn-path" stroke="#e74c3c" marker-end="url(#arrowhead)"></path>
       <path id="path-2" class="conn-path" stroke="#3498db" marker-end="url(#arrowhead)"></path>
       <path id="path-3" class="conn-path" stroke="#27ae60" marker-end="url(#arrowhead)"></path>
-      <path id="path-4" class="conn-path" stroke="#f39c12" marker-end="url(#arrowhead)"></path>
-      <path id="path-5" class="conn-path" stroke="#8e44ad" marker-end="url(#arrowhead)"></path>
     </svg>
 
     <!-- Columna de cuadros -->
     <div id="boxes-column">
       <div id="box-1" class="info-box" data-target="1">
-        <h4>Cable</h4>
-        <p>Elemento flexible de acero encargado de soportar y transmitir la carga.</p>
+        <h4>Placa de apoyo desmontable</h4>
+        <p>Placa diseñada para brindar soporte y permitir su desmontaje en mantenimiento o ajustes.</p>
       </div>
       <div id="box-2" class="info-box" data-target="2">
-        <h4>Tambor</h4>
-        <p>Cilindro donde se enrolla y desenrolla el cable para la operación de izado.</p>
+        <h4>Manivela de fijación</h4>
+        <p>Elemento que asegura la posición correcta mediante accionamiento manual.</p>
       </div>
       <div id="box-3" class="info-box" data-target="3">
-        <h4>Reductor</h4>
-        <p>Mecanismo que disminuye la velocidad y aumenta el torque transmitido al tambor.</p>
-      </div>
-      <div id="box-4" class="info-box" data-target="4">
-        <h4>Cuerpo</h4>
-        <p>Estructura principal que soporta y protege los componentes internos.</p>
-      </div>
-      <div id="box-5" class="info-box" data-target="5">
-        <h4>Motor Hidráulico y Válvula de Seguridad</h4>
-        <p>Conjunto encargado de generar el movimiento y controlar la presión para evitar sobrecargas.</p>
+        <h4>Pin de seguridad</h4>
+        <p>Dispositivo que bloquea y garantiza seguridad evitando movimientos no deseados.</p>
       </div>
     </div>
   </div>
@@ -189,16 +151,12 @@
       const boxes = [
         document.getElementById('box-1'),
         document.getElementById('box-2'),
-        document.getElementById('box-3'),
-        document.getElementById('box-4'),
-        document.getElementById('box-5')
+        document.getElementById('box-3')
       ];
       const paths = [
         document.getElementById('path-1'),
         document.getElementById('path-2'),
-        document.getElementById('path-3'),
-        document.getElementById('path-4'),
-        document.getElementById('path-5')
+        document.getElementById('path-3')
       ];
 
       function safeGetTarget(id) {
