@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Curso - Mandos y Controles</title>
+
+    <link rel="stylesheet" href="../../../assets/css/M2/css_pg10cp.css">
+</head>
+<body>
+    <div class="curso-container">
+        <div class="carrusel-container">
+            <div class="carrusel-wrapper" id="carruselWrapper">
+
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3 class="slide-subtitle">Panel de Configuración de la Grúa Articulada</h3>
+                        <p class="slide-text">
+                            La secuencia indicada es válida de izquierda a derecha o viceversa y se refiere a las grúas articuladas. 
+                            Los pictogramas relativos a los accesorios son a considerar según lo que se instala en la grúa.<br>
+                            La disposición de las palancas bidireccionales debe respetar la secuencia de las funciones de trabajo desde la base a la carga.
+                        </p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../../../assets/images/M2/plane F.png" alt="Panel de Configuración Grúa Articulada" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>🛠️</div>'" />
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3 class="slide-subtitle">Sistema de Mandos y Controles de la Grúa Articulada</h3>
+                        <ul class="slide-list">
+                            <li>Joystick a la Izquierda</li>
+                            <li>Joystick Central</li>
+                            <li>Joystick a la Derecha</li>
+                        </ul>
+                        <p class="slide-text">
+                            Las secuencias indicadas se refieren a las grúas articuladas. 
+                            Los pictogramas relativos a los accesorios se deben considerar según lo que se instala en la grúa.
+                        </p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../../../assets/images/M2/plane G.png" alt="Sistema de Mandos y Controles" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>🎮</div>'" />
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3 class="slide-subtitle">Panel de Configuración - Radiomando 6 Funciones</h3>
+                        <p class="slide-text">Con 3 Joysticks:</p>
+                        <ul class="slide-list">
+                            <li>Joystick a la Izquierda</li>
+                            <li>Joystick Central</li>
+                            <li>Joystick a la Derecha</li>
+                        </ul>
+                        <p class="slide-text">
+                            Las secuencias indicadas se refieren a las grúas articuladas. 
+                            Los pictogramas relativos a los accesorios se deben considerar según lo que se instala en la grúa.
+                        </p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../radiomando-6f-3j.png" alt="Radiomando 6 Funciones 3 Joysticks" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>📡</div>'" />
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3 class="slide-subtitle">Panel de Configuración - Radiomando 8 Funciones</h3>
+                        <p class="slide-text">Con 3 Joysticks.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../radiomando-8f-3j.png" alt="Radiomando 8 Funciones 3 Joysticks" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>⚙️</div>'" />
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3 class="slide-subtitle">Sistema de Mandos y Controles</h3>
+                        <p class="slide-text">Con Radiomando a 6 Funciones y 2 Joysticks:</p>
+                        <ul class="slide-list">
+                            <li>Joystick a la Izquierda</li>
+                            <li>Joystick a la Derecha</li>
+                        </ul>
+                        <p class="slide-text">
+                            Las secuencias indicadas se refieren a las grúas articuladas. 
+                            Los pictogramas relativos a los accesorios se deben considerar según lo que se instala en la grúa.
+                        </p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../radiomando-6f-2j.png" alt="Radiomando 6 Funciones 2 Joysticks" 
+                             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>🕹️</div>'" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button" id="prevBtn">Anterior</button>
+
+                <div class="slide-indicator" id="slideIndicator">
+                    <!-- Los puntos se generan desde JS -->
+                </div>
+
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">5</span>
+                </div>
+
+                <button class="nav-button" id="nextBtn">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class CarruselCurso {
+            constructor() {
+                this.wrapper = document.getElementById('carruselWrapper');
+                this.slides = Array.from(this.wrapper.querySelectorAll('.slide'));
+                this.totalSlides = this.slides.length;
+                this.currentSlide = 0;
+
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicatorContainer = document.getElementById('slideIndicator');
+                this.currentSlideElement = document.getElementById('currentSlide');
+                this.totalSlidesElement = document.getElementById('totalSlides');
+
+                this.init();
+            }
+
+            init() {
+                this.totalSlidesElement.textContent = this.totalSlides;
+                this.indicatorContainer.innerHTML = '';
+                this.indicators = [];
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'indicator-dot' + (i === 0 ? ' active' : '');
+                    dot.dataset.slide = i;
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.indicatorContainer.appendChild(dot);
+                    this.indicators.push(dot);
+                }
+                this.prevBtn.addEventListener('click', () => this.previousSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+                window.addEventListener('resize', () => this.updateTransform());
+                this.updateUI();
+            }
+
+            updateTransform() {
+                this.wrapper.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+            }
+
+            goToSlide(index) {
+                if (index < 0 || index >= this.totalSlides) return;
+                this.currentSlide = index;
+                this.updateTransform();
+                this.updateUI();
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                    this.updateTransform();
+                    this.updateUI();
+                }
+            }
+
+            previousSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateTransform();
+                    this.updateUI();
+                }
+            }
+
+            updateUI() {
+                this.prevBtn.disabled = this.currentSlide === 0;
+                this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+                this.indicators.forEach((indicator, idx) => {
+                    indicator.classList.toggle('active', idx === this.currentSlide);
+                });
+                this.currentSlideElement.textContent = this.currentSlide + 1;
+            }
+
+            handleKeyboard(e) {
+                if (e.key === 'ArrowLeft') this.previousSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new CarruselCurso();
+        });
+    </script>
+</body>
+</html>

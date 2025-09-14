@@ -1,59 +1,83 @@
+/* Joystick container (fixed overlay) */
+#v3d-joystick {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: 120px;
+  height: 120px;
+  z-index: 99999;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
+}
 
-    /* Joystick container (fixed overlay) */
-    #v3d-joystick {
-      position: fixed;
-      left: 24px;
-      bottom: 24px;
-      width: 120px;
-      height: 120px;
-      z-index: 99999;
-      pointer-events: auto;
-      touch-action: none;
-      user-select: none;
-    }
+/* Base del joystick (círculo difuminado) */
+#v3d-joystick-base {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  touch-action: none;
+}
 
-    /* Base del joystick (círculo difuminado) */
-    #v3d-joystick-base {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.25);
-      backdrop-filter: blur(2px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-      touch-action: none;
-    }
+/* Knob (la "perilla" que se mueve) */
+#v3d-joystick-knob {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(230,230,230,0.9));
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  transform: translate3d(0px, 0px, 0);
+  transition: transform 0.12s cubic-bezier(.2,.9,.2,1);
+  cursor: grab;
+  touch-action: none;
+}
+#v3d-joystick-knob:active { cursor: grabbing; }
 
-    /* Knob (la "perilla" que se mueve) */
-    #v3d-joystick-knob {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(230,230,230,0.9));
-      box-shadow: 0 4px 12px rgba(0,0,0,0.45);
-      transform: translate3d(0px, 0px, 0);
-      transition: transform 0.12s cubic-bezier(.2,.9,.2,1);
-      cursor: grab;
-      touch-action: none;
-    }
-    #v3d-joystick-knob:active { cursor: grabbing; }
+/* indicador sutil de dirección (opcional) */
+#v3d-joystick-base::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 56%;
+  background: rgba(255,255,255,0.03);
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+}
 
-    /* indicador sutil de dirección (opcional) */
-    #v3d-joystick-base::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 2px;
-      height: 56%;
-      background: rgba(255,255,255,0.03);
-      transform: translate(-50%,-50%);
-      pointer-events: none;
-    }
+/* feedback visual pequeño cuando está en modo rotación (opcional) */
+#v3d-joystick.rotating #v3d-joystick-base {
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55), 0 0 0 6px rgba(255,255,255,0.02) inset;
+}
 
-    /* feedback visual pequeño cuando está en modo rotación (opcional) */
-    #v3d-joystick.rotating #v3d-joystick-base {
-      box-shadow: 0 8px 22px rgba(0,0,0,0.55), 0 0 0 6px rgba(255,255,255,0.02) inset;
-    }
+#info{
+  height: 150px;
+  margin: 15px;
+}
+
+/* 📱 Ajustes en modo celular */
+@media (max-width: 480px) {
+  #v3d-joystick {
+    width: 100px;   /* más pequeño */
+    height: 100px;
+    left: 16px;    /* un poco más pegado a la esquina */
+    bottom: 16px;
+  }
+
+  #v3d-joystick-knob {
+    width: 36px;   /* perilla proporcionalmente más pequeña */
+    height: 36px;
+  }
+  #info{
+    height: 110px;
+    margin: 2px;
+  }
+}
+

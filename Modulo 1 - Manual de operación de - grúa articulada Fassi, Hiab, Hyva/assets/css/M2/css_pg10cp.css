@@ -10,13 +10,6 @@
 
 *{box-sizing: border-box;}
 
-/* body{
-    margin:0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #eef3fb;
-    padding: 16px;
-    color:var(--text);
-} */
 
 .curso-container {
     max-width: 1200px;
@@ -88,7 +81,7 @@
     height: auto; /* <-- clave para que la imagen marque el alto natural */
     object-fit: contain; /* mantiene la imagen completa */
     display: block;
-    max-height: 70vh; /* protección para imágenes excesivamente altas */
+    max-height: 60vh; /* protección para imágenes excesivamente altas */
     border-radius: 5%;
 }
 
@@ -253,7 +246,7 @@
     }
 
     .slide-image img {
-        max-height: 40vh;
+        max-height: 70vh;
     }
 
     .slide-title { font-size: 1.25rem; }
@@ -265,7 +258,6 @@
       min-width:90px; 
       font-size:0.6rem; 
     }
-    
 
 }
 @media (min-width: 1920px) {

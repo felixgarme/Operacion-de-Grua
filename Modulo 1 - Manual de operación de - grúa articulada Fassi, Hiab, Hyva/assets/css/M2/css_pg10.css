@@ -1,0 +1,57 @@
+.iframe-carrusel {
+  width: 40%;              /* ocupa la mitad del contenedor */
+  aspect-ratio: 16 / 9;    /* Mantiene proporción automática */
+  height: auto;            /* se ajusta con aspect-ratio */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* sombra ligera */
+  margin: 10px;
+}
+
+.iframe-original {
+  width: 50%;              /* ocupa la otra mitad */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  display: block;
+  
+}
+
+.contenido {
+  margin: 0 40px;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;  /* ahora en paralelo */
+  gap: 20px;            /* espacio entre los iframes */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .contenido {
+    margin: 0 20px;
+    flex-direction: column; /* en tablets/móviles se apilan */
+  }
+
+  .iframe-carrusel,
+  .iframe-original {
+    width: 100%; /* en móviles ocupan todo el ancho */
+  }
+}
+
+@media (max-width: 480px) {
+  .contenido {
+    margin: 0 10px;
+  }
+
+  .iframe-original{
+    height: 1200px;
+    margin-bottom: 50px;
+  }
+
+  .iframe-carrusel {
+    aspect-ratio: 4 / 3; /* más cuadrado en móviles */
+  }
+}
