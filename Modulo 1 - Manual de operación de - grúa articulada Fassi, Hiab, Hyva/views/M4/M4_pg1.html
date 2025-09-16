@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- Estilos -->
-  <link rel="stylesheet" href="../../assets/css/main_ex.css" />
-  <link rel="stylesheet" href="../../assets/css/sidebar.css" />
-  <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
-  <link rel="stylesheet" href="../../assets/css/ex1.css" />
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../../assets/css/main_ex.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
+    <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
-    <link rel="stylesheet" href="../../assets/css/M2/css_pg10.css" />
+    <link rel="stylesheet" href="../../assets/css/M4/css_pg1.css" />
 
+    <!-- Scripts -->
+    <script src="../../js/sidebar.js" defer></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <!-- Scripts -->
-  <script src="../../js/sidebar.js" defer></script>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>Inspección preoperativa</title>
 </head>
 
 <body>
@@ -47,19 +48,13 @@
   <!-- Logo inferior -->
   <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
   <!-- Título principal -->
-  <header><h1 class="titulo-epp"><span class="gradient-text2">MANDOS Y CONTROLES</span></h1></header>
+  <header><h1 class="titulo-epp"><span class="gradient-text2">Inspección preoperativa</span></h1></header>
 
-    <!-- Contenido principal -->
-
-    <div class="contenido">
-    <!-- Primer iframe responsivo -->
-    <iframe class="iframe-carrusel" src="../componentes/Mando/Fire.html"></iframe>
-
-    <!-- Segundo iframe tamaño original -->
-    <iframe class="iframe-original" src="../componentes/xM2/Carrucel_M2pg10.html" width="800" height="600"></iframe>
-    </div>
+<!-- Contenido principal -->
 
 
+
+    <script src="../../js/M4/js_pg1.js"></script>
 
 
   <!-- Botón de continuar -->
@@ -144,8 +139,8 @@
   <script>
     // Navegación
     function goHome() { window.location.href = 'index.html'; }
-    function backPage() { window.location.href = 'M2_pg9.html'; }
-    function goToNextPage() { window.location.href = '../M3/M3_inicio.html'; }
+    function backPage() { window.location.href = 'M3_inicio.html'; }
+    function goToNextPage() { window.location.href = '../M4/M4_inicio.html'; }
 
     ScormManager.init();
     ScormManager.guardarProgreso("M1_pg1.html");
