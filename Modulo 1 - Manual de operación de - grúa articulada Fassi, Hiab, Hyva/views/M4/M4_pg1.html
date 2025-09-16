@@ -45,20 +45,537 @@
     </nav>
 
 
-  <!-- Logo inferior -->
-  <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
-  <!-- Título principal -->
-  <header><h1 class="titulo-epp"><span class="gradient-text2">Inspección preoperativa</span></h1></header>
+    <!-- Logo inferior -->
+    <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
+    <!-- Título principal -->
+    <header><h1 class="titulo-epp"><span class="gradient-text2">Inspección preoperativa</span></h1></header>
 
-<!-- Contenido principal -->
+    <!-- Contenido principal -->
+    <style>
+    .curso-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 8px;
+    /* background: #F5F7FA; */
+    min-height: 80vh; /* menos alto */
+    }
 
+    .header-section {
+    text-align: center;
+    padding: 8px;
+    margin: 8px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    border: 2px solid #031794;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
 
+    .main-title {
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: center;
+    }
+
+    .subtitle {
+    color: #031794;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 6px 0;
+    }
+
+    .content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 8px;
+    margin: 8px 0;
+    }
+
+    .content-card {
+    background: #FFFFFF;
+    border: 1px solid #DDE8F5;
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    }
+
+    .content-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(3, 23, 148, 0.15);
+    border-color: #031794;
+    }
+
+    .card-header {
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    color: #FFFFFF;
+    padding: 6px;
+    margin: -8px -8px 8px -8px;
+    font-weight: bold;
+    font-size: 1rem;
+    position: relative;
+    }
+
+    .card-content {
+    color: #4D4D4E;
+    line-height: 1.5;
+    font-size: 0.9rem;
+    }
+
+    .card-content p {
+    margin: 6px 0;
+    }
+
+    .highlight-box {
+    background: #E5F0F9;
+    border-left: 4px solid #031794;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 0 6px 6px 0;
+    }
+
+    .warning-box {
+    background: linear-gradient(135deg, rgba(255,0,0,0.08), rgba(255,255,255,0.9));
+    border: 2px solid #FF0000;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 6px 0;
+    position: relative;
+    }
+
+    .warning-title {
+    color: #FF0000;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 0 6px 0;
+    }
+
+    .custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0;
+    }
+
+    .custom-list li {
+    position: relative;
+    padding: 4px 0 4px 18px;
+    color: #4D4D4E;
+    line-height: 1.4;
+    }
+
+    .custom-list li:before {
+    content: "▶";
+    color: #031794;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    }
+
+    .nested-list {
+    margin: 4px 0 4px 18px;
+    }
+
+    .nested-list li:before {
+    content: "•";
+    color: #3479F6;
+    }
+
+    .interactive-section {
+    background: #FFFFFF;
+    border: 2px solid #6B8BDF;
+    border-radius: 10px;
+    padding: 8px;
+    margin: 8px 0;
+    text-align: center;
+    }
+
+    .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #DDE8F5;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 6px 0;
+    }
+
+    .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    width: 0%;
+    transition: width 0.5s ease;
+    }
+
+    .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 8px 0;
+    flex-wrap: wrap;
+    }
+
+    .nav-btn {
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    color: #FFFFFF;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 110px;
+    }
+
+    .nav-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(3, 23, 148, 0.3);
+    }
+
+    .nav-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    }
+
+    .section-indicator {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #B9B9B9;
+    margin: 0 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    }
+
+    .section-indicator.active {
+    background: #031794;
+    transform: scale(1.2);
+    }
+
+    .mobile-menu {
+    display: none;
+    background: #031794;
+    color: #FFFFFF;
+    padding: 6px;
+    border-radius: 6px;
+    margin: 8px 0;
+    cursor: pointer;
+    text-align: center;
+    }
+
+    @media (max-width: 768px) {
+    .curso-container {
+        padding: 5px;
+    }
+    
+    .main-title {
+        font-size: 1.6rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    
+    .content-card {
+        padding: 6px;
+    }
+    
+    .card-header {
+        padding: 5px;
+        margin: -6px -6px 6px -6px;
+        font-size: 0.95rem;
+    }
+    
+    .nav-buttons {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        min-width: auto;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .main-title {
+        font-size: 1.4rem;
+    }
+    
+    .content-card {
+        padding: 5px;
+    }
+    
+    .card-content {
+        font-size: 0.85rem;
+    }
+    
+    .highlight-box, .warning-box {
+        padding: 6px;
+        margin: 6px 0;
+    }
+    }
+
+    .fade-in {
+    animation: fadeIn 0.4s ease-in;
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+    }
+
+    @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-25px); }
+    to { opacity: 1; transform: translateX(0); }
+    }
+
+    .slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+    }
+
+    @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(25px); }
+    to { opacity: 1; transform: translateX(0); }
+    }
+    </style>
+
+    <div class="curso-container">
+    <header class="header-section">
+
+        <div class="progress-bar">
+        <div class="progress-fill" id="progressBar"></div>
+        </div>
+        
+        <div style="margin: 10px 0;">
+        <span class="section-indicator active" data-section="0"></span>
+        <span class="section-indicator" data-section="1"></span>
+        <span class="section-indicator" data-section="2"></span>
+        <span class="section-indicator" data-section="3"></span>
+        <span class="section-indicator" data-section="4"></span>
+        <span class="section-indicator" data-section="5"></span>
+        </div>
+        <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" disabled>Anterior</button>
+        <button class="nav-btn" id="nextBtn">Siguiente</button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        Menú de Navegación
+    </div>
+
+    <div class="content-sections" id="contentContainer">
+    <!-- Sección 0: Introducción -->
+    <div class="content-section active" data-section="0">
+        <div class="content-grid">
+        <div class="content-card slide-in-left">
+            <div class="card-header">Aplicaciones de la Grúa Articulada según Diseño</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <img src="../../assets/images/M4/intro.png" alt="Grúa articulada" style="width:70%; border-radius:10px; display:block; margin:0 auto;">
+            </div>
+            
+            <div class="card-content">
+            <p>La grúa articulada es un equipo diseñado para manipulación de cargas según su capacidad, son utilizadas en el sector minería, industria y construcción.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Componentes principales:</strong> El camión está diseñado para transportar cargas que permitan su capacidad y para brindar el funcionamiento de la bomba hidráulica de la grúa articulada.</p>
+            </div>
+            
+            <p>La grúa articulada está montada sobre el camión, cuenta con un sistema hidráulico, válvulas de control y palancas de mandos que realizan los movimientos de los cilindros y sus accesorios, y son utilizados para los trabajos de carga y descarga de materiales.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección 1: Preparación -->
+    <div class="content-section" data-section="1">
+        <div class="content-grid">
+        <div class="content-card slide-in-right">
+            <div class="card-header">Preparación para el Traslado</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <img src="../../../assets/images/M4/A.png" alt="Preparación de grúa" style="width:40%; border-radius:10px; display:block; margin:0 auto;">
+            </div>
+            
+            <div class="card-content">
+            <p><strong>El operador del camión con grúa articulada debe:</strong></p>
+            <ul class="custom-list">
+                <li>Revisar que alrededor de su equipo no hayan materiales, equipos o herramientas</li>
+                <li>Verificar que los accesorios de la pluma y estabilizadores se encuentren retraídos y asegurados</li>
+                <li>Verificar que el PTO de la bomba hidráulica de la grúa se encuentre desconectado</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección 2: Técnicas de Traslado -->
+    <div class="content-section" data-section="2">
+        <div class="content-grid">
+        <div class="content-card slide-in-left">
+            <div class="card-header">Técnicas de Operación para el Traslado</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <img src="../../assets/images/M4/B.png" alt="Técnicas de traslado" style="width:50%; border-radius:10px; display:block; margin:0 auto;">
+            </div>
+            
+            <div class="card-content">
+            <div class="highlight-box">
+                <h3 style="color: #031794; margin: 0 0 8px 0;">Marchas Ultra Lentas</h3>
+                <ul class="custom-list">
+                <li>SOLO para los arranques sumamente pesados y para las maniobras a muy baja velocidad, casos excepcionales</li>
+                <li>No están sincronizadas, engranarlas con vehículo detenido</li>
+                <li>Usarlas solo con planetaria en <strong>BAJA</strong></li>
+                </ul>
+            </div>
+
+            <h3 style="color: #031794; margin: 10px 0 8px 0;">Técnicas de Cambio de Marchas</h3>
+            <p><strong>Cambio de marchas en la doble gama baja:</strong></p>
+            <ul class="custom-list">
+                <li>Desplazar el botón de doble gama hacia abajo</li>
+                <li><strong>1L:</strong> Poner el botón del split hacia abajo (L) y arrancar en 1a. Baja</li>
+                <li><strong>1H:</strong> Preseleccionar H (Split Alto). El cambio se hace al pisar el pedal de embrague</li>
+                <li><strong>2L:</strong> Preseleccionar L (Split Bajo), pisar el embrague y desplazar la palanca a la posición correspondiente (2da)</li>
+                <li>Continuar, del mismo modo: 2H, 3L, 3H</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección 3: Condiciones Climáticas -->
+    <div class="content-section" data-section="3">
+        <div class="content-grid">
+        <div class="content-card slide-in-right">
+            <div class="card-header">Precaución en Condiciones Climáticas Adversas</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <iframe src="../componentes/Grua/Fire.html" style="width:80%; height:250px; border-radius:10px; display:block; margin:0 auto;" frameborder="0"></iframe>
+            </div>
+            
+            <div class="card-content">
+            <div class="warning-box">
+                <div class="warning-title">PROHIBICIÓN ABSOLUTA</div>
+                <p>Está terminantemente prohibido realizar trabajos de izaje en condiciones climáticas adversas como exceso de neblina, ráfagas de viento y tormenta eléctrica.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="color: #FF0000; margin: 0 0 8px 0;">Alerta Naranja</h3>
+                <p>Todos los trabajos de izaje con grúas se detienen. Se debe bajar la pluma, liberar la carga y asegurar la pluma para cualquier imprevisto.</p>
+            </div>
+
+            <div class="warning-box">
+                <div class="warning-title">Alerta Roja</div>
+                <p>El operador y el rigger deberán permanecer dentro del camión y refugiarse hasta que termine la tormenta eléctrica.</p>
+            </div>
+
+            <ul class="custom-list">
+                <li>Si hay neblina intensa, poca visibilidad o poca iluminación, se deben detener los trabajos de izaje</li>
+                <li>Si hay ráfagas de vientos que superan lo permitido, se deben detener los trabajos de izaje</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección 4: Inspección del Área -->
+    <div class="content-section" data-section="4">
+        <div class="content-grid">
+        <div class="content-card slide-in-left">
+            <div class="card-header">Inspección del Área de Trabajo</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <img src="../../assets/images/M4/C.png" alt="Inspección de área" style="width:50%; border-radius:10px; display:block; margin:0 auto;">
+            </div>
+            
+            <div class="card-content">
+            <h3 style="color: #031794; margin: 0 0 8px 0;">Inspección de la Altura del Área de Trabajo</h3>
+            <ul class="custom-list">
+                <li>Se debe inspeccionar las instalaciones del área de trabajo en referencia a la altura de la pluma y los trabajos de izaje que se van a realizar</li>
+                <li>Se debe respetar la distancia de seguridad de las líneas eléctricas aéreas</li>
+            </ul>
+
+            <div class="warning-box">
+                <div class="warning-title">Distancia de Seguridad</div>
+                <p>Verificar que la distancia mínima sea de <strong>7 metros</strong> entre las líneas eléctricas y la estructura de la grúa.</p>
+                <p>Para realizar una tarea con seguridad, es obligatorio respetar las normas vigentes del país, de esta manera se puede evitar el riesgo de electrocución.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="color: #031794; margin: 0 0 8px 0;">Instalaciones Eléctricas Aéreas</h3>
+                <ul class="custom-list">
+                <li>Se debe verificar el área de trabajo para realizar la configuración de la grúa articulada, verificar la altura y capacidades de la grúa</li>
+                <li>Realizar el plan de izaje de los materiales o componentes a manipular, seleccionar correctamente el ángulo de la pluma para garantizar la estabilidad de la grúa</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Sección 5: Configuración -->
+    <div class="content-section" data-section="5">
+        <div class="content-grid">
+        <div class="content-card slide-in-right">
+            <div class="card-header">Configuración de la Grúa Articulada</div>
+            
+            <div class="card-image" style="text-align:center;">
+            <iframe src="../componentes/Grua/Fire.html" style="width:80%; height:250px; border-radius:10px; display:block; margin:0 auto;" frameborder="0"></iframe>
+            </div>
+            
+            <div class="card-content">
+            <h3 style="color: #031794; margin: 0 0 8px 0;">Según el Tipo de Maniobra</h3>
+            
+            <div class="highlight-box">
+                <p><strong>Señalización obligatoria:</strong> Todos los trabajos de izaje con grúas deben ser señalizados con una delimitación que impida el ingreso de personas ajenas al trabajo.</p>
+            </div>
+
+            <ul class="custom-list">
+                <li>Se debe utilizar barreras sólidas para señalizar la zona de influencia de los movimientos de la grúa articulada</li>
+                <li>Para los trabajos de izaje es necesario el apoyo de un <strong>rigger</strong> o maniobrista, el cual debe coordinar los movimientos con el operador de la grúa articulada</li>
+            </ul>
+
+            <div class="warning-box">
+                <div class="warning-title">Trabajo en Equipo</div>
+                <p>La coordinación entre el operador y el rigger es fundamental para la seguridad y eficiencia de las operaciones de izaje.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="interactive-section">
+    <p style="color: #031794; font-weight: bold; margin: 5px 0;">Progreso del Curso: <span id="progressText">1/6</span></p>
+    <p style="color: #4D4D4E; font-size: 0.9rem; margin: 5px 0;">Navega por las secciones usando los botones o haciendo clic en los indicadores</p>
+    </div>
+    <div style="height: 70px"></div>
+    </div>
 
     <script src="../../js/M4/js_pg1.js"></script>
 
-
-  <!-- Botón de continuar -->
-  <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
+    <!-- Botón de continuar -->
+    <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
 
   <!--AUDIOv2-->
   <div class="audio-control-wrapper" style="z-index: 9999;">
@@ -140,7 +657,7 @@
     // Navegación
     function goHome() { window.location.href = 'index.html'; }
     function backPage() { window.location.href = 'M3_inicio.html'; }
-    function goToNextPage() { window.location.href = '../M4/M4_inicio.html'; }
+    function goToNextPage() { window.location.href = '../M4/M4_pg2.html'; }
 
     ScormManager.init();
     ScormManager.guardarProgreso("M1_pg1.html");
