@@ -45,14 +45,445 @@
   <!-- Logo inferior -->
   <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" /></div>
   <!-- Título principal -->
-  <header><h1 class="titulo-epp"><span class="gradient-text2">Titulo</span></h1></header>
+  <header><h1 class="titulo-epp"><span class="gradient-text2">Implementos de la Grúa Articulada y Accesorios</span></h1></header>
 
   <!-- Contenido principal -->
-  <main>
- 
-        <h1 style="text-align: center;">Contenido</h1>
+<style>
+  .grua-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  </main>
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .grua-title {
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 10px 0;
+    padding: 5px;
+  }
+
+  .grua-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .grua-diagram-section {
+    background: #FFFFFF;
+    border: 2px solid #DDE8F5;
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grua-svg-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    position: relative;
+  }
+
+  .grua-svg {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+  }
+
+  .grua-component {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    stroke-width: 2;
+  }
+
+  .grua-component:hover {
+    filter: drop-shadow(0 0 8px rgba(3, 23, 148, 0.6));
+    transform: scale(1.05);
+  }
+
+  .grua-component.active {
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.8));
+    transform: scale(1.1);
+  }
+
+  .grua-info-panel {
+    background: #E5F0F9;
+    border: 2px solid #6B8BDF;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 120px;
+  }
+
+  .grua-info-title {
+    color: #031794;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: bold;
+    margin: 0 0 8px 0;
+  }
+
+  .grua-info-description {
+    color: #4D4D4E;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .grua-components-list {
+    background: #FFFFFF;
+    border: 1px solid #DDE8F5;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .grua-list-title {
+    color: #031794;
+    font-size: clamp(1rem, 2.8vw, 1.2rem);
+    font-weight: bold;
+    margin: 0 0 8px 0;
+  }
+
+  .grua-component-item {
+    display: flex;
+    align-items: center;
+    /* padding: 6px 8px;
+    margin: 2px 0; */
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .grua-component-item:hover {
+    background: #E5F0F9;
+    border-color: #6B8BDF;
+    transform: translateX(4px);
+  }
+
+  .grua-component-item.active {
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    color: #FFFFFF;
+    transform: translateX(8px);
+  }
+
+  .grua-component-number {
+    background: #031794;
+    color: #FFFFFF;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 8px;
+    flex-shrink: 0;
+  }
+
+  .grua-component-item.active .grua-component-number {
+    background: #FFFFFF;
+    color: #031794;
+  }
+
+  .grua-component-name {
+    font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    font-weight: 500;
+  }
+
+  .grua-reset-btn {
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    transition: transform 0.3s ease;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .grua-reset-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .grua-main-content {
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .grua-diagram-section {
+      flex: 2;
+    }
+
+    .grua-info-components {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grua-svg-container {
+      min-height: 450px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .grua-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .grua-svg-container {
+      min-height: 500px;
+    }
+  }
+</style>
+
+<div class="grua-container">
+
+  
+  <div class="grua-main-content">
+    <div class="grua-diagram-section">
+        <img src="../../assets/images/M2/Ax.png" alt="">
+    </div>
+    
+    <div class="grua-info-components">
+      <div class="grua-info-panel">
+        <h3 class="grua-info-title" id="info-title">Selecciona un componente</h3>
+        <p class="grua-info-description" id="info-description">Haz clic en cualquier elemento del diagrama o en la lista para conocer más detalles sobre cada componente de la grúa articulada.</p>
+      </div>
+      
+      <div class="grua-components-list">
+        <h4 class="grua-list-title">Componentes</h4>
+        <div class="grua-component-item" data-component="0">
+          <div class="grua-component-number">1</div>
+          <div class="grua-component-name">Cilindros Estabilizadores</div>
+        </div>
+        <div class="grua-component-item" data-component="1">
+          <div class="grua-component-number">2</div>
+          <div class="grua-component-name">Soportes Estabilizadores</div>
+        </div>
+        <div class="grua-component-item" data-component="2">
+          <div class="grua-component-number">3</div>
+          <div class="grua-component-name">Traviesa de Guía</div>
+        </div>
+        <div class="grua-component-item" data-component="3">
+          <div class="grua-component-number">4</div>
+          <div class="grua-component-name">Base</div>
+        </div>
+        <div class="grua-component-item" data-component="4">
+          <div class="grua-component-number">5</div>
+          <div class="grua-component-name">Platillo</div>
+        </div>
+        <div class="grua-component-item" data-component="5">
+          <div class="grua-component-number">6</div>
+          <div class="grua-component-name">Columna</div>
+        </div>
+        <div class="grua-component-item" data-component="6">
+          <div class="grua-component-number">7</div>
+          <div class="grua-component-name">Cilindro Principal</div>
+        </div>
+        <div class="grua-component-item" data-component="7">
+          <div class="grua-component-number">8</div>
+          <div class="grua-component-name">Brazo Principal</div>
+        </div>
+        <div class="grua-component-item" data-component="8">
+          <div class="grua-component-number">9</div>
+          <div class="grua-component-name">Cilindro Secundario</div>
+        </div>
+        <div class="grua-component-item" data-component="9">
+          <div class="grua-component-number">10</div>
+          <div class="grua-component-name">Brazo Secundario</div>
+        </div>
+        <div class="grua-component-item" data-component="10">
+          <div class="grua-component-number">11</div>
+          <div class="grua-component-name">Brazos Extensibles</div>
+        </div>
+        <div class="grua-component-item" data-component="11">
+          <div class="grua-component-number">12</div>
+          <div class="grua-component-name">Cilindros de Brazos Extensibles</div>
+        </div>
+        <div class="grua-component-item" data-component="12">
+          <div class="grua-component-number">13</div>
+          <div class="grua-component-name">Prolonga Manual</div>
+        </div>
+        <div class="grua-component-item" data-component="13">
+          <div class="grua-component-number">14</div>
+          <div class="grua-component-name">Prolonga Hidráulica</div>
+        </div>
+        <div class="grua-component-item" data-component="14">
+          <div class="grua-component-number">15</div>
+          <div class="grua-component-name">Estabilizador Suplementario</div>
+        </div>
+        <div class="grua-component-item" data-component="15">
+          <div class="grua-component-number">16</div>
+          <div class="grua-component-name">Sistema Cabrestante</div>
+        </div>
+        
+        <button class="grua-reset-btn" id="reset-btn">Restablecer Vista</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 80px;"></div>
+</div>
+
+<script>
+const componentInfo = {
+  0: {
+    title: "Cilindros Estabilizadores",
+    description: "Elementos hidráulicos que proporcionan estabilidad lateral a la grúa durante las operaciones de elevación. Se extienden hacia los lados para crear una base más amplia y segura, distribuyendo el peso y las fuerzas de manera uniforme."
+  },
+  1: {
+    title: "Soportes Estabilizadores", 
+    description: "Estructuras triangulares que actúan como puntos de apoyo adicionales en el suelo. Trabajan en conjunto con los cilindros estabilizadores para crear una plataforma estable y reducir la presión sobre el terreno."
+  },
+  2: {
+    title: "Traviesa de Guía",
+    description: "Elemento estructural que conecta y guía el movimiento de los estabilizadores. Proporciona rigidez estructural y asegura que los movimientos de estabilización sean coordinados y precisos."
+  },
+  3: {
+    title: "Base",
+    description: "Estructura principal que soporta todo el peso de la grúa y distribuye las cargas hacia el suelo. Es el elemento fundamental sobre el cual se monta toda la superestructura de la grúa articulada."
+  },
+  4: {
+    title: "Platillo",
+    description: "Elemento circular que sirve como interfaz entre la base fija y la columna giratoria. Permite la rotación de 360 grados de la superestructura mientras mantiene la estabilidad y distribuye las cargas uniformemente."
+  },
+  5: {
+    title: "Columna",
+    description: "Estructura vertical que conecta el platillo con el brazo principal. Proporciona la altura necesaria y transfiere todas las fuerzas y momentos desde los brazos articulados hacia la base de la grúa."
+  },
+  6: {
+    title: "Cilindro Principal",
+    description: "Actuador hidráulico de mayor capacidad que controla el movimiento de elevación y descenso del brazo principal. Es responsable de levantar las cargas principales y posicionar el brazo en el ángulo deseado."
+  },
+  7: {
+    title: "Brazo Principal",
+    description: "Primer segmento articulado de la pluma, conectado directamente a la columna. Proporciona el alcance inicial y soporta el peso de todos los componentes posteriores, incluyendo el brazo secundario y la carga."
+  },
+  8: {
+    title: "Cilindro Secundario",
+    description: "Actuador hidráulico que controla la articulación entre el brazo principal y secundario. Permite ajustar el ángulo del brazo secundario para optimizar el posicionamiento de la carga y el alcance de la grúa."
+  },
+  9: {
+    title: "Brazo Secundario",
+    description: "Segundo segmento articulado que se conecta al brazo principal. Proporciona flexibilidad adicional en el posicionamiento y permite alcanzar espacios que serían inaccesibles con un brazo rígido convencional."
+  },
+  10: {
+    title: "Brazos Extensibles",
+    description: "Secciones telescópicas que se extienden desde el brazo secundario para aumentar el alcance de la grúa. Permiten ajustar la longitud total de la pluma según las necesidades específicas de cada operación de elevación."
+  },
+  11: {
+    title: "Cilindros de Brazos Extensibles",
+    description: "Actuadores hidráulicos especializados que controlan la extensión y retracción de los brazos telescópicos. Proporcionan la fuerza necesaria para extender las secciones bajo carga y mantener la rigidez estructural."
+  },
+  12: {
+    title: "Prolonga Manual",
+    description: "Extensión adicional que se puede instalar manualmente en el extremo de los brazos extensibles. Aumenta el alcance máximo de la grúa para aplicaciones específicas que requieren mayor distancia de trabajo."
+  },
+  13: {
+    title: "Prolonga Hidráulica",
+    description: "Extensión controlada hidráulicamente que se monta en el extremo del sistema de brazos. Ofrece ajuste preciso de la longitud final y puede operarse desde la cabina del operador para mayor eficiencia y seguridad."
+  },
+  14: {
+    title: "Estabilizador Suplementario",
+    description: "Sistema de estabilización adicional que se puede desplegar cuando se requiere mayor estabilidad. Especialmente útil en operaciones con cargas pesadas o en terrenos irregulares donde la estabilidad estándar no es suficiente."
+  },
+  15: {
+    title: "Sistema Cabrestante",
+    description: "Mecanismo de poleas y cable ubicado en el extremo de la grúa que permite el control preciso del descenso y elevación de cargas. Incluye sistemas de frenado y control de velocidad para operaciones seguras y precisas."
+  }
+};
+
+let activeComponent = null;
+
+function showComponentInfo(componentId) {
+  const info = componentInfo[componentId];
+  if (!info) return;
+  
+  document.getElementById('info-title').textContent = info.title;
+  document.getElementById('info-description').textContent = info.description;
+  
+  // Remove previous active states
+  document.querySelectorAll('.grua-component.active').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.grua-component-item.active').forEach(el => {
+    el.classList.remove('active');
+  });
+  
+  // Add active state to current component
+  document.querySelectorAll(`[data-component="${componentId}"]`).forEach(el => {
+    el.classList.add('active');
+  });
+  
+  activeComponent = componentId;
+}
+
+function resetView() {
+  document.querySelectorAll('.grua-component.active').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.grua-component-item.active').forEach(el => {
+    el.classList.remove('active');
+  });
+  
+  document.getElementById('info-title').textContent = 'Selecciona un componente';
+  document.getElementById('info-description').textContent = 'Haz clic en cualquier elemento del diagrama o en la lista para conocer más detalles sobre cada componente de la grúa articulada.';
+  
+  activeComponent = null;
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  // SVG components click handlers
+  document.querySelectorAll('.grua-component').forEach(component => {
+    component.addEventListener('click', function() {
+      const componentId = this.getAttribute('data-component');
+      if (componentId !== null) {
+        showComponentInfo(parseInt(componentId));
+      }
+    });
+  });
+  
+  // List items click handlers
+  document.querySelectorAll('.grua-component-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const componentId = this.getAttribute('data-component');
+      if (componentId !== null) {
+        showComponentInfo(parseInt(componentId));
+      }
+    });
+  });
+  
+  // Reset button
+  document.getElementById('reset-btn').addEventListener('click', resetView);
+  
+  // Touch events for mobile
+  document.querySelectorAll('.grua-component, .grua-component-item').forEach(element => {
+    element.addEventListener('touchstart', function(e) {
+      e.preventDefault();
+      this.click();
+    });
+  });
+});
+</script>
 
 
   <!-- Botón de continuar -->
