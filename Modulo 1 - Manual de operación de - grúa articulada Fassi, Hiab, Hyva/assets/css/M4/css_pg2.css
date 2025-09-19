@@ -214,9 +214,9 @@
     align-items: center;
     margin-top: 10px;
     padding: 10px;
-    background: #F5F7FA;
+    /* background: #F5F7FA; */
     border-radius: 8px;
-    border: 1px solid #DDE8F5;
+    /* border: 1px solid #DDE8F5; */
 }
 
 .crane-nav-control {
