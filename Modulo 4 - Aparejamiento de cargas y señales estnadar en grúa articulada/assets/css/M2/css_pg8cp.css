@@ -1,0 +1,304 @@
+:root{
+    --primary:#031794;
+    --accent:#3479F6;
+    --muted:#DDE8F5;
+    --bg:#F5F7FA;
+    --card:#FFFFFF;
+    --text:#4D4D4E;
+    --color-azul:#031794;
+}
+
+*{box-sizing: border-box;}
+
+/* body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef3fb;
+    padding: 16px;
+    color:var(--text);
+} */
+
+.curso-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 12px; */
+    background: var(--bg);
+    border-radius: 8px;
+    /* box-shadow: 0 2px 10px rgba(3, 23, 148, 0.06); */
+}
+
+.curso-header {
+    text-align: center;
+    margin: 0 0 14px 0;
+    padding: 8px;
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.curso-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Carrusel */
+.carrusel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid var(--muted);
+    background: var(--card);
+}
+
+/* Wrapper con display:flex para slides 100% */
+.carrusel-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+/* Cada slide ocupa 100% del ancho del carrusel */
+.slide {
+    flex: 0 0 100%;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr 40%; /* contenido izquierda / imagen derecha */
+    gap: 18px;
+    align-items: start;
+    background: var(--card);
+    border-right: 1px solid rgba(0,0,0,0.02);
+}
+
+.slide-h{
+    display: block;
+}
+.slide-h img{
+    width: 70% !important;
+    border-radius: 80%;
+}
+
+.slide2 li{
+    font-size: 1.2rem !important;
+}
+
+
+
+/* Imagen a la derecha: se adapta a su tamaño (height:auto) */
+.slide-image {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* La imagen mantiene su proporción y define el alto del contenedor */
+.slide-image img {
+    width: 100%;
+    height: auto; /* <-- clave para que la imagen marque el alto natural */
+    object-fit: contain; /* mantiene la imagen completa */
+    display: block;
+    max-height: 70vh; /* protección para imágenes excesivamente altas */
+    border-radius: 5%;
+}
+
+/* degradado encima de imagen (opcional) */
+.slide-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* background: linear-gradient(45deg, rgba(3, 23, 148, 0.02), rgba(52, 192, 192, 0.02)); */
+    pointer-events: none;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    z-index: 2;
+    user-select: none;
+}
+
+.slide-content {
+    padding: 4px 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slide-title {
+    color: var(--primary);
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+    border-bottom: 2px solid #6B8BDF;
+    padding-bottom: 6px;
+}
+
+.slide-subtitle {
+    color: #2A5BDF;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.slide-text {
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.96rem;
+}
+
+.slide-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slide-list li {
+    color: var(--text);
+    margin: 6px 0;
+    padding-left: 14px;
+    position: relative;
+    font-size: 0.92rem;
+}
+
+.slide-list li::before {
+    content: '•';
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.highlight-box {
+    background: #E5F0F9;
+    border: 1px solid var(--muted);
+    border-left: 4px solid var(--primary);
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+}
+
+.highlight-text {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #F7F8FA;
+    border-top: 1px solid var(--muted);
+}
+
+/* Botones con diseño start-button */
+.nav-button,
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 9px 25px;
+    border: 1px solid #d1d9e6;
+    border-radius: 60px;
+    background: #f8fafc;
+    color: var(--color-azul);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    min-width: 180px;
+}
+
+.nav-button::before,
+.start-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.nav-button:hover::before,
+.start-button:hover::before {
+    left: 100%;
+}
+
+.nav-button:hover { transform: translateY(-2px); }
+.nav-button:disabled { background: #B9B9B9; cursor:not-allowed; transform:none; }
+
+.slide-indicator { display:flex; gap:8px; align-items:center; }
+.indicator-dot {
+    width: 10px; height:10px; border-radius:50%; background:#D0D6E8; cursor:pointer;
+    transition: transform 0.16s ease, background 0.16s ease;
+}
+.indicator-dot.active { background: var(--primary); transform: scale(1.25); }
+
+.slide-counter { color:var(--text); font-weight:600; }
+
+/* Responsive - pantallas pequeñas */
+@media (max-width: 768px) {
+    /* .curso-container { padding: 8px; } */
+    .curso-header h1 { font-size: 1.1rem; }
+
+    .slide {
+        grid-template-columns: 1fr; /* columna única */
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .slide-image {
+        align-self: center;
+        justify-self: end;
+        max-width: 95%;
+        width: 100%;
+    }
+
+    .slide-image img {
+        max-height: 40vh;
+    }
+
+    .slide-title { font-size: 1.25rem; }
+    .slide-subtitle { font-size: 1rem; }
+    .slide-text, .slide-list li { font-size: 0.7rem; }
+
+    .nav-button { 
+      padding: 7px 12px; 
+      min-width:90px; 
+      font-size:0.6rem; 
+    }
+
+    .slide-h{
+        grid-template-columns: 1fr; /* columna única */
+        gap: 12px;
+        padding: 14px;
+    }
+    .slide-h img{
+        width: 100% !important;
+        border-radius: 8%;
+    }
+
+    
+
+}
+@media (min-width: 1920px) {
+    .curso-container { max-width: 1400px; }
+    .slide-title { font-size: 1.9rem; }
+    .curso-header h1 { font-size: 2.6rem; }
+    .slide-image img { max-height: 85vh; }
+}
+
+/* Pequeños ajustes visuales */
+.slide + .slide { border-top: 1px solid rgba(0,0,0,0.02); }
