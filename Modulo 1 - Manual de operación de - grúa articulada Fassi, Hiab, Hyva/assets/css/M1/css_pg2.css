@@ -1,4 +1,7 @@
-
+.icons{
+    height: 40px;
+    width: 40px;
+}
 .curso-container {
     max-width: 1200px;
     margin: 0 auto;

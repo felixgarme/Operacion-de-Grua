@@ -18,5 +18,9 @@
   .contenedor-principal {
     height: 50vh;
   }
+  .iframe-estilizado {
+    width: 100%;
+    height: 100%;
 
+  }
 }

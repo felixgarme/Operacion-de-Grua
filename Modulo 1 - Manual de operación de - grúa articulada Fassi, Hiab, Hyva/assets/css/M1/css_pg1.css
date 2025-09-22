@@ -1,4 +1,9 @@
+.icons{
+    width: 60px;
+    height: 60px;
 
+    margin-right: 10px;
+}
 .safety-course-container {
     max-width: 100%;
     margin: 0 auto;
@@ -130,6 +135,9 @@ color: #FFFFFF;
     /* margin-top: 10px; */
     /* max-width: 85%; */
     margin-bottom: 70px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .safety-course-details-title {
