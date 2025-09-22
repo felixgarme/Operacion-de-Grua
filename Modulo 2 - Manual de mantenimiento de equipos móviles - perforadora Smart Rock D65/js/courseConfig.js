@@ -4,7 +4,7 @@
 const courseConfig = {
     // Información general del curso
     courseInfo: {
-        title: "Análisis de Tendencia",
+        title: "Manual de Mantenimiento de los Equipos Móviles – Perforadora Smart ROCK D65",
         company: "Quellaveco",
         version: "1.0"
     },

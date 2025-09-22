@@ -1,0 +1,22 @@
+.contenedor-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.iframe-estilizado {
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 12px;
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); */
+}
+
+@media (max-width: 480px) {
+
+  .contenedor-principal {
+    height: 50vh;
+  }
+
+}

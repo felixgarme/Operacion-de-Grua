@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Verge3D Web Interactive</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="v3d.js"></script>
+  <script src="Fire.js"></script>
+  <link rel="stylesheet" type="text/css" href="Fire.css">
+
+  <style>
+    #overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    #overlay svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Columna de cajas */
+    #boxes-column {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 250px;
+      pointer-events: none;
+    }
+
+    .info-box {
+      width: 100%;
+      min-width: 140px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #111;
+      pointer-events: auto;
+    }
+    .info-box h4 { margin: 0 0 4px 0; font-size: 14px; }
+    .info-box p { margin: 0; font-size: 12px; color: #444; }
+
+    .conn-path {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* 📱 Responsive: en móviles los cuadros ARRIBA, sin descripción */
+    @media (max-width: 768px) {
+      #boxes-column {
+        position: fixed;      /* 👈 fijo arriba */
+        top: 0;
+        left: 0;
+        width: 100%;          /* ocupa todo el ancho */
+        margin: 0;
+        padding: 8px;
+        display: flex;
+        flex-direction: row;  /* en fila */
+        flex-wrap: wrap;
+        /* justify-content: center; */
+        align-items: center;
+        z-index: 10000;       /* siempre encima */
+        /* background: rgba(255,255,255,0.95); */
+        pointer-events: auto;
+      }
+      .info-box {
+        text-align: center;
+        /* flex: 1 1 40%; */
+        max-width: 150px;
+        min-width: 100px;
+      }
+      .info-box p {
+        display: none; /* 👈 oculta descripción en móviles */
+      }
+    }
+
+    /* 📱📱 Responsive teléfonos muy pequeños (<= 480px) */
+    @media (max-width: 480px) {
+      #boxes-column {
+        gap: 8px;
+        padding: 5px;
+      }
+      .info-box {
+        font-size: 12px;
+        padding: 5px 0px;
+        max-width: 120px;
+      }
+      .info-box h4 {
+        font-size: 13px;
+      }
+      #overlay-svg {
+        display: none; /* oculta flechas en móviles chicos */
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="v3d-container">
+    <div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"></div>
+  </div>
+
+  <div id="overlay">
+    <svg id="overlay-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L10,4 L0,8 z" fill="#2c3e50"></path>
+        </marker>
+      </defs>
+      <path id="path-1" class="conn-path" stroke="#e74c3c" marker-end="url(#arrowhead)"></path>
+      <path id="path-2" class="conn-path" stroke="#3498db" marker-end="url(#arrowhead)"></path>
+      <path id="path-3" class="conn-path" stroke="#27ae60" marker-end="url(#arrowhead)"></path>
+      <path id="path-4" class="conn-path" stroke="#f39c12" marker-end="url(#arrowhead)"></path>
+    </svg>
+
+    <!-- Columna de cuadros -->
+    <div id="boxes-column">
+      <div id="box-3" class="info-box" data-target="3">
+        <h4>Anillo</h4>
+        <p>Pieza circular que sirve como punto de unión y soporte.</p>
+      </div>
+      <div id="box-1" class="info-box" data-target="1">
+        <h4>Pasador</h4>
+        <p>Elemento metálico que asegura piezas evitando movimientos no deseados.</p>
+      </div>
+      <div id="box-2" class="info-box" data-target="2">
+        <h4>Dispositivo de Seguridad</h4>
+        <p>Mecanismo diseñado para prevenir accidentes y garantizar estabilidad.</p>
+      </div>
+      <div id="box-4" class="info-box" data-target="4">
+        <h4>Gancho</h4>
+        <p>Componente en forma de curva que permite sujetar o colgar objetos.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const boxes = [
+        document.getElementById('box-1'),
+        document.getElementById('box-2'),
+        document.getElementById('box-3'),
+        document.getElementById('box-4')
+      ];
+      const paths = [
+        document.getElementById('path-1'),
+        document.getElementById('path-2'),
+        document.getElementById('path-3'),
+        document.getElementById('path-4')
+      ];
+
+      function safeGetTarget(id) {
+        return document.getElementById(id) || null;
+      }
+      function centerOfRect(rect) {
+        return { x: rect.left + rect.width/2, y: rect.top + rect.height/2 };
+      }
+      function makeCurvePath(p1, p2) {
+        const dx = Math.abs(p2.x - p1.x);
+        const cx1 = p1.x + (p2.x > p1.x ? dx*0.25 : -dx*0.25);
+        const cy1 = p1.y;
+        const cx2 = p2.x + (p2.x > p1.x ? -dx*0.25 : dx*0.25);
+        const cy2 = p2.y;
+        return `M ${p1.x} ${p1.y} C ${cx1} ${cy1} ${cx2} ${cy2} ${p2.x} ${p2.y}`;
+      }
+      function updateOne(index) {
+        const box = boxes[index];
+        const path = paths[index];
+        const target = safeGetTarget(box.dataset.target);
+        if (!target) { path.setAttribute('d',''); return; }
+        const brBox = box.getBoundingClientRect();
+        const brTarget = target.getBoundingClientRect();
+        const pBox = centerOfRect(brBox);
+        const pTarget = centerOfRect(brTarget);
+        path.setAttribute('d', makeCurvePath(pBox, pTarget));
+      }
+      function updateAll() { for (let i=0; i<boxes.length; i++) updateOne(i); }
+      window.addEventListener('resize', updateAll);
+      window.addEventListener('scroll', updateAll, true);
+      function rafLoop(){ updateAll(); requestAnimationFrame(rafLoop); }
+      rafLoop();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!-- __V3D_PUZZLES__ - enable Puzzles button in the App Manager -->
+<!-- __V3D_TEMPLATE__ - template-based file; delete this line to prevent this file from being updated -->
+<html lang="en">
+<head>
+  <title>Verge3D Web Interactive</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!-- Search Engines -->
+  <meta name="description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Verge3D Web Interactive">
+  <meta name="twitter:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
+  <meta name="twitter:image:src" content="https://cdn.soft8soft.com/images/player_socials.jpg">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Verge3D Web Interactive">
+  <meta property="og:description" content="Interactive 3D Web application made with Verge3D. Immerse yourself in amazing graphics experience offered by state-of-the-art WebGL and HTML5 technologies.">
+  <meta property="og:image" content="https://cdn.soft8soft.com/images/player_socials.jpg">
+  <meta property="og:type" content="website">
+
+  <meta name="generator" content="Verge3D 4.8.0">
+
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="media/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+  <link rel="manifest" href="media/manifest.json">
+  <link rel="mask-icon" href="media/safari-pinned-tab.svg" color="#0048a5">
+  <meta name="theme-color" content="#ffffff">
+
+  <script src="v3d.js"></script>
+  <script src="Fire.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="Fire.css">
+
+  <style>
+    #overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    #overlay svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Columna de cajas */
+    #boxes-column {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 250px;
+      pointer-events: none;
+    }
+
+    .info-box {
+      width: 100%;
+      min-width: 140px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(0,0,0,0.12);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #111;
+      pointer-events: auto;
+    }
+    .info-box h4 { margin: 0 0 4px 0; font-size: 14px; }
+    .info-box p { margin: 0; font-size: 12px; color: #444; }
+
+    .conn-path {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* 📱 Responsive: en móviles los cuadros ARRIBA, sin descripción */
+    @media (max-width: 768px) {
+      #boxes-column {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        padding: 8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        z-index: 10000;
+        pointer-events: auto;
+      }
+      .info-box {
+        text-align: center;
+        max-width: 150px;
+        min-width: 100px;
+      }
+      .info-box p {
+        display: none;
+      }
+      .v3d-annotation{
+        padding: 0 0;
+      }
+    }
+
+    /* 📱📱 Responsive teléfonos muy pequeños (<= 480px) */
+    @media (max-width: 480px) {
+      #boxes-column {
+        gap: 1px;
+        padding: 2px;
+        display: grid;
+      }
+      .info-box {
+        font-size: 12px;
+        padding: 5px 0px;
+        max-width: 20px;
+      }
+      .info-box h4 {
+        font-size: 13px;
+      }
+      #overlay-svg {
+        display: none;
+      }
+      .v3d-annotation{
+        padding: 0 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="v3d-container">
+    <div id="fullscreen-button" class="fullscreen-button fullscreen-open" title="Toggle fullscreen mode"></div>
+  </div>
+
+  <div id="overlay">
+    <svg id="overlay-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L10,4 L0,8 z" fill="#2c3e50"></path>
+        </marker>
+      </defs>
+      <path id="path-1" class="conn-path" stroke="#e74c3c" marker-end="url(#arrowhead)"></path>
+      <path id="path-2" class="conn-path" stroke="#3498db" marker-end="url(#arrowhead)"></path>
+      <path id="path-3" class="conn-path" stroke="#27ae60" marker-end="url(#arrowhead)"></path>
+      <path id="path-4" class="conn-path" stroke="#f39c12" marker-end="url(#arrowhead)"></path>
+      <path id="path-5" class="conn-path" stroke="#8e44ad" marker-end="url(#arrowhead)"></path>
+      <path id="path-6" class="conn-path" stroke="#16a085" marker-end="url(#arrowhead)"></path>
+    </svg>
+
+    <!-- Columna de cuadros -->
+    <div id="boxes-column">
+      <div id="box-3" class="info-box" data-target="3">
+        <h4>Anillo Interno</h4>
+        <p>Elemento central que asegura el ajuste y la conexión con piezas internas.</p>
+      </div>
+
+      <div id="box-1" class="info-box" data-target="1">
+        <h4>Dentadura</h4>
+        <p>Zona con dientes que permite la transmisión de fuerza y movimiento.</p>
+      </div>
+
+            <div id="box-2" class="info-box" data-target="2">
+        <h4>Anillo Externo</h4>
+        <p>Superficie exterior que protege y mantiene la estructura del conjunto.</p>
+      </div>
+
+      <div id="box-4" class="info-box" data-target="4">
+        <h4>Pernos de Conexión con la Base</h4>
+        <p>Fijaciones que aseguran la unión firme del sistema con la base de apoyo.</p>
+      </div>
+      <div id="box-5" class="info-box" data-target="5">
+        <h4>Pernos de Conexión con la Columna</h4>
+        <p>Elementos de sujeción que conectan la estructura principal con la columna.</p>
+      </div>
+      <div id="box-6" class="info-box" data-target="6">
+        <h4>Puntos de lubricación</h4>
+        <p>Áreas designadas para aplicar lubricante y reducir el desgaste por fricción.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function(){
+      const boxes = [
+        document.getElementById('box-1'),
+        document.getElementById('box-2'),
+        document.getElementById('box-3'),
+        document.getElementById('box-4'),
+        document.getElementById('box-5'),
+        document.getElementById('box-6')
+      ];
+      const paths = [
+        document.getElementById('path-1'),
+        document.getElementById('path-2'),
+        document.getElementById('path-3'),
+        document.getElementById('path-4'),
+        document.getElementById('path-5'),
+        document.getElementById('path-6')
+      ];
+
+      function safeGetTarget(id) {
+        return document.getElementById(id) || null;
+      }
+      function centerOfRect(rect) {
+        return { x: rect.left + rect.width/2, y: rect.top + rect.height/2 };
+      }
+      function makeCurvePath(p1, p2) {
+        const dx = Math.abs(p2.x - p1.x);
+        const cx1 = p1.x + (p2.x > p1.x ? dx*0.25 : -dx*0.25);
+        const cy1 = p1.y;
+        const cx2 = p2.x + (p2.x > p1.x ? -dx*0.25 : dx*0.25);
+        const cy2 = p2.y;
+        return `M ${p1.x} ${p1.y} C ${cx1} ${cy1} ${cx2} ${cy2} ${p2.x} ${p2.y}`;
+      }
+      function updateOne(index) {
+        const box = boxes[index];
+        const path = paths[index];
+        const target = safeGetTarget(box.dataset.target);
+        if (!target) { path.setAttribute('d',''); return; }
+        const brBox = box.getBoundingClientRect();
+        const brTarget = target.getBoundingClientRect();
+        const pBox = centerOfRect(brBox);
+        const pTarget = centerOfRect(brTarget);
+        path.setAttribute('d', makeCurvePath(pBox, pTarget));
+      }
+      function updateAll() { for (let i=0; i<boxes.length; i++) updateOne(i); }
+      window.addEventListener('resize', updateAll);
+      window.addEventListener('scroll', updateAll, true);
+      function rafLoop(){ updateAll(); requestAnimationFrame(rafLoop); }
+      rafLoop();
+    })();
+  </script>
+</body>
+</html>
