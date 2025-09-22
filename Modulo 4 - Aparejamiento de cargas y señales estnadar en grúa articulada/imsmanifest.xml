@@ -13,7 +13,7 @@
 
     <organizations default="org1">
         <organization identifier="org1">
-            <title>Analisis de Tendencia</title>
+            <title>Aparejamiento de Carga y Señales Estándar de Equipos Móviles – Grúa Articulada</title>
             <item identifier="item1" identifierref="resource1">
                 <title>Inicio del Curso</title>
             </item>

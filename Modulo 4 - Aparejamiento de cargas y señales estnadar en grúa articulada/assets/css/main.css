@@ -258,15 +258,6 @@ p {
 /* FUENTE CON DEGRADADO */
 
 .gradient-text {
-    background: linear-gradient(to right, #ff0000 20%, #351ee0, #347ff6, #1f87c6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    /* Fallback */
-    -webkit-text-fill-color: transparent;
-}
-
-.gradient-text2 {
     font-weight: normal;
     background: var(--degrade-textos, linear-gradient(278deg, #7BDBFF 8.87%, #55b5da 39.24%, #3937bd 44.76%, #ea0606 54.73%, #eda3a4 100.62%));
     background-clip: text;
@@ -274,6 +265,15 @@ p {
     -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
     text-align: center;
+}
+
+.gradient-text2 {
+    background: linear-gradient(to right, #ff0000 20%, #351ee0, #347ff6, #1f87c6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    /* Fallback */
+    -webkit-text-fill-color: transparent;
 }
 
 /* CONTROL DE AUDIO */
@@ -562,7 +562,7 @@ p {
     border-radius: 60px;
     background: #f8fafc;
     color: var(--color-azul);
-    font-family: inherit;
+    /*font-family: inherit;*/
     font-size: 18px;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -867,14 +867,15 @@ p {
 /* INSTRUCCIONES DISEÑO */
 
 .instruction-box {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border: 2px solid #e2e8f0;
+    background: #f5f7fa;
+    border: 1px solid #6b8bde;
     border-radius: var(--border-radius-md);
     padding: var(--spacing-lg);
     margin: var(--spacing-lg) auto;
     max-width: 800px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-style: italic;
     margin-bottom: 40px;
 }
 
@@ -882,14 +883,15 @@ p {
     color: var(--color-azul);
     margin-bottom: 10px;
     font-size: var(--font-5);
-    font-weight: 600;
+    font-weight: normal;
 }
 
 .instruction-box p {
-    color: #4a5568;
+    color: var(--color-gris);
     margin: 0;
     font-size: var(--font-6);
     line-height: 1.5;
+    font-weight: normal;
 }
 
 .highlight-text {
@@ -930,17 +932,6 @@ p {
     transform: translateX(-3px);
 }
 
-/* LOGO HEADER */
-
-.logo-container {
-    text-align: right;
-}
-
-.logo-container .logo {
-    width: clamp(100px, 15vw, 200px);
-    margin: 3vh 3vh;
-}
-
 @media (max-width: 768px) {
     .continue-content {
         flex-direction: column;
@@ -978,23 +969,13 @@ p {
     font-weight: 500;
 }
 
-.page-end-trigger {
-    padding: 1rem;
-}
-
 @keyframes bounce {
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
+    0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
-
     40% {
         transform: translateY(-10px);
     }
-
     60% {
         transform: translateY(-5px);
     }

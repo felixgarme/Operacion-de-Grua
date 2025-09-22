@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conclusiones</title>
+    <title>Recepción de mineral</title>
     <link rel="stylesheet" href="../assets/css/main.css">
     <link rel="stylesheet" href="../assets/css/sidebar.css">
     <link rel="stylesheet" href="../assets/css/ProgressBar.css">
-    <link rel="stylesheet" href="../assets/css/conclusiones.css">
+    <link rel="stylesheet" href="../assets/css/M2_inicio.css">
     <script type="text/javascript" src="../js/sidebar.js" defer></script>
 </head>
 
@@ -40,16 +40,9 @@
 
         <!-- Menú principal -->
         <div id="menu-container"></div>
-
-        <!-- Sección de información y logout -->
-        <!-- <div id="logout-seccion">
-            <h4 id="numero-unidad">1</h4>
-            <div id="descripcion-unidad">
-                <p>Introducción</p>
-            </div>
-        </div> -->
     </nav>
 
+           <!-- control de audio -->
     <div class="audio-control-wrapper">
         <button class="audio-toggle-btn" id="audioToggle">
             <svg id="togglePlayIcon" viewBox="0 0 24 24">
@@ -115,147 +108,37 @@
 
             <!-- Audio element oculto -->
             <audio id="audioPlayer" preload="metadata" autoplay>
-                <source src="../assets/audio/conclusiones.wav" type="audio/mp3" />
+                <source src="../assets/audio/M2_inicio.wav" type="audio/mp3" />
                 Tu navegador no soporta el elemento de audio.
             </audio>
         </div>
     </div>
+    
+    <!-- Logo AngloAmerican -->
     <div class="inicio-container">
         <img src="../assets/images/logo_blanco.png" alt="Logo AngloAmerican" class="logo-inicio">
         <div class="inicio-box">
-            <span class="inicio-module-number">05</span>
-            <h1 class="inicio-title">Conclusiones</h1>
-        </div>
-
-        <div class="scroll-indicator">
-            <span class="scroll-arrow">↓</span>
-            <span class="scroll-text">Desliza para ver más</span>
+            <span class="inicio-module-number">02</span>
+            <h1 class="inicio-title">Estándares utilizados</h1>
+            <button id="empezarBtn" class="start-button">Comenzar</button>
         </div>
     </div>
-
-    <!-- Nueva sección de contenido -->
-    <div class="content-section" id="contentSection">
-        <div class="content-header">
-            <h3 class="gradient-text">¿Qué aprendimos?</h3>
-        </div>
-
-        <div class="learning-points"><div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">1</div>
-                <h3>Funciones de probabilidad en ingeniería</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    Las funciones PDF, CDF, de supervivencia y de riesgo son herramientas clave para modelar fenómenos aleatorios. Cada una ofrece una perspectiva distinta que ayuda a comprender el comportamiento de variables en contextos de ingeniería.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">2</div>
-                <h3>Función de densidad de probabilidad (PDF)</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    La PDF describe la concentración de probabilidad en torno a ciertos valores. Es útil para identificar valores más probables en distribuciones simétricas, como en mediciones de calidad.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">3</div>
-                <h3>Función de distribución acumulada (CDF)</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    La CDF permite calcular probabilidades acumuladas, percentiles y umbrales críticos, lo cual es fundamental para evaluar la vida útil de componentes y establecer límites de operación seguros.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">4</div>
-                <h3>Funciones de supervivencia y de riesgo</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    En confiabilidad, la función de supervivencia estima la probabilidad de que un sistema siga funcionando después de cierto tiempo, mientras que la función de riesgo mide la probabilidad instantánea de fallo en cada momento.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">5</div>
-                <h3>Elección de distribuciones</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    La distribución adecuada depende de la naturaleza del fenómeno observado. Elegir entre normal, log-normal o exponencial depende de la simetría, acotamiento y tipo de proceso subyacente.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">6</div>
-                <h3>Distribución normal</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    Es ideal para datos simétricos no acotados, como alturas o errores de medición. Sus funciones PDF y CDF permiten calcular probabilidades e intervalos de confianza de manera eficiente.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">7</div>
-                <h3>Distribución log-normal</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    Se ajusta a datos positivos con colas largas, como ingresos o tiempos de falla en sistemas con desgaste acumulado. Es útil cuando los datos presentan asimetría hacia la derecha.
-                </p>
-            </div>
-        </div>
-
-        <div class="learning-item">
-            <div class="learning-header">
-                <div class="learning-number">8</div>
-                <h3>Distribución exponencial</h3>
-            </div>
-            <div class="learning-content">
-                <p>
-                    Representa procesos sin memoria, como el tiempo entre fallas con tasa constante. Su función de riesgo constante (<code>h(t) = λ</code>) implica que la probabilidad de falla no cambia con el tiempo.
-                </p>
-            </div>
-        </div>
-
-        </div>
-
-        <!-- Botón para continuar al final -->
-        <button class="start-button" onclick="window.location.href='../index.html'">
-            Regresar al Inicio
-            <span class="arrow">❯</span>
-        </button>
-    </div>
-    <script src="../js/M4_inicio.js"></script>
+    <script src="../js/M2_inicio.js"></script>
     <script src="../js/SCORM.js"></script>
     <script>
-        function backPage() {
-            window.location.href = 'M3_pagina9.html';
-        }
+        document.getElementById('empezarBtn').addEventListener('click', () => {
+            window.location.href = 'M2_pagina1.html';
+        });
 
+        function backPage() {
+            window.location.href = 'M1_pagina2.html';
+        }
 
         // Iniciar SCORM
         ScormManager.init();
 
         // Guardar progreso de esta página
-        ScormManager.guardarProgreso("conclusiones.html"); // Cambia según la página
+        ScormManager.guardarProgreso("M2_inicio.html"); // Cambia según la página
 
         // Recuperar progreso
         const datos = ScormManager.cargarProgreso();
