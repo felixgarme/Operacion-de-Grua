@@ -4,7 +4,7 @@
 const courseConfig = {
     // Información general del curso
     courseInfo: {
-        title: "Análisis de Tendencia",
+        title: "Aparejamiento de Carga y Señales Estándar de Equipos Móviles – Grúa Articulada",
         company: "Quellaveco",
         version: "1.0"
     },
