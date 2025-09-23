@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Señales Estándar de Manos para Grúas Móviles – Grúa Articulada</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/ProgressBar.css">
+    <link rel="stylesheet" href="../assets/css/M4_pagina1.css">
+    <link rel="stylesheet" href="../assets/css/interactivos.css">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <script type="text/javascript" src="../js/sidebar.js" defer></script>
+    <script src="../js/audioPlayer.js"></script>
+    <script src="../js/SCORM.js"></script>
+</head>
+<body>
+
+    <button class="back-page-btn" onclick="backPage()">
+        <span class="arrow">❮</span>
+    </button>
+    <nav id="sidebar" class="close">
+        <!-- Logo y botón de toggle -->
+        <div id="logo-seccion">
+            <a href="../index.html">
+                <img src="../assets/images/logo_blanco.png" height="10px" alt="logo">
+            </a>
+            <button id="toggle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Barra de Progreso del curso -->
+        <div id="barra">
+            <span id="barra-titulo"><strong>Progreso del Curso</strong></span>
+            <div id="progreso-container">
+                <div id="progreso-barra"></div>
+                <span id="progreso-texto">0%</span>
+            </div>
+        </div>
+
+        <!-- Menú principal -->
+        <div id="menu-container"></div>
+    </nav>
+    
+    <div class="audio-control-wrapper">
+        <button class="audio-toggle-btn" id="audioToggle">
+            <svg id="togglePlayIcon" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="togglePauseIcon" viewBox="0 0 24 24" style="display: none">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+        </button>
+
+        <div class="audio-controls" id="audioControls">
+            <div class="custom-audio-player">
+                <div class="audio-main-controls">
+                    <button class="control-btn volume-btn" id="volumeToggle">
+                        <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" /></svg>
+                        <svg id="muteIcon" viewBox="0 0 24 24" style="display: none"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /></svg>
+                    </button>
+                    <button class="control-btn play-pause-btn" id="playPauseBtn">
+                        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                        <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
+                    </button>
+                    <button class="control-btn speed-btn" id="speedBtn">
+                        <svg viewBox="0 0 24 24"><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44z" /><path d="M10.59 15.41a2 2 0 0 0 2.83 0l5.66-5.66a2 2 0 0 0-2.83-2.83L12 11.17 7.76 6.93a2 2 0 0 0-2.83 2.83l5.66 5.65z" /></svg>
+                    </button>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+                    <div class="time-display"><span id="currentTime">0:00</span><span id="duration">0:00</span></div>
+                </div>
+                <div class="volume-control">
+                    <div class="volume-slider" id="volumeSlider"><div class="volume-fill" id="volumeFill"></div></div>
+                    <div class="speed-control"><span class="speed-display" id="speedDisplay">1x</span></div>
+                </div>
+            </div>
+            <audio id="audioPlayer" preload="metadata" autoplay>
+                <source src="../assets/audios/M4_pagina1.wav" type="audio/mp3" />
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+    </div>
+    <div class="logo-container">
+        <img src="../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo">
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Señales estándar de mano para grúas móviles            </h1>
+            <h2>Grúa Articulada</h2>
+        </div>
+        <div class="instruction-box">
+            <img src="../assets/gif/click.gif" alt="click-gif" class="gif">
+            <p>Utilice el botón "Siguiente" para avanzar por los diferentes tipos de señales. Haga clic en cualquier imagen para verla en tamaño completo.</p>
+        </div>
+       
+
+        <div class="carousel-container">
+            <div class="slide-counter">
+                <span id="currentSlide">1</span> de <span id="totalSlides">7</span>
+            </div>
+
+            <!-- Slide 1: Introducción -->
+            <div class="slide active">
+                <div class="slide-content intro">
+                    <div class="slide-text">
+                        <h2>INTRODUCCIÓN</h2>
+                       <ul>
+                            <li>Las maniobras de cargas o descarga de materiales o componentes, es uno de los principales riesgos potenciales en los que podría causar la muerte de una o más personas.</li>
+                            <li>Para el buen desenvolvimiento de los trabajos de izaje, es necesario mantener una comunicación constante entre el operador de grúa, el <span class="highlight-text">RIGGER</span> o maniobrista y todo el personal involucrado en el trabajo.</li>
+                            <li>Se debe considerar el uso de una radio portátil para la comunicación entre el operador de la grúa y el <span class="highlight-text">RIGGER</span> o maniobrista.</li>
+                            <li>El sistema ASME es uno de los estándares que cumple con las normas requeridas para las normas nacionales en seguridad.</li>
+                            <li>Se requiere de un código de señales estándar para las maniobras de izaje con grúas móviles como para las grúas articuladas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: El RIGGER O Maniobrista -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-0.png" alt="El RIGGER o Maniobrista" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>El <span class="highlight-text">RIGGER</span> O Maniobrista</h2>
+                        <p>Es la persona que dirige al <span class="highlight-text">operador</span> para ejecutar maniobras con grúas utilizadas para mover, trasladar, cargar o descargar objetos pesados tales como, materiales, estructuras, equipos y maquinaria.</p>
+                        <p>Sus principales funciones es determinar que los estrobos / eslingas y accesorios de izaje sean los apropiados para cada trabajo, debe saber cómo fijar los ganchos, estrobos, cadenas, cables o eslingas para levantar la carga de forma segura.</p>
+                        <p>Para el proceso de levantar la carga, el <span class="highlight-text">RIGGER</span> o maniobrista debe utilizar señales de mano o una radio portátil para dirigir la maniobra de izaje y orientar la carga en movimiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Subir y Bajar el Gancho -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-1.png" alt="Subir y Bajar el Gancho" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>Subir y Bajar el Gancho</h2>
+                        <p>El <span class="highlight-text">RIGGER</span> o maniobrista debe ubicarse en una parte visible para el <span class="highlight-text">operador</span> de grúa y fuera del rango de movimientos de la carga.</p>
+                        <p>Para la señal de subir el gancho, el <span class="highlight-text">RIGGER</span> o maniobrista debe, flexionar el codo a 90°, llevar el brazo hacia arriba, empuñar la mano y con el dedo índice girar haciendo círculos.</p>
+                        <p>Para la señal de bajar el gancho, el <span class="highlight-text">RIGGER</span> o maniobrista debe, llevar el brazo hacia abajo, empuñar la mano y con el dedo índice girar haciendo círculos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Usar el Winche Principal, Winche Auxiliar, Subir y Bajar Pluma -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-2.png" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>Usar el Winche Principal, Winche Auxiliar, Subir y Bajar Pluma</h2>
+                        <p>Para el uso del winche principal, el <span class="highlight-text">RIGGER</span> o maniobrista debe flexionar el brazo derecho a la altura del casco.</p>
+                        <p>Para el uso del winche auxiliar, el <span class="highlight-text">RIGGER</span> o maniobrista debe, flexionar el brazo derecho hacia arriba, tomar el codo con la palma de la mano izquierda.</p>
+                        <p>Para la señal de subir pluma, el <span class="highlight-text">RIGGER</span> o maniobrista debe, extender el brazo, empuñar la mano y con el dedo pulgar hacia arriba.</p>
+                        <p>Para la señal de bajar pluma, el <span class="highlight-text">RIGGER</span> o maniobrista debe, extender el brazo, empuñar la mano y con el dedo pulgar hacia abajo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Movimientos Combinados -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-3.png" alt="Subir Lentamente el Gancho, Movimientos Combinados" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>Subir Lentamente el Gancho, Subir Pluma y Bajar Gancho, Bajar Pluma y Subir Gancho, Girar Tornamesa</h2>
+                        <p>Para subir lentamente el gancho, el <span class="highlight-text">RIGGER</span> debe estirar el brazo izquierdo con la palma hacia abajo y con el dedo índice derecho hacia arriba, hacer círculos.</p>
+                        <p>Para subir pluma y bajar gancho, el <span class="highlight-text">RIGGER</span> o maniobrista debe, estirar el brazo derecho, con el pulgar hacia arriba, abrir y cerrar la mano.</p>
+                        <p>Para bajar pluma y subir gancho, el <span class="highlight-text">RIGGER</span> o maniobrista debe, extender el brazo derecho, y con el dedo pulgar hacia abajo, abrir y cerrar la mano.</p>
+                        <p>Para la señal de girar tornamesa, el <span class="highlight-text">RIGGER</span> o maniobrista debe, extender el brazo derecho y con la palma hacia abajo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: PARE, PARADA de Emergencia, Viajar o Avance, Bloquear el Equipo -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-4.png" alt="PARE, PARADA de Emergencia, Viajar o Avance, Bloquear el Equipo" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>PARE (STOP), PARADA de Emergencia, Viajar o Avance, Bloquear el Equipo</h2>
+                        <p>Para la señal PARE (Stop), el <span class="highlight-text">RIGGER</span> debe estirar el brazo izquierdo con la palma hacia abajo y girar el brazo hacia adentro y hacia afuera.</p>
+                        <p>Para la señal de PARADA DE EMERGENCIA, el <span class="highlight-text">RIGGER</span> o maniobrista debe, estirar los brazos, con la palma hacia abajo y girar ambos brazos hacia adentro y hacia afuera.</p>
+                        <p>Para VIAJAR O AVANCE, el <span class="highlight-text">RIGGER</span> o maniobrista debe, flexionar el brazo derecho hacia adelante en señal de avanzar.</p>
+                        <p>Para la señal de BLOQUEAR EL EQUIPO, el <span class="highlight-text">RIGGER</span> o maniobrista debe, flexionar los brazos y entrelazar los dedos en señal de bloqueo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Extender y Retraer Pluma Telescópica -->
+            <div class="slide">
+                <div class="slide-content">
+                    <div class="slide-image">
+                        <img src="../assets/images/M4_pagina1/proceso-5.png" alt="Extender Pluma Telescópica, retraer Pluma Telescópica" onclick="openLightbox(this)">
+                    </div>
+                    <div class="slide-text">
+                        <h2>Extender Pluma Telescópica, retraer Pluma Telescópica</h2>
+                        <p>Para la señal EXTENDER PLUMA TELESCÓPICA, el <span class="highlight-text">RIGGER</span> o maniobrista, debe flexionar ambos brazos, cerrar los puños y con los pulgares hacia afuera mostrando señales de extender la pluma.</p>
+                        <p>Para la señal RETRAER PLUMA TELESCÓPICA, el <span class="highlight-text">RIGGER</span> o maniobrista, debe flexionar ambos brazos, cerrar los puños y con los pulgares hacia adentro mostrando señales de retraer la pluma.</p>
+                        <p><strong>En todo momento el <span class="highlight-text">RIGGER</span> o maniobrista debe ubicarse a la vista del <span class="highlight-text">operador</span> de grúa</strong></p>
+                    </div>
+                </div>
+                <div class="btn-siguiente">
+                    <button class="interactive-button" onclick="goToNextPage()">
+                        Continuar
+                        <span class="arrow">❯</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" disabled>
+                ← Anterior
+            </button>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+                Siguiente →
+            </button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeLightbox()">×</button>
+            <img id="lightboxImg" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 7;
+
+        function updateSlideDisplay() {
+            const slides = document.querySelectorAll('.slide');
+            const currentSlideElement = document.getElementById('currentSlide');
+            const progressFill = document.getElementById('progressFill');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // Ocultar todas las slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Mostrar slide actual
+            slides[currentSlideIndex].classList.add('active');
+
+            // Actualizar contador
+            currentSlideElement.textContent = currentSlideIndex + 1;
+
+            // Actualizar barra de progreso
+            const progressPercentage = ((currentSlideIndex + 1) / totalSlides) * 100;
+            progressFill.style.width = progressPercentage + '%';
+
+            // Actualizar botones
+            prevBtn.disabled = currentSlideIndex === 0;
+            nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+
+            if (currentSlideIndex === totalSlides - 1) {
+                nextBtn.textContent = 'Completado ✓';
+            } else {
+                nextBtn.textContent = 'Siguiente →';
+            }
+        }
+
+        function changeSlide(direction) {
+            const newIndex = currentSlideIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < totalSlides) {
+                currentSlideIndex = newIndex;
+                updateSlideDisplay();
+            }
+        }
+
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            
+            // Prevenir scroll del body
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            
+            // Restaurar scroll del body
+            document.body.style.overflow = 'auto';
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            updateSlideDisplay();
+            
+            // Agregar número total de slides
+            document.getElementById('totalSlides').textContent = totalSlides;
+        });
+      
+        //SCORM
+        function goToNextPage() {
+            window.location.href = 'conclusiones.html';
+        }
+
+        function backPage() {
+            window.location.href = 'M4_inicio.html';
+        }
+        
+        // Iniciar SCORM
+        ScormManager.init();
+
+        // Guardar progreso de esta página
+        ScormManager.guardarProgreso("M4_pagina1.html"); // Cambia según la página
+
+        // Recuperar progreso
+        const datos = ScormManager.cargarProgreso();
+        // if (datos) {
+        //     console.log("Última página:", datos.ultimaPagina);
+        //     console.log("Progreso:", datos.score + "%");
+        // }
+        document.addEventListener("DOMContentLoaded", () => {
+            const progreso = ScormManager.cargarProgreso();
+            const porcentaje = progreso.score ? parseInt(progreso.score) : 0;
+
+            const barra = document.getElementById("progreso-barra");
+            const texto = document.getElementById("progreso-texto");
+
+            barra.style.width = porcentaje + "%";
+            texto.textContent = porcentaje + "%";
+        });
+    </script>
+    
+</body>
+</html>

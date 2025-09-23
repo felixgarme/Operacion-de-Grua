@@ -120,6 +120,7 @@ body {
 .content-area {
     min-height: 500px;
     position: relative;
+    margin-bottom: 4vh;
 }
 
 .tab-content {
@@ -137,6 +138,7 @@ body {
     grid-template-columns: 1fr 400px;
     gap: 40px;
     align-items: start;
+    margin: 5vh;
 }
 
 .riesgos-content {
@@ -197,7 +199,7 @@ body {
 
 .image-container {
     position: relative;
-    border: 4px solid #3937bd;
+    border: 4px solid rgba(0, 102, 204, 0.4);
     border-radius: var(--border-radius-md);
     overflow: hidden;
     box-shadow: 0 8px 25px rgb(58 53 55 / 30%);
@@ -252,10 +254,11 @@ body {
 .izajes-container {
     background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
+    padding: 4vh;
     border: 2px solid var(--color-rojo);
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border: 2px solid #e2e8f0;
+    margin: 4vh;
 }
 
 .izajes-header {
