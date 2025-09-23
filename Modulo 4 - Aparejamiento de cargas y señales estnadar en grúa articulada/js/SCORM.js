@@ -65,30 +65,24 @@ class ScormManager {
 // 👉 Lista actualizada de páginas del curso según el menú actual
 ScormManager.paginasCurso = [
 
-  // Módulo 1: Introducción a la Seguridad
+  // Módulo 1: 
   "M1_inicio.html",
   "M1_pagina1.html",
   "M1_pagina2.html",
   
-  // Módulo 2: Conocimiento de la Máquina
+  // Módulo 2: 
   "M2_inicio.html",
   "M2_pagina1.html",
   "M2_pagina2.html", 
-  "M2_pagina3.html", 
+  
 
-  // Módulo 3: Mantenimiento
+  // Módulo 3: 
   "M3_inicio.html",
   "M3_pagina1.html",
-  "M3_pagina2.html", 
-  "M3_pagina3.html", 
-  "M3_pagina4.html", 
-  "M3_pagina5.html", 
-  "M3_pagina5 B.html", 
-  "M3_pagina6.html", 
-  "M3_pagina7.html", 
-  "M3_pagina8.html", 
-  "M3_pagina9.html", 
-
+  // Módulo 4: 
+  "M4_inicio.html",
+  "M4_pagina1.html",
+  
   // Conclusiones
   "conclusiones.html"
 ];
