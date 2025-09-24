@@ -1,0 +1,428 @@
+
+.curso-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: #F5F7FA; */
+    color: #4D4D4E;
+    line-height: 1.6;
+}
+
+.curso-header {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(3, 23, 148, 0.15);
+}
+
+.curso-title {
+    background: linear-gradient(90deg, #FF0000, #351EBD, #3479F6, #1F87C6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: none;
+}
+
+.curso-subtitle {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    margin: 5px 0 0 0;
+    font-weight: 500;
+}
+
+.curso-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.curso-section {
+    background: #FFFFFF;
+    border: 1px solid #DDE8F5;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.curso-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(3, 23, 148, 0.15);
+    border-color: #031794;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.section-header:hover {
+    background: #E5F0F9;
+}
+
+.section-icon {
+    width: 24px;
+    height: 24px;
+    background: #031794;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.section-icon::after {
+    content: '+';
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.section-icon.active::after {
+    transform: rotate(45deg);
+}
+
+.section-title {
+    color: #031794;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.section-content {
+    margin-top: 10px;
+    padding-left: 34px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.section-content.active {
+    max-height: 1000px;
+}
+
+.subsection {
+    background: #E5F0F9;
+    border-left: 4px solid #031794;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 0 6px 6px 0;
+}
+
+.subsection-title {
+    color: #031794;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+}
+
+.punto-item {
+    color: #4D4D4E;
+    margin: 3px 0;
+    padding-left: 8px;
+    position: relative;
+}
+
+.punto-item::before {
+    content: '•';
+    color: #031794;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.alert-section {
+    background: linear-gradient(90deg, #FF0000, #351EBD);
+    color: #FFFFFF;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.alert-title {
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
+}
+
+.alert-content {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.factores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.factor-card {
+    background: linear-gradient(135deg, #031794, #2A5BDF);
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.factor-card:hover {
+    transform: scale(1.05);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #DDE8F5;
+    border-radius: 3px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    background: #f0f4f8;
+    border: 1px solid #d1d9e6;
+    color: var(--color-azul);
+    padding: 0.7rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    text-align: center;
+    min-width: 200px;
+}
+
+.nav-button:hover {
+    background: var(--color-azul);
+    color: white;
+    border-color: var(--color-azul);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25);
+}
+
+.nav-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .curso-container {
+    padding: 5px;
+    }
+    
+    .curso-title {
+    font-size: 1.5rem;
+    }
+    
+    .curso-subtitle {
+    font-size: 1rem;
+    }
+    
+    .section-title {
+    font-size: 1.1rem;
+    }
+    
+    .factores-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 6px;
+    }
+    
+    .factor-card {
+    padding: 6px;
+    font-size: 0.85rem;
+    }
+    
+    .navigation-buttons {
+    gap: 5px;
+    }
+    
+    .nav-button {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .curso-title {
+    font-size: 1.3rem;
+    }
+    
+    .section-content {
+    padding-left: 20px;
+    }
+    
+    .factores-grid {
+    grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* Boton 2 */
+
+.button2 {
+    background: #f0f4f8;
+    border: 1px solid #d1d9e6;
+    color: var(--color-gris);
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    text-align: center;
+    min-width: 200px;
+}
+
+.button2:hover {
+    background: var(--color-azul);
+    color: white;
+    border-color: var(--color-azul);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25);
+}
+
+.button2:active {
+background: var(--color-azul-oscuro) !important; 
+
+}
+
+/* Estilos para la sección del operador */
+.operador-stats {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.stats-container h3 {
+    color: #031794;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 8px 0;
+    background: #ffffff;
+    border-radius: 6px;
+    border-left: 4px solid #031794;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-percentage {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #031794;
+}
+
+.stat-label {
+    color: #4D4D4E;
+    font-weight: 500;
+}
+
+.competencias-container {
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.competencias-container h3 {
+    color: #031794;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.competencias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.competencia-card {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.competencia-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.competencia-card.conocimiento {
+    background: linear-gradient(135deg, #031794, #2A5BDF);
+}
+
+.competencia-card.habilidades {
+    background: linear-gradient(135deg, #FFA500, #FF8C00);
+}
+
+.competencia-card.actitudes {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+@media (max-width: 768px) {
+    .competencias-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .competencia-card {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .stat-item {
+        padding: 6px 10px;
+    }
+    
+    .stat-percentage {
+        font-size: 1.1rem;
+    }
+}
+

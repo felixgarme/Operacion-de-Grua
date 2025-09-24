@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../../assets/css/main_ex.css" />
+  <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+  <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
+  <link rel="stylesheet" href="../../assets/css/ex1.css" />
+
+  <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
+
+
+  <!-- Scripts -->
+  <script src="../../js/sidebar.js" defer></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <button class="back-page-btn" onclick="backPage()">
+    <span class="arrow">❮</span>
+  </button>
+  <nav id="sidebar" class="close">
+    <div id="logo-seccion">
+      <a href="../../index">
+        <img src="../../assets/images/logo_blanco.png" height="10px" alt="logo">
+      </a>
+      <button id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </button>
+    </div>
+    <div id="barra">
+      <span id="barra-titulo"><strong>Progreso del Curso</strong></span>
+      <div id="progreso-container">
+        <div id="progreso-barra"></div>
+        <span id="progreso-texto">0%</span>
+      </div>
+    </div>
+    <div id="menu-container"></div>
+  </nav>
+
+
+  <!-- Logo inferior -->
+  <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" />
+  </div>
+  <!-- Título principal -->
+  <header>
+    <h1 class="titulo-epp"><span class="gradient-text2">¿Que es el Mantenimiento de la Perforadora Smart ROCK D65?
+      </span></h1>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="gancho-component">
+
+    <div class="gancho-info-section">
+
+      <div class="gancho-highlight-box">
+        <p class="gancho-highlight-text">
+          El mantenimiento preventivo es un conjunto de actividades programadas para evitar que se presenten fallas
+          inesperadas en equipos o sistemas.</p>
+        <p class="gancho-highlight-text">
+          Se trata de una estrategia proactiva que se basa en inspecciones regulares, pruebas y acciones planificadas.
+        </p>
+        <p class="gancho-highlight-text">
+          El fabricante divide en intervalos de mantenimiento según las horas del motor Diesel, pero hay estrategias
+          tomadas a raíz del resultado de las inspecciones y se llevan a cabo:
+        </p>
+      </div>
+
+      <div class="gancho-interactive-buttons">
+        <button class="gancho-btn active" onclick="GanchoController.showSection('10h')">Cada 10 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('50h')">Cada 50 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('250h')">Cada 250 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('500h')">Cada 500 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('1000h')">Cada 1000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('1500h')">Cada 1500 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('2000h')">Cada 2000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('2500h')">Cada 2500 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('3000h')">Cada 3000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('4000h')">Cada 4000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('5000h')">Cada 5000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('8000h')">Cada 8000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('10000h')">Cada 10000 horas</button>
+        <button class="gancho-btn" onclick="GanchoController.showSection('20000h')">Cada 20000 horas</button>
+      </div>
+
+      <div id="10h" class="gancho-details show">
+        <div class="gancho-content-grid">
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">10H</span>
+              Cada 10 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Desacopladora de Tubos y Guía de Barra</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Soporte de cilindro y desacopladora de tubos:</strong>
+                  <p>Revisar el par de apriete, 600 Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Soporte de cilindro y guía de tubos:</strong>
+                  <p>Revisar el par de apriete, 120 Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Tuerca de fijación para tornillo de ajuste: Forward y guía de tubo, 185 Nm.</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="maintenance-instruction">
+              <p><strong>Realizar lubricación a todos los puntos de engrase de la barra desacopladora y guía de
+                  barra.</strong></p>
+            </div>
+          </div>
+
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">10H</span>
+              Cada 10 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Tanque de Compresor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Drenaje sedimentos del tanque:</strong>
+                  <ul class="maintenance-steps">
+                    <li>Abra el tapón de drenado.</li>
+                    <li>Drene el agua.</li>
+                    <li>Cierre el tapón de drenado.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Nivel de aceite del compresor:</strong>
+                  <ul class="maintenance-steps">
+                    <li>Revise el nivel de aceite.</li>
+                    <li>La aguja debe estar en la zona verde.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Filtro separador de agua del compresor:</strong>
+                  <ul class="maintenance-steps">
+                    <li>Abra la válvula de drenado.</li>
+                    <li>Drene el agua.</li>
+                    <li>Cierre la válvula de drenado.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Equipo de Potencia -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">10H</span>
+              Cada 10 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Equipo de Potencia</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Bombas Hidráulicas:</strong>
+                  <p>Revisar si hay fugas en las mangueras y sellos de junta de las bombas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Filtro primario de combustible:</strong>
+                  <p>Drenar el separador de agua.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Nivel de Aceite de Motor Diesel:</strong>
+                  <p>El nivel de aceite se debe mantenerse entre las marcas añadir y lleno de la varilla de medición.
+                  </p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Nivel de Refrigerante:</strong>
+                  <p>Revisar que el nivel se mantenga en el visor.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Aceite Hidráulico:</strong>
+                  <p>Revisar que el nivel se mantenga en el visor.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Aceite lubricante HECL/ECL/ECG:</strong>
+                  <p>Revisar que el nivel se mantenga en el visor.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gancho-card-subtitle" style="margin-top: 20px;">
+              <strong>Verificaciones Adicionales</strong>
+            </div>
+            <ul class="maintenance-steps">
+              <li>Verificar si hay fugas en el compartimiento de motor y compresor.</li>
+              <li>Revisar el nivel de grasa de lubricación de roscas del barreno.</li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Bastidores de Cadenas -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">10H</span>
+              Cada 10 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Bastidores de Cadenas</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Motores de Tracción:</strong>
+                  <p>Revisar si hay signos de fugas entre las juntas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Engranajes de Tracción:</strong>
+                  <p>Revisar si hay signos de fugas entre las juntas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Rodillos Superiores:</strong>
+                  <p>Revisar si hay signos de fugas y desgaste anormal.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Rodillos Inferiores:</strong>
+                  <p>Revisar si hay signos de fugas y desgaste anormal.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Cadenas, Bujes y Zapatas:</strong>
+                  <p>Controlar la tensión, revisar condiciones de bujes y zapatas.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Sistema Eléctrico -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">10H</span>
+              Cada 10 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema Eléctrico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Lámparas de Iluminación de Trabajo:</strong>
+                  <p>Verificar el funcionamiento de las luces delanteras, luces alimentadoras y luces traseras.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Interruptor de Parada de Emergencia:</strong>
+                  <p>Revisar cada botón de parada de emergencia individualmente. El motor Diesel debe parar.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Cable de Parada de Emergencia:</strong>
+                  <p>Antes de revisar la parada de emergencia manual, se debe reiniciar el interruptor de parada de
+                    emergencia. Antes de reiniciar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="50h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema Eléctrico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Lámparas de Iluminación de Trabajo:</strong>
+                  <p>Verificar el funcionamiento de luces delanteras, luces del alimentador y luces posteriores.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Interruptor de Parada de Emergencia:</strong>
+                  <p>Comprobar cada botón de parada de emergencia de forma individual. El motor Diesel debe detenerse.
+                  </p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Cable de Parada de Emergencia:</strong>
+                  <p>Antes de comprobar la parada de emergencia manual, el interruptor de parada de emergencia debe
+                    reestablecerse. Antes de reiniciar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Alimentador -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Alimentador</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Verificar mangueras:</strong>
+                  <p>Verificar que las mangueras se mantengan sobre el carrete.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Lubricación de deslizadera:</strong>
+                  <p>Lubricar y revisar el nivel de grasa de la deslizadera, se debe mantener lubricados el mástil y
+                    deslizadera.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Punto de lubricación del carrete:</strong>
+                  <p>Mantener lubricado el eje de los carretes de las mangueras.</p>
+                  <ul class="maintenance-steps">
+                    <li>Revisar el desgaste y ajuste de los carretes de las mangueras hidráulicas</li>
+                    <li>Revisar el espacio libre de los rieles de deslizamiento, (2 a 4mm.)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Manipulador de Barras -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Manipulador de Barras (carrusel)</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Puntos de lubricación del manipulador de barras (carrusel):</strong>
+                  <p>Mantener lubricados todos los puntos de engrase.</p>
+                  <ul class="maintenance-steps">
+                    <li>Revisar que los puntos de lubricación mantengan lubricados los accesorios del carrusel.</li>
+                    <li>Revisar el desgaste de los porta barras, rajaduras y desgaste.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Brazo de Inclinación -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Brazo de Inclinación</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Puntos de lubricación de los pines de los cilindros y articulaciones del brazo de
+                    inclinación:</strong>
+                  <p>Mantener lubricados todos los puntos de engrase.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Soporte de la Deslizadera:</strong>
+                  <p>Revisar el espacio libre, la tolerancia máxima es de (2 a 4mm.)</p>
+                  <ul class="maintenance-steps">
+                    <li>Revisar el desgaste de los alojamientos de los pines.</li>
+                    <li>Revisar rajaduras en la estructura del brazo y el soporte.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Bastidores de Pista -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Bastidores de Pista</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Engranaje de Tracción:</strong>
+                  <p>Revisar si hay signos de fugas.</p>
+                  <ul class="maintenance-steps">
+                    <li>Primer cambio de aceite después de las 150 horas.</li>
+                    <li>Después cada 1500 horas. Volumen aproximado. 2 l.</li>
+                    <li>Limpie los engranajes con aceite antes de llenar con aceite nuevo.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Puntos de Lubricación:</strong>
+                  <p>Lubricar los puntos de engrase del eje pívot.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Rueda Guía Delantera:</strong>
+                  <p>Revisar si hay signos de fugas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Rueda Guía Delantera:</strong>
+                  <ul class="maintenance-steps">
+                    <li>Revisar la posición del tensador.</li>
+                    <li>Realizar ajuste de los pernos de todo el tren de rodamiento.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Motor Diesel / Compresor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Motor Diesel / Compresor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Filtro de Aceite:</strong>
+                  <p>Cambiar los filtros después de las primeras 50 horas.</p>
+                  <ul class="maintenance-steps">
+                    <li>Motor Diesel y Compresor: Revisar si hay signos de fugas de aire o aceite.</li>
+                    <li>Filtro de Aire para Compresor / Motor Diesel: Revisar las conexiones y acoplamientos del
+                      múltiple de entrada.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Radiador / Tanque Hidráulico -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Radiador / Tanque Hidráulico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Radiador de Refrigerante:</strong>
+                  <p>Verificar el nivel de refrigerante.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Panel del Radiador:</strong>
+                  <p>Revisar si los radiadores están obstruidos. Limpiar el polvo con aire comprimido.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Tanque de Aceite Hidráulico:</strong>
+                  <p>Drenar el agua y sedimentos. El equipo de perforación debe haber estado parado durante una hora
+                    antes de que se pueda drenar el agua.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Cabina -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Cabina</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Filtro de Circulación Externo:</strong>
+                  <p>Limpiar o cambiar el elemento del filtro en caso necesario.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Filtro de Circulación Interno:</strong>
+                  <p>Limpiar o cambiar el elemento del filtro en caso necesario.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Filtro Primario:</strong>
+                  <p>Limpiar o cambiar el elemento del filtro en caso necesario.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Pre-Filtro:</strong>
+                  <p>Limpiar o cambiar el elemento del filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Extintor de incendios:</strong>
+                  <p>Verificar que las instrucciones sean legibles.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Escalones hacia la puerta:</strong>
+                  <p>Revisar la gomas, grietas y daños</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Extintor de Incendios -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">50H</span>
+              Cada 50 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Extintor de Incendios</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Extintor de Incendios Portátil Posterior:</strong>
+                  <p>Verificar la legibilidad de las instrucciones y la condición del extintor de incendios.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Extintor de Incendios Portátiles de la Cabina:</strong>
+                  <p>Verificar la legibilidad de las instrucciones y la condición del extintor de incendios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="250h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Deslizadera de Cadena</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Rieles de deslizamiento:</strong>
+                  <p>Revisar las partes deslizantes, juego, montaje, daños y par de apriete. El juego especificado es 2
+                    - 4mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Rieles de deslizamiento:</strong>
+                  <p>Revisar el desgaste de la estructura.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Sensor de Límite:</strong>
+                  <p>Revisar el montaje y función, y ajustar la distancia a aproximadamente 5mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Mitades de Buje:</strong>
+                  <p>Revisar el desgaste y rajaduras.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Cilindros hidráulicos:</strong>
+                  <p>Revisar los pernos de soporte.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Rodamiento Esférico de los alojamiento de los cilindros:</strong>
+                  <p>Revisar el juego máximo, que debe ser 0.05mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">G.</span>
+                <div class="point-content">
+                  <strong>Mitades del Soporte de la guía de barrena:</strong>
+                  <p>Revisar los soportes.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">H.</span>
+                <div class="point-content">
+                  <strong>Disco de Llenado:</strong>
+                  <p>Limpiar y remover recortes acumulados detrás del disco.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Alimentador -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Alimentador</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Rieles de deslizamiento:</strong>
+                  <p>Revisar las piezas deslizantes, juego, montaje, daño y par de apriete. Juego 2 - 4mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Rieles de deslizamiento:</strong>
+                  <p>Revisar el desgaste de la estructura.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Sensor de Límite:</strong>
+                  <p>Revise el montaje y la función. Ajuste la distancia, aprox. 5mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Mitades de Buje:</strong>
+                  <p>Revise si hay desgaste y grietas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Cilindros hidráulicos:</strong>
+                  <p>Revisar los pernos de los soportes.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Rodamiento Esférico de los alojamiento de los cilindros:</strong>
+                  <p>Revisar el espacio libre máximo 0.05mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">G.</span>
+                <div class="point-content">
+                  <strong>Mitades del Soporte de la guía de barrena:</strong>
+                  <p>Revisar soportes.</p>
+                  <ul class="maintenance-steps">
+                    <li>Cilindro del Alimentador: Revisar daños.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Desacoplador de Tubos / Guiador de Barras -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Desacoplador de Tubos / Guiador de Barras</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Rodamiento Esférico de los alojamiento de los cilindros:</strong>
+                  <p>Revisar el espacio libre máximo 0.5mm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Mitades del Soporte de la Guía de Barrena:</strong>
+                  <p>Revisar el ajuste, y si hay desgaste y grietas.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Mordazas del Rompedor:</strong>
+                  <p>Revise el ajuste, si hay desgaste y grietas.</p>
+                  <ul class="maintenance-steps">
+                    <li>Juntas atornilladas: Revisar el apriete: M10 41 Nm, M12 73 Nm, M16 185 Nm.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Brazo de Inclinación -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Brazo de Inclinación</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Cabezal del Brazo / Soporte de Deslizadera:</strong>
+                  <p>Revisar pernos de los soportes.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Soporte de Deslizadera:</strong>
+                  <p>Revisar el juego que hay entre el alimentador y el soporte de deslizadera, 2 - 4mm.</p>
+                  <ul class="maintenance-steps">
+                    <li>Todos los Casquillos y Rodamientos: Revisar el juego que hay entre casquillos, eje y soporte.
+                      Cambie los casquillos y el eje según sea necesario. Juego máx. 1mm.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Sistema de Aire Acondicionado -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema de Aire Acondicionado</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Filtro de Circulación Interno de Cabina:</strong>
+                  <p>Realizar el cambio del elemento.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Filtro de Primario de Aire de Cabina:</strong>
+                  <p>Realizar el cambio del elemento.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Pre-Filtro de Aire de Cabina:</strong>
+                  <p>Realizar el cambio del elemento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Sistema Eléctrico -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema Eléctrico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Gabinete eléctrico:</strong>
+                  <p>Revisar el sello de la guarda de protección, realizar limpieza del polvo y tierra acumulados.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Bloque de Conexiones:</strong>
+                  <p>Revisar el estado por posible corrosión, grietas y el ajuste.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Bastidores y Tren de Rodamiento -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Bastidores y Tren de Rodamiento</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Engranaje de Tracción:</strong>
+                  <p>Revisar el nivel de aceite.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Rodillos de Inferiores:</strong>
+                  <p>Revisar fugas y desgaste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Cadena Transportadora:</strong>
+                  <p>Comprobar la tensión de la cadena.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Rodillos Superiores:</strong>
+                  <p>Revisar fugas y desgaste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Rueda Motriz:</strong>
+                  <p>Revisar el desgaste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Rueda Guía Delantera:</strong>
+                  <p>Revisar el desgaste.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gancho-card-subtitle" style="margin-top: 20px;">
+              <strong>Verificaciones Adicionales</strong>
+            </div>
+            <ul class="maintenance-steps">
+              <li>Bastidor: Revisar posibles daños y rajaduras.</li>
+              <li>Soportes: Revisar pernos de ajuste.</li>
+            </ul>
+          </div>
+
+          <!-- Card 8: Colector de Polvo (DCT) -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Colector de Polvo (DCT)</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Motor Hidráulico:</strong>
+                  <p>Revisar de soporte, pernos M12 73Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Placa del Motor:</strong>
+                  <p>Revisar de soporte, pernos M10 41Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Válvulas de Diafragma:</strong>
+                  <p>Revisar fugas de aceite.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Colector de Polvo:</strong>
+                  <p>Revisar de soporte, pernos M16 185Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Pieza Conectora de la Entrada:</strong>
+                  <p>Revisar desgaste</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">F.</span>
+                <div class="point-content">
+                  <strong>Gomas de Soportes:</strong>
+                  <p>Revise el desgaste y la fijación</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">G.</span>
+                <div class="point-content">
+                  <strong>Filtro del Colector de Polvo:</strong>
+                  <p>Inspección visual.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: Equipo de Potencia Motor Diesel -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Equipo de Potencia Motor Diesel</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Aceite de motor:</strong>
+                  <p>Cambiar y cambiar el aceite de motor Diesel, consultar manual de mantenimiento.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Cabina del Operador:</strong>
+                  <p>Revise soportes por daños, revisar el ajuste de pernos 185 Nm.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C.</span>
+                <div class="point-content">
+                  <strong>Filtro de Aceite de Motor:</strong>
+                  <p>Realizar el cambio de filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D.</span>
+                <div class="point-content">
+                  <strong>Filtro de Combustible:</strong>
+                  <p>Realizar el cambio de filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E.</span>
+                <div class="point-content">
+                  <strong>Pre - Filtro de Combustible:</strong>
+                  <p>Realizar el cambio de filtro.</p>
+                  <ul class="maintenance-steps">
+                    <li>Baterías: Revise el nivel del electrolito</li>
+                    <li>Bandas en V alternador/aire acondicionado: Revisar el desgaste y la tensión, consultar el manual
+                      de mantenimiento.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 10: Sistema de Admisión, Refrigerante, e Interenfriador -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema de Admisión, Refrigerante, e Interenfriador</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Sistema de Filtros de Aire:</strong>
+                  <ul class="maintenance-steps">
+                    <li>Verificar la restricción.</li>
+                    <li>Revisar el ajuste de las abrazaderas.</li>
+                    <li>Par de apriete tipo A: 5 - 6 Nm, tipo B: 10-12 Nm.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Abrazaderas de Refrigerante:</strong>
+                  <p>Revisar el ajuste de las abrazaderas. Par de apriete tipo A: 5 - 6 Nm, tipo B: 10-12 Nm.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el estado de las mangueras de refrigerante</li>
+                    <li>Verificar el nivel y fugas de refrigerante.</li>
+                    <li>Verificar el estado de las mangueras del aftercooler</li>
+                    <li>Verificar y cambiar el respiradero del tanque hidráulico.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 11: Sistema Hidráulico y Bomba de Agua para Perforación -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema Hidráulico y Bomba de Agua para Perforación</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A.</span>
+                <div class="point-content">
+                  <strong>Filtro Respiradero del Tanque de aceite:</strong>
+                  <p>Revisar si está obstruido, realizar el cambio si es necesario.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el nivel de aceite y fugas en el tanque de aceite hidráulico.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B.</span>
+                <div class="point-content">
+                  <strong>Bomba de Agua para Perforación:</strong>
+                  <p>Revisar los sellos, reemplazar en caso de fugas de agua.</p>
+                  <ul class="maintenance-steps">
+                    <li>Operar la bomba durante 1 minuto, contar las gotas que fugan a través de los sellos de la bomba.
+                    </li>
+                    <li>Si hay más de 10 gotas por minuto, se debe cambiar los sellos de la bomba.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 12: Circulación Inversa -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">250H</span>
+              Cada 250 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Circulación Inversa</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">1.</span>
+                <div class="point-content">
+                  <strong>Trépano (broca):</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">2.</span>
+                <div class="point-content">
+                  <strong>Anillo de Sello:</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">3.</span>
+                <div class="point-content">
+                  <strong>Barreno de Perforación:</strong>
+                  <p>Verificar el desgaste y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">4.</span>
+                <div class="point-content">
+                  <strong>Tubo de Perforación (barra):</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">5.</span>
+                <div class="point-content">
+                  <strong>Adaptador de Rosca:</strong>
+                  <p>Verificar el desgaste y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">6.</span>
+                <div class="point-content">
+                  <strong>Tubo para Aire Comprimido entrada:</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">7.</span>
+                <div class="point-content">
+                  <strong>Pivote Hidráulico:</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">8.</span>
+                <div class="point-content">
+                  <strong>Unidad de Rotación:</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">9.</span>
+                <div class="point-content">
+                  <strong>Tubo espaciado:</strong>
+                  <p>Verificar el desgaste, fugas y ajuste.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">10</span>
+              <div class="point-content">
+                <strong>Pivote de salida:</strong>
+                <p>Verificar desgaste, fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">11</span>
+              <div class="point-content">
+                <strong>Primer deflector:</strong>
+                <p>Verificar fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">12</span>
+              <div class="point-content">
+                <strong>Segundo deflector:</strong>
+                <p>Verificar fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">13</span>
+              <div class="point-content">
+                <strong>Manguera muestra:</strong>
+                <p>Verificar fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">14</span>
+              <div class="point-content">
+                <strong>Manguera muestra:</strong>
+                <p>Verificar fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">15</span>
+              <div class="point-content">
+                <strong>Ciclón:</strong>
+                <p>Verificar desgaste, fugas y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">16</span>
+              <div class="point-content">
+                <strong>Cámara Intermedia:</strong>
+                <p>Verificar desgaste y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">17</span>
+              <div class="point-content">
+                <strong>Cuarteador de Cono:</strong>
+                <p>Verificar desgaste y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">18</span>
+              <div class="point-content">
+                <strong>Cuarteador tipo Riffle Jones:</strong>
+                <p>Verificar desgaste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">19</span>
+              <div class="point-content">
+                <strong>Brazo de Inclinación:</strong>
+                <p>Verificar desgaste y ajuste.</p>
+              </div>
+            </div>
+
+            <div class="maintenance-point">
+              <span class="point-letter">20</span>
+              <div class="point-content">
+                <strong>Válvula de purga Metzke – opcional:</strong>
+                <p>Verificar desgaste y ajuste.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="500h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Deslizadera de Cadena -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">500H</span>
+              Cada 500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Deslizadera de Cadena</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">1</span>
+                <div class="point-content">
+                  <strong>Cubierta de la Cadena de Escalada:</strong>
+                  <p>Revisar el desgaste y ajuste de pernos.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">2</span>
+                <div class="point-content">
+                  <strong>Rueda Dentada:</strong>
+                  <p>Revisar el desgaste y ajuste de pernos.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">3</span>
+                <div class="point-content">
+                  <strong>Punto de Lubricación:</strong>
+                  <p>Realizar lubricación del eje de las ruedas dentadas.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el estado de la cadena de escalada y su guiador.</li>
+                    <li>Verificar el desgaste del protector plástico de la deslizadera.</li>
+                    <li>Realizar lubricación de todos los puntos de engrase.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Guía de Tubo de Perforación -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">500H</span>
+              Cada 500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Guía de Tubo de Perforación (barra)</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Piezas Deslizantes:</strong>
+                  <p>Revisar el espesor, se debe mantener mínimo de 4mm.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el estado de la deslizadera.</li>
+                    <li>Verificar el desgaste del protector plástico de la deslizadera.</li>
+                    <li>Realizar lubricación de todos los puntos de engrase.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Tanque de Aceite Hidráulico -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">500H</span>
+              Cada 500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Tanque de Aceite Hidráulico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Placa de cubierta, tanque hidráulico:</strong>
+                  <p>Revisar el espesor, se debe mantener mínimo de 4mm.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el par de ajuste a un par de apriete 11 Nm (8 lb. pie) en todos los pernos de la placa
+                      de cubierta.</li>
+                    <li>Verificar fugas las juntas de las mangueras que ingresan al tanque.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Motor Diesel -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">500H</span>
+              Cada 500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Motor Diesel</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Motor Diesel:</strong>
+                  <p>Revise el montaje y el par de apriete.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Bastidor de Energía:</strong>
+                  <p>Revisar los soportes y el par de apriete.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C</span>
+                <div class="point-content">
+                  <strong>Bombas hidráulicas:</strong>
+                  <p>Revisar los soportes y el par de apriete.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D</span>
+                <div class="point-content">
+                  <strong>Acoplamiento de Goma entre el Motor Diesel y la Bomba Hidráulica:</strong>
+                  <p>Revise si hay grietas y desgaste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">E</span>
+                <div class="point-content">
+                  <strong>Bomba de agua:</strong>
+                  <p>Revise si hay grietas y desgaste.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="maintenance-instruction">
+              <ul class="maintenance-steps">
+                <li><strong>Filtros de Aire de Motor:</strong> Cambiar el filtro primario y secundario de aire de motor.
+                </li>
+                <li><strong>Viga de Alimentación:</strong> Realizar lubricación de todos los puntos de engrase de la
+                  viga y accesorios.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 5: Soportes del Tanque de Combustible -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">500H</span>
+              Cada 500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Soportes del Tanque de Combustible</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Pernos de Retención:</strong>
+                  <p>Verificar que los pernos de retención delanteros del tanque de combustible estén apretados al par
+                    correcto de 73 Nm cada 500 horas de motor.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Pernos de Soportes Laterales:</strong>
+                  <p>Verifique que los pernos de retención delanteros del tanque de combustible (A) estén apretados al
+                    par correcto de 73 Nm cada 500 horas de motor.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="maintenance-instruction">
+              <p><strong>Nota de Seguridad:</strong> Todos los pernos de retención (A + B) y montajes se deben verificar
+                antes de realizar cualquier mantenimiento debajo del equipo de perforación.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="1000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Sistema de Aire Acondicionado -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1000H</span>
+              Cada 1000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema de Aire Acondicionado</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Filtro de Circulación:</strong>
+                  <p>Realizar el cambio del filtro.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar el sellado de la cabina, revisar que el sistema de aire acondicionado funciones
+                      correctamente.</li>
+                    <li>Verificar fugas de gas refrigerante en las mangueras.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Filtro de Aire para Motor Diesel y Compresor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1000H</span>
+              Cada 1000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Filtro de Aire para Motor Diesel y Compresor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Filtro de Aire de Compresor:</strong>
+                  <p>Revisar el indicador del filtro de aire.</p>
+                  <ul class="maintenance-steps">
+                    <li>Realizar inspección, limpieza o cambio del filtro de aire del compresor según sea el caso.</li>
+                    <li>Realizar inspección, limpieza o cambio del filtro de aire del motor Diesel según sea el caso.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Sistema de Aire -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1000H</span>
+              Cada 1000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Sistema de Aire</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Bloque de válvulas:</strong>
+                  <p>Limpie la obstrucción en donde se conecta la manguera AD19.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Sensor de presión del tanque B456:</strong>
+                  <p>Inspeccionar, limpiar y ajustar. Consultar el manual de mantenimiento.</p>
+                  <ul class="maintenance-steps">
+                    <li><strong>Válvulas de control para la presión de percusión:</strong> Revisar el correcto
+                      funcionamiento.</li>
+                    <li><strong>Compresor:</strong> Revisar la presión de la etapa intermedia 0.5 a 2 bares para
+                      compresor descargado 5 a 6.5 bares para compresor cargado.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Compresor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1000H</span>
+              Cada 1000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Compresor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Compresor:</strong>
+                  <p>Cambio de aceite</p>
+                  <div class="maintenance-instruction">
+                    <p><strong>Nota:</strong> Solamente se puede usar PAROIL S o PAROIL S68 de Atlas Copco.</p>
+                    <p>Consultar el manual de mantenimiento.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Filtro de Aceite:</strong>
+                  <p>Reemplazar el filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C</span>
+                <div class="point-content">
+                  <strong>Válvula de Seguridad:</strong>
+                  <p>Prueba de presión</p>
+                  <ul class="maintenance-steps">
+                    <li>32 bares para FlexiROC D50 y D60</li>
+                    <li>35 bares para FlexiROC D55 y D65</li>
+                    <li>35 bares para SmartROC D65</li>
+                  </ul>
+                  <p>Consulte las instrucciones de mantenimiento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Tanque de Presión, Separador -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1000H</span>
+              Cada 1000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Tanque de Presión, Separador</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Filtro separador del tanque de presión:</strong>
+                  <p>Realizar el cambio del filtro.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar que la arandela (1) que va debajo del filtro permanezca en su lugar y no se deseche
+                      junto con el filtro usado durante el remplazo del filtro.</li>
+                    <li>Verificar el estado del sello superior en el tanque.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="1500h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Bastidores de Pista -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1500H</span>
+              Cada 1500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Bastidores de Pista</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Engranaje de tracción:</strong>
+                  <p>Cambio de aceite.</p>
+                  <div class="maintenance-instruction">
+                    <p><strong>Volumen aproximado:</strong> 2 l.</p>
+                    <ul class="maintenance-steps">
+                      <li>Enjuague los engranajes con aceite antes de agregar aceite nuevo.</li>
+                      <li>El tapón de nivel se debe colocar justo por encima del centro del engranaje de tracción.</li>
+                    </ul>
+                    <p><strong>Nota importante:</strong> Primer cambio de aceite después de 150 horas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Depósito de Aceite Hidráulico -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">1500H</span>
+              Cada 1500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Depósito de Aceite Hidráulico</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Depósito de aceite hidráulico:</strong>
+                  <p>Cambio de aceite y cambio de filtro.</p>
+                  <div class="maintenance-instruction">
+                    <p>Consulte las instrucciones de mantenimiento. La máquina debe estar horizontal.</p>
+                    <ul class="maintenance-steps">
+                      <li>Verificar fugas por los sellos de las mangueras que ingresan al tanque de aceite hidráulico.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="2000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Filtros del Colector de Polvo -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">2000H</span>
+              Cada 2000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Filtros del Colector de Polvo</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Filtro del colector de polvo:</strong>
+                  <p>Remplazo de filtro, par de apriete recomendado 18-20 Nm.</p>
+                  <ul class="maintenance-steps">
+                    <li>Verificar los sellos de la caja de filtros.</li>
+                    <li>Verificar el correcto sellado del gabinete de filtros.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="2500h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Motor Diesel - 2500 Horas del Motor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">2500H</span>
+              Cada 2500 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Motor Diesel – 2500 Horas del Motor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Luz de Válvulas:</strong>
+                  <p>Compruebe/ajuste la luz del mecanismo de válvulas del motor.</p>
+                  <ul class="maintenance-steps">
+                    <li>La luz de válvulas de admisión es de 0.35 ± 0.05 mm (0.0138 ± 0.0020 inch).</li>
+                    <li>La luz de válvulas de escape es de 0.35 ± 0.05 mm (0.0138 ± 0.0020 inch).</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Válvulas de Actuación:</strong>
+                  <p>Compruebe.</p>
+                  <div class="maintenance-instruction">
+                    <p>Consulte las instrucciones del operador por separado para el motor a diésel.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="3000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Motor Diesel - 3000va Horas del Motor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">3000H</span>
+              Cada 3000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Motor Diesel – 3000va Horas del Motor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Regulador de temperatura (termostato):</strong>
+                  <p>Realizar el cambio de termostato, revisar el manual de mantenimiento.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Amortiguador de Vibración del cigüeñal:</strong>
+                  <p>Comprobar del estado, revisar el manual de mantenimiento por separado de para el motor Diesel.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C</span>
+                <div class="point-content">
+                  <strong>Rotador de Válvulas:</strong>
+                  <p>Comprobar el ajuste.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">D</span>
+                <div class="point-content">
+                  <strong>Sensor de Velocidad del Motor:</strong>
+                  <p>Limpiar y comprobar el buen funcionamiento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Tanque de Aceite del Compresor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">3000H</span>
+              Cada 3000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Tanque de Aceite del Compresor – 3000 Horas del Motor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Filtro Separador de agua:</strong>
+                  <p>Realizar el cambio del elemento del filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Cambio de sellos del filtro:</strong>
+                  <p>Realizar el cambio de sellos del filtro.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C</span>
+                <div class="point-content">
+                  <strong>Cambio del sello de la tapa:</strong>
+                  <p>Realizar el cambio del sello de la tapa del tanque de aceite del compresor.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="4000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Motor Diesel - 4000 Horas del Motor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">4000H</span>
+              Cada 4000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Motor Diesel – 4000 Horas del Motor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Soportes del Motor:</strong>
+                  <p>Comprobar el ajuste, consultar el manual de mantenimiento para motor Diesel por separado.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Motor de Arranque:</strong>
+                  <p>Comprobar el buen funcionamiento, consultar el manual de mantenimiento para motor Diesel por
+                    separado.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="5000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Deslizadera de Cadena - 5000 Horas del Motor -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">5000H</span>
+              Cada 5000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Deslizadera de Cadena - 5000 Horas del Motor</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Deslizadera de cadena:</strong>
+                  <p>Realizar cambio, verificar el estado de soportes y pernos de sujeción.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Estructura de la Viga del Alimentador:</strong>
+                  <p>Verificar rajaduras y desgaste en la estructura de la viga.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">C</span>
+                <div class="point-content">
+                  <strong>Cabrestante de Servicio:</strong>
+                  <p>Realizar el cambio.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="20000h" class="gancho-details">
+        <div class="gancho-content-grid">
+          <!-- Card 1: Brazo de Inclinación y Accesorios -->
+          <div class="gancho-info-card">
+            <h3 class="gancho-card-title">
+              <span class="gancho-icon">20000H</span>
+              Cada 20000 horas del Motor Diesel
+            </h3>
+            <div class="gancho-card-subtitle">
+              <strong>Brazo de Inclinación y Accesorios</strong>
+            </div>
+
+            <div class="maintenance-points">
+              <div class="maintenance-point">
+                <span class="point-letter">A</span>
+                <div class="point-content">
+                  <strong>Cabezal del Brazo:</strong>
+                  <p>Realizar cambio, verificar el estado de soportes y pernos de sujeción.</p>
+                </div>
+              </div>
+
+              <div class="maintenance-point">
+                <span class="point-letter">B</span>
+                <div class="point-content">
+                  <strong>Estructura de la Viga del Alimentador:</strong>
+                  <p>Verificar rajaduras y desgaste en la estructura de la viga.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    class GanchoController {
+      static currentSection = '10h';
+      static visitedSections = new Set();
+
+      static showSection(sectionId) {
+        // Ocultar todas las secciones
+        const sections = document.querySelectorAll('.gancho-details');
+        sections.forEach(section => {
+          section.classList.remove('show');
+        });
+
+        // Remover clase active de todos los botones
+        const buttons = document.querySelectorAll('.gancho-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        // Mostrar la sección seleccionada
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+          setTimeout(() => {
+            targetSection.classList.add('show');
+          }, 150);
+        }
+
+        // Activar el botón correspondiente
+        event.target.classList.add('active');
+
+        this.currentSection = sectionId;
+        this.visitedSections.add(sectionId);
+
+        // Guardar en localStorage
+        localStorage.setItem("ganchoVisited", JSON.stringify([...this.visitedSections]));
+
+        // Verificar si todas las secciones fueron visitadas
+        if (this.visitedSections.size === 14) {
+          document.querySelector('.start-button').style.display = 'inline-block';
+          localStorage.setItem("ganchoComplete", "true");
+        }
+      }
+
+      static init() {
+        // Recuperar progreso guardado
+        const savedVisited = JSON.parse(localStorage.getItem("ganchoVisited") || "[]");
+        this.visitedSections = new Set(savedVisited);
+
+        // Inicializar la primera sección
+        const defaultSection = document.getElementById('10h');
+        if (defaultSection) {
+          defaultSection.classList.add('show');
+        }
+        this.visitedSections.add('10h');
+
+        // Guardar en localStorage siempre que arranque
+        localStorage.setItem("ganchoVisited", JSON.stringify([...this.visitedSections]));
+
+        // Mostrar botón si ya se había completado
+        if (localStorage.getItem("ganchoComplete") === "true") {
+          document.querySelector('.start-button').style.display = 'inline-block';
+        }
+
+        // Agregar eventos de hover a las tarjetas
+        const cards = document.querySelectorAll('.gancho-info-card');
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-3px)';
+          });
+
+          card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+      }
+    }
+
+    // Inicializar cuando se carga el componente
+    document.addEventListener('DOMContentLoaded', function () {
+      GanchoController.init();
+      // Ocultar el botón al inicio solo si no está completado
+      if (localStorage.getItem("ganchoComplete") !== "true") {
+        document.querySelector('.start-button').style.display = 'none';
+      }
+    });
+
+    // Auto-rotación de secciones cada 15 segundos
+    setInterval(() => {
+      const sections = ['10h', '50h', '250h', '500h', '1000h', '1500h', '2000h', '2500h', '3000h', '4000h', '5000h', '8000h', '10000h', '20000h'];
+      const currentIndex = sections.indexOf(GanchoController.currentSection);
+      const nextIndex = (currentIndex + 1) % sections.length;
+
+      const nextButton = document.querySelector(`[onclick="GanchoController.showSection('${sections[nextIndex]}')"]`);
+      if (nextButton && !document.querySelector('.gancho-component:hover')) {
+        nextButton.click();
+      }
+    }, 15000);
+  </script>
+
+
+  <!-- Botón de continuar -->
+  <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
+
+  <!--AUDIOv2-->
+  <div class="audio-control-wrapper" style="z-index: 9999;">
+    <button class="audio-toggle-btn" id="audioToggle">
+      <svg id="togglePlayIcon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <svg id="togglePauseIcon" viewBox="0 0 24 24" style="display: none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+    </button>
+
+    <div class="audio-controls" id="audioControls">
+      <div class="custom-audio-player">
+        <div class="audio-main-controls">
+          <button class="control-btn volume-btn" id="volumeToggle">
+            <svg id="volumeIcon" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+            </svg>
+            <svg id="muteIcon" viewBox="0 0 24 24" style="display: none">
+              <path
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn play-pause-btn" id="playPauseBtn">
+            <svg id="playIcon" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn speed-btn" id="speedBtn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44z" />
+              <path
+                d="M10.59 15.41a2 2 0 0 0 2.83 0l5.66-5.66a2 2 0 0 0-2.83-2.83L12 11.17 7.76 6.93a2 2 0 0 0-2.83 2.83l5.66 5.65z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="volume-control">
+          <div class="volume-slider" id="volumeSlider">
+            <div class="volume-fill" id="volumeFill"></div>
+          </div>
+          <div class="speed-control">
+            <span class="speed-display" id="speedDisplay">1x</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+  </div>
+
+  <script src="../../js/audioPlayer.js"></script>
+  <!--///////-->
+  <!-- Scripts funcionales -->
+  <script src="../../js/SCORM.js"></script>
+  <script>
+    // Navegación
+    function goHome() { window.location.href = 'index.html'; }
+    function backPage() { window.location.href = 'M2_inicio.html'; }
+    function goToNextPage() { window.location.href = '../../index.html'; }
+
+    ScormManager.init();
+    ScormManager.guardarProgreso("M2_pg1.html");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const progreso = ScormManager.cargarProgreso();
+      const porcentaje = progreso.score ? parseInt(progreso.score) : 0;
+      document.getElementById("progreso-barra").style.width = porcentaje + "%";
+      document.getElementById("progreso-texto").textContent = porcentaje + "%";
+    });
+  </script>
+
+</body>
+
+</html>

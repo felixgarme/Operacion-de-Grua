@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Curso - Mandos y Controles</title>
+    <link rel="stylesheet" href="../../../assets/css/M2/css_pg8cp.css">
+</head>
+<body>
+    <div class="curso-container">
+        <div class="carrusel-container">
+            <div class="carrusel-wrapper" id="carruselWrapper">
+
+            <div class="slide">
+                <div class="slide-content">
+                    <!-- <h2 class="slide-title">Mandos y Controles</h2> -->
+                    <ol class="slide-list" style="list-style: decimal; margin-left: 20px;">
+                        <li>Volante (timón) de control de dirección</li>
+                        <li>Panel de instrumentos del monitor principal</li>
+                        <li>Palanca de control de freno motor</li>
+                        <li>Palanca de control de transmisión</li>
+                        <li>Acople de toma de fuerza PTO para la bomba hidráulica de la grúa articulada</li>
+                        <li>Freno de Estacionamiento</li>
+                    </ol>
+                    <div class="highlight-box">
+                        <p class="slide-text">
+                            Antes de encender el camión se debe verificar los niveles de todos los fluidos.<br>
+                            Regular la distancia y altura del asiento del operador para facilitar la conducción adecuada.<br>
+                            Coloque la llave de contacto a la posición 3. Se oye una señal sonora y se encienden todas las lámparas testigo durante 3 segundos.<br>
+                            Verificar que todos los indicadores en el panel de instrumentos funciones correctamente.
+                        </p>
+                    </div>
+                </div>
+                <div class="slide-image">
+                    <img src="../../../assets/images/M2/plane J.png" alt="Mandos y Controles" 
+                        onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>🕹️</div>'" />
+                </div>
+            </div>
+
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <!-- <h2 class="slide-title">Mandos y Controles</h2> -->
+                        <h3 class="slide-subtitle">Panel de Instrumentos de la Cabina del Camión</h3>
+                        <ul class="slide-list slide2" style="list-style: decimal; margin-left: 20px; ">
+                            <li>Pedal de control de aceleración</li>
+                            <li>Pedal de control de freno de servicio</li>
+                            <li>Pedal de control de embrague</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../../../assets/images/M2/plane K.png" alt="Panel de Instrumentos Cabina Camión" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>🚛</div>'" />
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <!-- <h2 class="slide-title">Mandos y Controles</h2> -->
+                        <h3 class="slide-subtitle">Pedales de Mando del Camión Grúa</h3>
+
+                        <ul class="slide-list">
+                            <li>Iconos</li>
+                            <li>Barra gráfica de indicación del porcentaje de carga</li>
+                            <li>Configuración de la grúa con valores de las presiones, de los porcentajes de carga y de los ángulos</li>
+                            <li>Funciones activas</li>
+                            <li>Temperatura de aceite hidráulico</li>
+                            <li>Fecha y hora</li>
+                            <li>Icon Flag</li>
+                            <li>Señalizaciones operativas (ADVERTENCIA, ALARMA, mensajes varios)</li>
+                            <li>Maniobras permitidas e impedidas</li>
+                        </ul>
+                    </div>
+                    <div class="slide-image">
+                        <img src="../../../assets/images/M2/planeE.png" alt="Pedales de Mando Camión Grúa" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;placeholder-icon&quot;>⚡</div>'" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button" id="prevBtn">Anterior</button>
+
+                <div class="slide-indicator" id="slideIndicator">
+                    <!-- Los puntos se generan desde JS para sincronizar con el número real de slides -->
+                </div>
+
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">3</span>
+                </div>
+
+                <button class="nav-button" id="nextBtn">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class CarruselCurso {
+            constructor() {
+                this.wrapper = document.getElementById('carruselWrapper');
+                this.slides = Array.from(this.wrapper.querySelectorAll('.slide'));
+                this.totalSlides = this.slides.length;
+                this.currentSlide = 0;
+
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicatorContainer = document.getElementById('slideIndicator');
+                this.currentSlideElement = document.getElementById('currentSlide');
+                this.totalSlidesElement = document.getElementById('totalSlides');
+
+                this.init();
+            }
+
+            init() {
+                this.totalSlidesElement.textContent = this.totalSlides;
+                this.indicatorContainer.innerHTML = '';
+                this.indicators = [];
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'indicator-dot' + (i === 0 ? ' active' : '');
+                    dot.dataset.slide = i;
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.indicatorContainer.appendChild(dot);
+                    this.indicators.push(dot);
+                }
+                this.prevBtn.addEventListener('click', () => this.previousSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+                window.addEventListener('resize', () => this.updateTransform());
+                this.updateUI();
+            }
+
+            updateTransform() {
+                this.wrapper.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+            }
+
+            goToSlide(index) {
+                if (index < 0 || index >= this.totalSlides) return;
+                this.currentSlide = index;
+                this.updateTransform();
+                this.updateUI();
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                    this.updateTransform();
+                    this.updateUI();
+                }
+            }
+
+            previousSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                    this.updateTransform();
+                    this.updateUI();
+                }
+            }
+
+            updateUI() {
+                this.prevBtn.disabled = this.currentSlide === 0;
+                this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+                this.indicators.forEach((indicator, idx) => {
+                    indicator.classList.toggle('active', idx === this.currentSlide);
+                });
+                this.currentSlideElement.textContent = this.currentSlide + 1;
+            }
+
+            handleKeyboard(e) {
+                if (e.key === 'ArrowLeft') this.previousSlide();
+                if (e.key === 'ArrowRight') this.nextSlide();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new CarruselCurso();
+        });
+    </script>
+</body>
+</html>

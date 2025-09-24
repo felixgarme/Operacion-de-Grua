@@ -1,0 +1,317 @@
+
+/* =================================================================== */
+/* CONTENEDOR PRINCIPAL                                                */
+/* =================================================================== */
+.seg-ind-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    margin: 0 auto;
+    /* padding: 10px;
+    background: #F5F7FA; */
+    color: #4D4D4E;
+    line-height: 1.6;
+    min-height: 100vh;
+    font-size: 18px;
+}
+
+.seg-ind-content {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr;
+}
+
+/* =================================================================== */
+/* TARJETAS DE SECCIÓN                                                */
+/* =================================================================== */
+.proposito{
+    color: white;
+}
+.seg-ind-seccion-card {
+    background: #FFFFFF;
+    border: 2px solid #DDE8F5;
+    border-radius: 12px;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    box-shadow: 0 4px 12px rgba(3, 23, 148, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.seg-ind-seccion-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 23, 148, 0.2);
+    border-color: #031794;
+}
+
+.seg-ind-seccion-card.seg-ind-active {
+    border-color: #031794;
+    background: #E5F0F9;
+}
+
+.seg-ind-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.seg-ind-card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #031794;
+    margin: 0;
+}
+
+.seg-ind-expand-icon {
+    width: 24px;
+    height: 24px;
+    background: #031794;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.seg-ind-expand-icon::after {
+    content: '+';
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.seg-ind-seccion-card.seg-ind-active .seg-ind-expand-icon {
+    transform: rotate(45deg);
+}
+
+.seg-ind-card-content {
+    display: none;
+    animation: seg-ind-fadeIn 0.3s ease;
+}
+
+.seg-ind-seccion-card.seg-ind-active .seg-ind-card-content {
+    display: block;
+}
+
+/* =================================================================== */
+/* ANIMACIONES                                                         */
+/* =================================================================== */
+@keyframes seg-ind-fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* =================================================================== */
+/* SECCIÓN EPP (EQUIPO DE PROTECCIÓN PERSONAL)                        */
+/* =================================================================== */
+.seg-ind-epp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 10px 0 0 0;
+}
+
+.seg-ind-epp-item {
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.seg-ind-epp-item:hover {
+    transform: scale(1);
+}
+
+/* =================================================================== */
+/* SECCIÓN DISPOSITIVOS DE SEGURIDAD                                  */
+/* =================================================================== */
+.seg-ind-dispositivos-list {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    margin: 10px 0 0 0;
+}
+
+.seg-ind-dispositivo-item {
+    background: #E5F0F9;
+    color: #031794;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid #6B8BDF;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.seg-ind-dispositivo-item:hover {
+    background: #031794;
+    color: #FFFFFF;
+}
+
+/* =================================================================== */
+/* SECCIÓN ETIQUETAS DE SEGURIDAD                                     */
+/* =================================================================== */
+.seg-ind-etiquetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.seg-ind-etiqueta-item {
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.seg-ind-etiqueta-item:hover {
+    transform: scale(1.05);
+}
+
+.seg-ind-etiqueta-advertencia {
+    background: orangered;
+    color: #031794;
+}
+
+.seg-ind-etiqueta-precaucion {
+    background: rgb(236, 236, 0);
+    color: blue;
+}
+
+.seg-ind-etiqueta-peligro {
+    background: #ff0000;
+}
+
+/* =================================================================== */
+/* SECCIÓN FUNCIONES DE LAS ETIQUETAS                                 */
+/* =================================================================== */
+.seg-ind-funciones-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.seg-ind-funciones-list li {
+    background: #E5F0F9;
+    margin: 5px 0;
+    padding: 8px;
+    border-left: 4px solid #031794;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    color: #4D4D4E;
+}
+
+.seg-ind-funciones-list li:hover {
+    background: #031794;
+    color: #FFFFFF;
+    transform: translateX(5px);
+}
+
+/* =================================================================== */
+/* QUIZ INTERACTIVO                                                   */
+/* =================================================================== */
+.seg-ind-interactive-quiz {
+    background: linear-gradient(90deg, #031794, #34C0C0);
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.seg-ind-quiz-button {
+    background: #FFFFFF;
+    color: #031794;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.seg-ind-quiz-button:hover {
+    background: #E5F0F9;
+    transform: translateY(-2px);
+}
+
+.seg-ind-quiz-result {
+    margin: 10px 0 0 0;
+    padding: 8px;
+    border-radius: 6px;
+    display: none;
+}
+
+.seg-ind-correct {
+    background: green;
+    color: #FFFFFF;
+}
+
+.seg-ind-incorrect {
+    background: #FF0000;
+    color: #FFFFFF;
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN                                                  */
+/* =================================================================== */
+
+/* Móviles */
+@media (max-width: 768px) {
+    .seg-ind-container {
+        padding: 8px;
+    }
+    
+    .seg-ind-card-title {
+        font-size: 1.2rem;
+    }
+    
+    .seg-ind-epp-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .seg-ind-dispositivos-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .seg-ind-etiquetas-container {
+        grid-template-columns: 1fr;
+    }
+    .seg-ind-dispositivos-list{
+        display: grid;
+    }
+}
+
+/* Pantallas HD */
+@media (min-width: 1920px) {
+    .seg-ind-container {
+        max-width: 1400px;
+    }
+    
+    .seg-ind-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+ 
+.img{
+    display: block; 
+    margin: auto;
+    border-radius: 30px;
+    cursor: zoom-in;
+}

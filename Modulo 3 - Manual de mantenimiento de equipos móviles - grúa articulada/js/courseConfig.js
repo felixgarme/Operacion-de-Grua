@@ -4,7 +4,7 @@
 const courseConfig = {
     // Información general del curso
     courseInfo: {
-        title: "Análisis de Tendencia",
+        title: "Manual de Mantenimiento de Equipos Móviles – Grúa Articulada",
         company: "Quellaveco",
         version: "1.0"
     },
