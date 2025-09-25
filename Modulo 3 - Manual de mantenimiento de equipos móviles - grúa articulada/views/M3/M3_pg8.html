@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
   <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg3.css" />
 
 
   <!-- Scripts -->
@@ -51,28 +50,153 @@
   </div>
   <!-- Título principal -->
   <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">Instrucciones para los Controles y Mantenimiento Preventivo
-      </span></h1>
+    <h1 class="titulo-epp"><span class="gradient-text2">BASE DE FIJACIÓN</span></h1>
   </header>
 
   <!-- Contenido principal -->
-  <div class="weekly-maintenance-container">
+  <div class="container">
+    <div class="instruction-box">
+      <p>Revisa cada punto de la base de fijación para mantener la grúa segura y funcional.</p>
+    </div>
 
-    <div class="weekly-maintenance-section">
+    <div class="base-container">
+      <div class="base-content">
+        <div class="base-header">
+          <h3>BASE DE FIJACIÓN</h3>
+          <p>Procedimientos de control y verificación de los espárragos de fijación</p>
+        </div>
 
-      <!-- Lista de instrucciones -->
-      <div class="weekly-instructions">
-        <ul class="instruction-list">
-          <li>Todos los componentes de una grúa están expuestos a desgastes, tensión y deformaciones debido a los trabajos que realizan.</li>
-          <li>Seguir las instrucciones del fabricante ayudarán a conservar la vida útil de la grúa y sus componentes.</li>
-          <li>Las inspecciones, controles y mantenimiento preventivo llevado a cabo de forma cotidiana, semanal y trimestral es una buena estrategia para mantener la grúa en la línea de producción.</li>
-          <li>No se debe hacer modificaciones ni utilizar la grúa para lo que no fue diseñada.</li>
-          <li>No exceder las capacidades ayudarán a conservar la vida útil y los componentes de la grúa.</li>
+        <ul class="base-list">
+          <li>Los espárragos de fijación tienen la función de conectar la grúa en el vehículo para evitar desconexiones y movimientos relativos, los pernos desajustados o averías pueden ser peligrosos y comprometer la funcionalidad de la grúa.</li>
+          <li>Pernos aflojados o dañados pueden causar rupturas imprevistas con el riesgo de graves consecuencias para las personas y/o cosas.</li>
+          <li>Para controlar los espárragos se debe:</li>
         </ul>
-      </div>
 
+        <div class="control-box">
+          <ul class="control-list">
+            <li>Verificar visualmente que no haya signos de fricción, rascaduras y eventuales huellas debidos a los movimientos de los elementos ensamblados o roscados.</li>
+            <li>Verificar manualmente que no haya aflojamientos en los pernos.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
+  <style>
+    :root {
+      --border-radius-md: 15px;
+      --spacing-lg: 30px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .instruction-box {
+      display: flex;
+      align-items: center;
+      background: var(--color-blanco);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin: auto;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(35, 45, 193, 0.168), 0 2px 8px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      max-width: 700px;
+      gap: 1rem;
+    }
+
+    .instruction-box p {
+      background: linear-gradient(to left, var(--color-azul) 50%, var(--color-celeste));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .base-container {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f2ff 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid #b6b8bf;
+      margin: 5vh;
+    }
+
+    .base-header {
+      margin-bottom: 30px;
+    }
+
+    .base-header h3 {
+      color: var(--color-azul);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .base-header p {
+      color: var(--color-gris);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .base-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .base-list li {
+      position: relative;
+      padding: 12px 0 12px 25px;
+      margin-bottom: 12px;
+      border-left: 3px solid var(--color-azul);
+      background: white;
+      border-radius: 8px;
+      padding-left: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      color: #646161;
+    }
+
+    .control-box {
+      background: rgba(3, 23, 149, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid var(--color-azul);
+    }
+
+    .control-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .control-list li {
+      position: relative;
+      padding: 8px 0 8px 25px;
+      margin-bottom: 8px;
+      color: var(--color-gris);
+      font-size: var(--font-7);
+    }
+
+    .control-list li::before {
+      content: '•';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      color: var(--color-azul);
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .base-container {
+        margin: 2vh;
+        padding: 20px;
+      }
+    }
+  </style>
+
 
   <!-- Botón de continuar -->
   <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
@@ -139,14 +263,15 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Audio element oculto -->
-    <audio id="audioPlayer" preload="metadata" autoplay>
-      <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
-      Tu navegador no soporta el elemento de audio.
-    </audio>
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
   </div>
+
   <script src="../../js/audioPlayer.js"></script>
   <!--///////-->
   <!-- Scripts funcionales -->
@@ -154,11 +279,11 @@
   <script>
     // Navegación
     function goHome() { window.location.href = '../../index.html'; }
-    function backPage() { window.location.href = '../M2/M2_pg5.html'; }
-    function goToNextPage() { window.location.href = 'M3_pg2.html'; }
+    function backPage() { window.location.href = 'M3_pg7.html'; }
+    function goToNextPage() { window.location.href = 'M3_pg9.html'; }
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M3_pg1.html");
+    ScormManager.guardarProgreso("M3_pg8.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();
@@ -169,4 +294,5 @@
   </script>
 
 </body>
+
 </html>

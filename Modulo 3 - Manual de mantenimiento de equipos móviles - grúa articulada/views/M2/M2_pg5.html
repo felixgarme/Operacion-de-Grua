@@ -51,7 +51,7 @@
   </div>
   <!-- Título principal -->
   <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">Instrucciones para los Controles y Mantenimiento Preventivo
+    <h1 class="titulo-epp"><span class="gradient-text2">Controles y Mantenimiento Preventivo Cada 100 Horas
       </span></h1>
   </header>
 
@@ -60,14 +60,44 @@
 
     <div class="weekly-maintenance-section">
 
-      <!-- Lista de instrucciones -->
+      <div class="weekly-highlight-box">
+        <p class="weekly-highlight-text">
+          Cada 100 Horas (Tiempo de Trabajo) de Utilización de Componente Específico / Cada 3 Meses.
+        </p>
+      </div>
+
+      <!-- Tabla de controles cada 100 horas -->
+      <div class="weekly-controls-table-container">
+        <table class="weekly-controls-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="element-name">
+                <span>Lubricación</span>
+              </td>
+              <td>
+                <div class="description-group">
+                  <div class="description-item">
+                    <span class="description-icon gear-icon">⚙</span>
+                    <span>Lubricar la grúa y sus partes según el plan de lubricación programada</span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Notas importantes -->
       <div class="weekly-instructions">
         <ul class="instruction-list">
-          <li>Todos los componentes de una grúa están expuestos a desgastes, tensión y deformaciones debido a los trabajos que realizan.</li>
-          <li>Seguir las instrucciones del fabricante ayudarán a conservar la vida útil de la grúa y sus componentes.</li>
-          <li>Las inspecciones, controles y mantenimiento preventivo llevado a cabo de forma cotidiana, semanal y trimestral es una buena estrategia para mantener la grúa en la línea de producción.</li>
-          <li>No se debe hacer modificaciones ni utilizar la grúa para lo que no fue diseñada.</li>
-          <li>No exceder las capacidades ayudarán a conservar la vida útil y los componentes de la grúa.</li>
+          <li>Las intervenciones indicadas deben ser efectuadas por el personal competente (ISO 12480-1).</li>
+          <li>Ver la lista de los componentes al párrafo 10.4 "Controles y mantenimiento efectuados por el centro de asistencia autorizado FASSI".</li>
         </ul>
       </div>
 
@@ -154,11 +184,11 @@
   <script>
     // Navegación
     function goHome() { window.location.href = '../../index.html'; }
-    function backPage() { window.location.href = '../M2/M2_pg5.html'; }
-    function goToNextPage() { window.location.href = 'M3_pg2.html'; }
+    function backPage() { window.location.href = 'M2_pg4.html'; }
+    function goToNextPage() { window.location.href = '../M3/M3_inicio.html'; }
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M3_pg1.html");
+    ScormManager.guardarProgreso("M2_pg5.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();

@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg3.css" />
+  <link rel="stylesheet" href="../../assets/css/M3/css_pg3.css" />
 
 
   <!-- Scripts -->
@@ -51,28 +50,47 @@
   </div>
   <!-- Título principal -->
   <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">Instrucciones para los Controles y Mantenimiento Preventivo
+    <h1 class="titulo-epp"><span class="gradient-text2">Cabrestante
       </span></h1>
   </header>
 
-  <!-- Contenido principal -->
-  <div class="weekly-maintenance-container">
-
-    <div class="weekly-maintenance-section">
-
-      <!-- Lista de instrucciones -->
-      <div class="weekly-instructions">
-        <ul class="instruction-list">
-          <li>Todos los componentes de una grúa están expuestos a desgastes, tensión y deformaciones debido a los trabajos que realizan.</li>
-          <li>Seguir las instrucciones del fabricante ayudarán a conservar la vida útil de la grúa y sus componentes.</li>
-          <li>Las inspecciones, controles y mantenimiento preventivo llevado a cabo de forma cotidiana, semanal y trimestral es una buena estrategia para mantener la grúa en la línea de producción.</li>
-          <li>No se debe hacer modificaciones ni utilizar la grúa para lo que no fue diseñada.</li>
-          <li>No exceder las capacidades ayudarán a conservar la vida útil y los componentes de la grúa.</li>
-        </ul>
+  <!-- Contenido principal - Grid -->
+  <div class="anillo-grid-container">
+    <div class="anillo-grid">
+      
+      <!-- Fila 1: Nomenclatura y Componentes lado a lado -->
+      <div class="anillo-card">
+        <h3 class="anillo-card-title">NOMENCLATURA</h3>
+        <div class="anillo-card-content">
+          El cabrestante es la parte de la grúa que recibe la tensión del peso de la carga a maniobrar. Para asegurar unas condiciones de trabajo apropiadas es necesario controlar y registrar su estado de desgaste y deformación, además de su correcto funcionamiento. Verificar que la deformación no supere la dimensión registrada durante la primera medición.
+      </div>
       </div>
 
-    </div>
-  </div>
+      <div class="anillo-card">
+        <h3 class="anillo-card-title">COMPONENTES</h3>
+        <div class="anillo-card-content">
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 1rem; color: var(--color-gris); font-size: var(--font-6); line-height: 1.5;">
+              <strong>1. Motor Hidráulico y Válvula de Seguridad</strong>
+                    </li>
+            <li style="margin-bottom: 1rem; color: var(--color-gris); font-size: var(--font-6); line-height: 1.5;">
+              <strong>2. Tambor</strong>
+                </li>
+            <li style="margin-bottom: 1rem; color: var(--color-gris); font-size: var(--font-6); line-height: 1.5;">
+              <strong>3. Reductor</strong>
+                    </li>
+            <li style="margin-bottom: 1rem; color: var(--color-gris); font-size: var(--font-6); line-height: 1.5;">
+              <strong>4. Cuerpo</strong>
+            </li>
+            <li style="color: var(--color-gris); font-size: var(--font-6); line-height: 1.5;">
+              <strong>5. Cable</strong>
+                      </li>
+                    </ul>
+        </div>
+      </div>
+
+        </div>
+      </div>
 
   <!-- Botón de continuar -->
   <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
@@ -137,16 +155,16 @@
           <div class="speed-control">
             <span class="speed-display" id="speedDisplay">1x</span>
           </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Audio element oculto -->
-    <audio id="audioPlayer" preload="metadata" autoplay>
-      <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
-      Tu navegador no soporta el elemento de audio.
-    </audio>
-  </div>
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
   <script src="../../js/audioPlayer.js"></script>
   <!--///////-->
   <!-- Scripts funcionales -->
@@ -154,11 +172,26 @@
   <script>
     // Navegación
     function goHome() { window.location.href = '../../index.html'; }
-    function backPage() { window.location.href = '../M2/M2_pg5.html'; }
-    function goToNextPage() { window.location.href = 'M3_pg2.html'; }
+    function backPage() { window.location.href = 'M3_pg3.html'; }
+    function goToNextPage() { window.location.href = 'M3_pg5.html'; }
+
+    // Animaciones de entrada para las tarjetas
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.anillo-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
+        setTimeout(() => {
+          card.style.transition = 'all 0.6s ease-out';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+    });
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M3_pg1.html");
+    ScormManager.guardarProgreso("M3_pg4.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();

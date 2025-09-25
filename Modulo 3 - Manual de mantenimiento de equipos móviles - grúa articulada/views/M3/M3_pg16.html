@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../../assets/css/main_ex.css" />
+  <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+  <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
+  <link rel="stylesheet" href="../../assets/css/ex1.css" />
+
+  <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
+
+
+  <!-- Scripts -->
+  <script src="../../js/sidebar.js" defer></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <button class="back-page-btn" onclick="backPage()">
+    <span class="arrow">❮</span>
+  </button>
+  <nav id="sidebar" class="close">
+    <div id="logo-seccion">
+      <a href="../../index">
+        <img src="../../assets/images/logo_blanco.png" height="10px" alt="logo">
+      </a>
+      <button id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </button>
+    </div>
+    <div id="barra">
+      <span id="barra-titulo"><strong>Progreso del Curso</strong></span>
+      <div id="progreso-container">
+        <div id="progreso-barra"></div>
+        <span id="progreso-texto">0%</span>
+      </div>
+    </div>
+    <div id="menu-container"></div>
+  </nav>
+
+
+  <!-- Logo inferior -->
+  <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" />
+  </div>
+  <!-- Título principal -->
+  <header>
+    <h1 class="titulo-epp"><span class="gradient-text2">LUBRICACIÓN</span></h1>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="instruction-box">
+      <p>Revisa cada punto de lubricación para mantener la grúa en óptimas condiciones.</p>
+    </div>
+
+    <div class="lubricacion-container">
+      <div class="lubricacion-content">
+        <div class="lubricacion-header">
+          <h3>LUBRICACIÓN</h3>
+          <p>Procedimientos de lubricación y simbología de puntos de engrase</p>
+        </div>
+
+        <div class="lubricacion-description">
+          <p>Para asegurar el funcionamiento correcto de las partes móviles de la grúa y de los accesorios es necesario engrasar o lubricar las diferentes partes según la frecuencia de mantenimiento recomendada por el fabricante.</p>
+          <p>En la grúa y en los accesorios, los puntos de engrase están indicados por una simbología correspondiente. Ellos están representados a modo de ejemplo en las figuras siguientes:</p>
+        </div>
+
+        <div class="simbolos-section">
+          <div class="simbolo-card">
+            <div class="simbolo-icon">
+              <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1682" class="simbolo-image">
+            </div>
+            <div class="simbolo-description">
+              <p><strong>Este símbolo indica la presencia de un engrasador.</strong></p>
+              <p>La lubricación debe ser efectuada utilizando una bomba o una pistola de engrase adecuada</p>
+            </div>
+          </div>
+
+          <div class="simbolo-card">
+            <div class="simbolo-icon">
+              <img src="../../assets/images/M3/simbolo2.png" alt="Símbolo DE 1681" class="simbolo-image">
+            </div>
+            <div class="simbolo-description">
+              <p><strong>Este símbolo indica la presencia de un punto de lubricación que debe ser efectuada directamente sobre el componente utilizando pincel, rodillo o engrasador.</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="procedimientos-lubricacion">
+          <h4>Procedimientos de Lubricación</h4>
+          <div class="procedimientos-content">
+            <ul class="procedimientos-list">
+              <li>Antes de lubricar es necesario identificar todos los puntos de engrase, remover la grasa acumulada o el lubricante viejo, la suciedad y las impurezas varias.</li>
+              <li>Durante la lubricación se recomienda mover lentamente los componentes para garantizar una distribución mejor y más homogénea del lubricante. Engrasar hasta hacer salir la grasa por las empaquetaduras. Después de la lubricación eliminar la grasa en exceso.</li>
+              <li>Para el caso de platillos en material plástico, no se debe lubricar pero debe mantenerlos limpios.</li>
+            </ul>
+            <div class="procedimientos-image">
+              <img src="../../assets/images/M3/lub.png" alt="Procedimientos de lubricación" class="lubricacion-diagram">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    :root {
+      --border-radius-md: 15px;
+      --spacing-lg: 30px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .instruction-box {
+      display: flex;
+      align-items: center;
+      background: var(--color-blanco);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin: auto;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(35, 45, 193, 0.168), 0 2px 8px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      max-width: 700px;
+      gap: 1rem;
+    }
+
+    .instruction-box p {
+      background: linear-gradient(to left, var(--color-azul) 50%, var(--color-celeste));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lubricacion-container {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f2ff 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid #b6b8bf;
+      margin: 5vh;
+    }
+
+    .lubricacion-header {
+      margin-bottom: 30px;
+    }
+
+    .lubricacion-header h3 {
+      color: var(--color-azul);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .lubricacion-header p {
+      color: var(--color-gris);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .lubricacion-description {
+      margin-bottom: 30px;
+    }
+
+    .lubricacion-description p {
+      color: var(--color-gris);
+      font-size: var(--font-6);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .simbolos-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .simbolo-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 2px solid #e2e8f0;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .simbolo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      border-color: var(--color-azul);
+    }
+
+    .simbolo-icon {
+      margin-bottom: 20px;
+    }
+
+    .simbolo-image {
+      max-width: 120px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .simbolo-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .simbolo-description p {
+      color: var(--color-gris);
+      font-size: var(--font-6);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .simbolo-description p strong {
+      color: var(--color-azul);
+      font-weight: 600;
+    }
+
+    .procedimientos-lubricacion {
+      margin-top: 40px;
+      background: rgba(3, 23, 149, 0.05);
+      border-radius: 15px;
+      padding: 25px;
+      border-left: 4px solid var(--color-azul);
+    }
+
+    .procedimientos-content {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .procedimientos-lubricacion h4 {
+      color: var(--color-azul);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .procedimientos-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+
+    .procedimientos-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .procedimientos-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, rgba(3, 23, 148, 0.02), rgba(52, 192, 192, 0.02));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .lubricacion-diagram {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      max-height: 60vh;
+      border-radius: 5%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .lubricacion-diagram:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .procedimientos-list li {
+      position: relative;
+      padding: 15px 0 15px 35px;
+      margin-bottom: 15px;
+      color: var(--color-gris);
+      font-size: var(--font-6);
+      line-height: 1.6;
+      background: white;
+      border-radius: 10px;
+      border-left: 3px solid var(--color-celeste);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .procedimientos-list li::before {
+      content: "•";
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      color: var(--color-azul);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .lubricacion-container {
+        margin: 2vh;
+        padding: 20px;
+      }
+
+      .simbolos-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .simbolo-card {
+        padding: 20px;
+      }
+
+      .simbolo-image {
+        max-width: 100px;
+      }
+
+      .procedimientos-lubricacion {
+        margin-top: 30px;
+        padding: 20px;
+      }
+
+      .procedimientos-content {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .procedimientos-image {
+        order: 2;
+      }
+
+      .procedimientos-list {
+        order: 1;
+      }
+
+      .procedimientos-list li {
+        padding: 12px 0 12px 30px;
+        font-size: var(--font-7);
+      }
+
+      .lubricacion-diagram {
+        max-height: 40vh;
+      }
+    }
+  </style>
+
+
+  <!-- Botón de continuar -->
+  <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
+
+  <!--AUDIOv2-->
+  <div class="audio-control-wrapper" style="z-index: 9999;">
+    <button class="audio-toggle-btn" id="audioToggle">
+      <svg id="togglePlayIcon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <svg id="togglePauseIcon" viewBox="0 0 24 24" style="display: none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+    </button>
+
+    <div class="audio-controls" id="audioControls">
+      <div class="custom-audio-player">
+        <div class="audio-main-controls">
+          <button class="control-btn volume-btn" id="volumeToggle">
+            <svg id="volumeIcon" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+            </svg>
+            <svg id="muteIcon" viewBox="0 0 24 24" style="display: none">
+              <path
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn play-pause-btn" id="playPauseBtn">
+            <svg id="playIcon" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn speed-btn" id="speedBtn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44z" />
+              <path
+                d="M10.59 15.41a2 2 0 0 0 2.83 0l5.66-5.66a2 2 0 0 0-2.83-2.83L12 11.17 7.76 6.93a2 2 0 0 0-2.83 2.83l5.66 5.65z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="volume-control">
+          <div class="volume-slider" id="volumeSlider">
+            <div class="volume-fill" id="volumeFill"></div>
+          </div>
+          <div class="speed-control">
+            <span class="speed-display" id="speedDisplay">1x</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+  </div>
+
+  <script src="../../js/audioPlayer.js"></script>
+  <!--///////-->
+  <!-- Scripts funcionales -->
+  <script src="../../js/SCORM.js"></script>
+  <script>
+    // Navegación
+    function goHome() { window.location.href = '../../index.html'; }
+    function backPage() { window.location.href = 'M3_pg15.html'; }
+    function goToNextPage() { window.location.href = 'M3_pg17.html'; }
+
+    ScormManager.init();
+    ScormManager.guardarProgreso("M3_pg16.html");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const progreso = ScormManager.cargarProgreso();
+      const porcentaje = progreso.score ? parseInt(progreso.score) : 0;
+      document.getElementById("progreso-barra").style.width = porcentaje + "%";
+      document.getElementById("progreso-texto").textContent = porcentaje + "%";
+    });
+  </script>
+
+</body>
+
+</html>

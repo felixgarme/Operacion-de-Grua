@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
   <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg3.css" />
 
 
   <!-- Scripts -->
@@ -51,28 +50,150 @@
   </div>
   <!-- Título principal -->
   <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">Instrucciones para los Controles y Mantenimiento Preventivo
-      </span></h1>
+    <h1 class="titulo-epp"><span class="gradient-text2">FILTRO DE ACEITE</span></h1>
   </header>
 
   <!-- Contenido principal -->
-  <div class="weekly-maintenance-container">
+  <div class="container">
+    <div class="instruction-box">
+      <p>Revisa cada punto del filtro de aceite para mantener la grúa en óptimas condiciones.</p>
+    </div>
 
-    <div class="weekly-maintenance-section">
+    <div class="filtro-container">
+      <div class="filtro-content">
+        <div class="filtro-header">
+          <h3>FILTRO DE ACEITE</h3>
+          <p>Procedimientos de mantenimiento y limpieza del filtro de aceite</p>
+        </div>
 
-      <!-- Lista de instrucciones -->
-      <div class="weekly-instructions">
-        <ul class="instruction-list">
-          <li>Todos los componentes de una grúa están expuestos a desgastes, tensión y deformaciones debido a los trabajos que realizan.</li>
-          <li>Seguir las instrucciones del fabricante ayudarán a conservar la vida útil de la grúa y sus componentes.</li>
-          <li>Las inspecciones, controles y mantenimiento preventivo llevado a cabo de forma cotidiana, semanal y trimestral es una buena estrategia para mantener la grúa en la línea de producción.</li>
-          <li>No se debe hacer modificaciones ni utilizar la grúa para lo que no fue diseñada.</li>
-          <li>No exceder las capacidades ayudarán a conservar la vida útil y los componentes de la grúa.</li>
+        <ul class="filtro-list">
+          <li>El filtro retiene en su cartucho todas las partículas sólidas que el aceite recoge a lo largo del circuito hidráulico. Si no se eliminan estas partículas sólidas, los componentes pueden sufrir un desgaste prematuro.</li>
+          <li>Según el plan de mantenimiento programado es necesario abrir y limpiar el filtro y sustituir el cartucho respetando el procedimiento siguiente:
+            <ul class="filtro-procedimiento">
+              <li>Retirar los tornillos de fijación y extraer la tapa y el resorte, (si está presente).</li>
+              <li>Retirar el cartucho usado.</li>
+              <li>limpiar el interior del cuerpo del filtro con un solvente no inflamable.</li>
+              <li>Instalar un cartucho nuevo y el resorte.</li>
+              <li>Revisar la empaquetadura, cambiar se es necesario.</li>
+              <li>Instalar la tapa, resorte y tornillos de fijación.</li>
+            </ul>
+          </li>
         </ul>
       </div>
-
     </div>
   </div>
+
+  <style>
+    :root {
+      --border-radius-md: 15px;
+      --spacing-lg: 30px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .instruction-box {
+      display: flex;
+      align-items: center;
+      background: var(--color-blanco);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin: auto;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(35, 45, 193, 0.168), 0 2px 8px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      max-width: 700px;
+      gap: 1rem;
+    }
+
+    .instruction-box p {
+      background: linear-gradient(to left, var(--color-azul) 50%, var(--color-celeste));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .filtro-container {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f2ff 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid #b6b8bf;
+      margin: 5vh;
+    }
+
+    .filtro-header {
+      margin-bottom: 30px;
+    }
+
+    .filtro-header h3 {
+      color: var(--color-azul);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .filtro-header p {
+      color: var(--color-gris);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .filtro-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .filtro-list li {
+      position: relative;
+      padding: 12px 0 12px 25px;
+      margin-bottom: 12px;
+      border-left: 3px solid var(--color-azul);
+      background: white;
+      border-radius: 8px;
+      padding-left: 30px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      color: #646161;
+    }
+
+    .filtro-procedimiento {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    .filtro-procedimiento li {
+      position: relative;
+      padding: 8px 0 8px 25px;
+      margin-bottom: 8px;
+      color: var(--color-azul);
+      font-weight: 600;
+      background: rgba(3, 23, 149, 0.05);
+      border-radius: 6px;
+      border-left: 3px solid var(--color-celeste);
+    }
+
+    .filtro-procedimiento li::before {
+      content: "•";
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      color: var(--color-azul);
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .filtro-container {
+        margin: 2vh;
+        padding: 20px;
+      }
+    }
+  </style>
+
 
   <!-- Botón de continuar -->
   <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
@@ -139,14 +260,15 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Audio element oculto -->
-    <audio id="audioPlayer" preload="metadata" autoplay>
-      <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
-      Tu navegador no soporta el elemento de audio.
-    </audio>
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
   </div>
+
   <script src="../../js/audioPlayer.js"></script>
   <!--///////-->
   <!-- Scripts funcionales -->
@@ -154,11 +276,11 @@
   <script>
     // Navegación
     function goHome() { window.location.href = '../../index.html'; }
-    function backPage() { window.location.href = '../M2/M2_pg5.html'; }
-    function goToNextPage() { window.location.href = 'M3_pg2.html'; }
+    function backPage() { window.location.href = 'M3_pg13.html'; }
+    function goToNextPage() { window.location.href = 'M3_pg15.html'; }
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M3_pg1.html");
+    ScormManager.guardarProgreso("M3_pg14.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();
@@ -169,4 +291,5 @@
   </script>
 
 </body>
+
 </html>

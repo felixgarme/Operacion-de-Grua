@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
   <link rel="stylesheet" href="../../assets/css/ex1.css" />
 
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
-  <link rel="stylesheet" href="../../assets/css/M2/css_pg3.css" />
+  <link rel="stylesheet" href="../../assets/css/M3/css_pg2.css" />
 
 
   <!-- Scripts -->
@@ -51,27 +50,65 @@
   </div>
   <!-- Título principal -->
   <header>
-    <h1 class="titulo-epp"><span class="gradient-text2">Instrucciones para los Controles y Mantenimiento Preventivo
+    <h1 class="titulo-epp"><span class="gradient-text2">Gancho de Levantamiento
       </span></h1>
   </header>
 
   <!-- Contenido principal -->
-  <div class="weekly-maintenance-container">
+  <div class="gancho-main-container">
 
-    <div class="weekly-maintenance-section">
-
-      <!-- Lista de instrucciones -->
-      <div class="weekly-instructions">
-        <ul class="instruction-list">
-          <li>Todos los componentes de una grúa están expuestos a desgastes, tensión y deformaciones debido a los trabajos que realizan.</li>
-          <li>Seguir las instrucciones del fabricante ayudarán a conservar la vida útil de la grúa y sus componentes.</li>
-          <li>Las inspecciones, controles y mantenimiento preventivo llevado a cabo de forma cotidiana, semanal y trimestral es una buena estrategia para mantener la grúa en la línea de producción.</li>
-          <li>No se debe hacer modificaciones ni utilizar la grúa para lo que no fue diseñada.</li>
-          <li>No exceder las capacidades ayudarán a conservar la vida útil y los componentes de la grúa.</li>
-        </ul>
+    <!-- Tarjeta de nomenclatura -->
+    <div class="gancho-info-card">
+      <h2 class="gancho-section-title">NOMENCLATURA</h2>
+      <div class="gancho-description">
+        El gancho es la parte de la grúa en contacto directo con la carga a maniobrar. Para asegurar unas condiciones de trabajo apropiadas es necesario controlar y registrar su estado de desgaste y deformación, además de su correcto funcionamiento. Verificar que la deformación no supere la dimensión registrada durante la primera medición.
       </div>
-
+      
+      <!-- Lista de componentes -->
+      <div class="gancho-components">
+        <div class="gancho-component-item">
+          <div class="gancho-component-number">1</div>
+          <h4>Anillo</h4>
+        </div>
+        <div class="gancho-component-item">
+          <div class="gancho-component-number">2</div>
+          <h4>Pasador</h4>
+        </div>
+        <div class="gancho-component-item">
+          <div class="gancho-component-number">3</div>
+          <h4>Dispositivo de Seguridad</h4>
+        </div>
+        <div class="gancho-component-item">
+          <div class="gancho-component-number">4</div>
+          <h4>Gancho</h4>
+        </div>
+      </div>
     </div>
+
+    <!-- Sección de deformaciones -->
+    <div class="gancho-inspection-section">
+      <h3 class="gancho-inspection-title">DEFORMACIONES</h3>
+      <div class="gancho-inspection-content">
+        Detectar la medida de apertura del gancho (dimensión D1 en la figura) y verificar que la deformación permanente no supere el 10% en comparación con el valor registrado durante la primera medición.
+      </div>
+    </div>
+
+    <!-- Sección de estado de desgaste -->
+    <div class="gancho-inspection-section">
+      <h3 class="gancho-inspection-title">ESTADO DE DESGASTE</h3>
+      <div class="gancho-inspection-content">
+        Detectar el espesor de la parte inferior del gancho (dimensión E en la figura 10.2) y verificar que la variación dimensional no supere el 5% en comparación con el valor registrado durante la primera medición. Las superficies sujetas a desgaste no deben presentar irregularidades o discontinuidades.
+      </div>
+    </div>
+
+    <!-- Sección de advertencia -->
+    <div class="gancho-warning-section">
+      <h3 class="gancho-warning-title">ADVERTENCIA</h3>
+      <div class="gancho-warning-content">
+        Cuando el accesorio resulta deformado o desgastado desmedidamente, es necesario proceder a su demolición y sustitución inmediata.
+      </div>
+    </div>
+
   </div>
 
   <!-- Botón de continuar -->
@@ -154,11 +191,11 @@
   <script>
     // Navegación
     function goHome() { window.location.href = '../../index.html'; }
-    function backPage() { window.location.href = '../M2/M2_pg5.html'; }
-    function goToNextPage() { window.location.href = 'M3_pg2.html'; }
+    function backPage() { window.location.href = 'M3_pg1.html'; }
+    function goToNextPage() { window.location.href = 'M3_pg3.html'; }
 
     ScormManager.init();
-    ScormManager.guardarProgreso("M3_pg1.html");
+    ScormManager.guardarProgreso("M3_pg2.html");
 
     document.addEventListener("DOMContentLoaded", () => {
       const progreso = ScormManager.cargarProgreso();

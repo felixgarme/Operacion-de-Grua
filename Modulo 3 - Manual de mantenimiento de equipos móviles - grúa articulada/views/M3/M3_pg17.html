@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="../../assets/css/main_ex.css" />
+  <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+  <link rel="stylesheet" href="../../assets/css/ProgressBar.css" />
+  <link rel="stylesheet" href="../../assets/css/ex1.css" />
+
+  <link rel="stylesheet" href="../../assets/css/M2/css_pg5.css" />
+
+
+  <!-- Scripts -->
+  <script src="../../js/sidebar.js" defer></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+  <button class="back-page-btn" onclick="backPage()">
+    <span class="arrow">❮</span>
+  </button>
+  <nav id="sidebar" class="close">
+    <div id="logo-seccion">
+      <a href="../../index">
+        <img src="../../assets/images/logo_blanco.png" height="10px" alt="logo">
+      </a>
+      <button id="toggle-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+      </button>
+    </div>
+    <div id="barra">
+      <span id="barra-titulo"><strong>Progreso del Curso</strong></span>
+      <div id="progreso-container">
+        <div id="progreso-barra"></div>
+        <span id="progreso-texto">0%</span>
+      </div>
+    </div>
+    <div id="menu-container"></div>
+  </nav>
+
+
+  <!-- Logo inferior -->
+  <div class="logo-container"><img src="../../assets/images/logo_color.png" alt="Logo AngloAmerican" class="logo" />
+  </div>
+  <!-- Título principal -->
+  <header>
+    <h1 class="titulo-epp"><span class="gradient-text2">LUBRICACIÓN PERIÓDICA OBLIGATORIA</span></h1>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div class="instruction-box">
+      <p>Revisa cada punto de lubricación periódica para mantener la grúa en óptimas condiciones.</p>
+    </div>
+
+    <div class="lubricacion-periodica-container">
+      <div class="lubricacion-periodica-content">
+        <div class="lubricacion-periodica-header">
+          <h3>LUBRICACIÓN PERIÓDICA OBLIGATORIA</h3>
+          <p>Programa de mantenimiento y lubricación periódica obligatoria</p>
+        </div>
+
+        <div class="lubricacion-description">
+          <p>Antes de lubricar es necesario identificar todos los puntos de engrase, remover la grasa acumulada o el lubricante viejo, la suciedad y las impurezas varias.</p>
+        </div>
+
+        <div class="tabla-lubricacion-container">
+          <table class="tabla-lubricacion">
+            <thead>
+              <tr>
+                <th>Símbolo</th>
+                <th>Grupo</th>
+                <th>Subgrupo</th>
+                <th>Elemento</th>
+                <th>Frecuencia de Mantenimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Cojinete de rotación -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1983" class="simbolo-tabla">
+                </td>
+                <td>Cojinete de rotación</td>
+                <td></td>
+                <td>Sistema de Rodadura</td>
+                <td rowspan="2">Cada 100 horas de trabajo / cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1983" class="simbolo-tabla">
+                </td>
+                <td>Cojinete de rotación</td>
+                <td></td>
+                <td>Dentadura</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1983" class="simbolo-tabla">
+                </td>
+                <td>Columna</td>
+                <td>Puntos de articulación</td>
+                <td>Bujes</td>
+                <td>Cada semana</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1983" class="simbolo-tabla">
+                </td>
+                <td>Brazo principal</td>
+                <td>Gr. biela horquilla</td>
+                <td>Bujes</td>
+                <td>Cada 3 meses</td>
+              </tr>
+              
+              <!-- Brazo principal y secundario -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1969" class="simbolo-tabla">
+                </td>
+                <td>Brazo principal</td>
+                <td>Puntos de articulación</td>
+                <td>Bujes</td>
+                <td rowspan="4">Cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1969" class="simbolo-tabla">
+                </td>
+                <td>Brazo principal</td>
+                <td>Cilindro</td>
+                <td>Brazo principal</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1969" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td></td>
+                <td>Brazo secundario</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1969" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td>Gr. biela horquilla</td>
+                <td>Bujes</td>
+              </tr>
+              
+              <!-- Brazo secundario y componentes -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1989" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td>Puntos de articulación</td>
+                <td>Bujes</td>
+                <td rowspan="4">Cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1989" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td>Cilindro</td>
+                <td>Brazo secundario</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1989" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td></td>
+                <td>Patines internos de guía</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1989" class="simbolo-tabla">
+                </td>
+                <td>Brazo secundario</td>
+                <td>Cilindro</td>
+                <td>Bujes</td>
+              </tr>
+              
+              <!-- Prolonga hidráulica -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1987" class="simbolo-tabla">
+                </td>
+                <td>Prolonga hidráulica</td>
+                <td>Gr. Biela de horquilla</td>
+                <td>Brazos extensibles</td>
+                <td rowspan="4">Cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1987" class="simbolo-tabla">
+                </td>
+                <td>Prolonga hidráulica</td>
+                <td></td>
+                <td>Patines internos de guía</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1987" class="simbolo-tabla">
+                </td>
+                <td>Prolonga hidráulica</td>
+                <td>Empalme</td>
+                <td>Patines de guía</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1987" class="simbolo-tabla">
+                </td>
+                <td>Prolonga hidráulica</td>
+                <td>Cilindro</td>
+                <td>Bujes</td>
+              </tr>
+              
+              <!-- Brazos extensibles y soportes -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Brazos extensibles</td>
+                <td>Gr. Biela de horquilla</td>
+                <td>Brazos extensibles</td>
+                <td rowspan="4">Cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Brazos extensibles</td>
+                <td></td>
+                <td>Patines de guía</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Prolongas manuales</td>
+                <td></td>
+                <td>Patines de guía</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Soportes estabilizadores</td>
+                <td></td>
+                <td>Soportes estabilizadores</td>
+              </tr>
+              
+              <!-- Soportes estabilizadores y cabrestante -->
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Soportes estabilizadores</td>
+                <td>Gr. Biela de horquilla</td>
+                <td>Patines de guía</td>
+                <td rowspan="4">Cada 3 meses</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Cilindros estabilizadores</td>
+                <td></td>
+                <td>Platillo de unión rotacional</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Cabrestante</td>
+                <td></td>
+                <td>Polea fija</td>
+              </tr>
+              <tr>
+                <td class="simbolo-cell">
+                  <img src="../../assets/images/M3/simbolo1.png" alt="Símbolo DE 1997" class="simbolo-tabla">
+                </td>
+                <td>Cabrestante</td>
+                <td></td>
+                <td>Polea de retorno</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    :root {
+      --border-radius-md: 15px;
+      --spacing-lg: 30px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .instruction-box {
+      display: flex;
+      align-items: center;
+      background: var(--color-blanco);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 18px 24px;
+      margin: auto;
+      margin-bottom: 30px;
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(35, 45, 193, 0.168), 0 2px 8px rgba(31, 38, 135, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      max-width: 700px;
+      gap: 1rem;
+    }
+
+    .instruction-box p {
+      background: linear-gradient(to left, var(--color-azul) 50%, var(--color-celeste));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lubricacion-periodica-container {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6f2ff 100%);
+      border-radius: 20px;
+      padding: 40px;
+      border: 2px solid #b6b8bf;
+      margin: 5vh;
+    }
+
+    .lubricacion-periodica-header {
+      margin-bottom: 30px;
+    }
+
+    .lubricacion-periodica-header h3 {
+      color: var(--color-azul);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .lubricacion-periodica-header p {
+      color: var(--color-gris);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .lubricacion-description {
+      margin-bottom: 30px;
+    }
+
+    .lubricacion-description p {
+      color: var(--color-gris);
+      font-size: var(--font-6);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .tabla-lubricacion-container {
+      overflow-x: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabla-lubricacion {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .tabla-lubricacion thead {
+      background: var(--color-azul);
+    }
+
+    .tabla-lubricacion thead th {
+      color: white;
+      font-weight: 600;
+      padding: 15px 12px;
+      text-align: center;
+      font-size: var(--font-6);
+    }
+
+    .tabla-lubricacion tbody tr {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .tabla-lubricacion tbody tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .tabla-lubricacion tbody tr:hover {
+      background: #e6f2ff;
+    }
+
+    .tabla-lubricacion tbody td {
+      padding: 12px;
+      color: var(--color-azul);
+      font-size: var(--font-6);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .simbolo-cell {
+      text-align: center;
+    }
+
+    .simbolo-tabla {
+      max-width: 40px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .lubricacion-periodica-container {
+        margin: 2vh;
+        padding: 20px;
+      }
+
+      .tabla-lubricacion thead th {
+        padding: 10px 8px;
+        font-size: var(--font-7);
+      }
+
+      .tabla-lubricacion tbody td {
+        padding: 8px 6px;
+        font-size: var(--font-7);
+      }
+
+      .simbolo-tabla {
+        max-width: 30px;
+      }
+    }
+  </style>
+
+
+  <!-- Botón de continuar -->
+  <button class="start-button" onclick="goToNextPage()">Continuar <span class="arrow">❯</span></button>
+
+  <!--AUDIOv2-->
+  <div class="audio-control-wrapper" style="z-index: 9999;">
+    <button class="audio-toggle-btn" id="audioToggle">
+      <svg id="togglePlayIcon" viewBox="0 0 24 24">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <svg id="togglePauseIcon" viewBox="0 0 24 24" style="display: none">
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+      </svg>
+    </button>
+
+    <div class="audio-controls" id="audioControls">
+      <div class="custom-audio-player">
+        <div class="audio-main-controls">
+          <button class="control-btn volume-btn" id="volumeToggle">
+            <svg id="volumeIcon" viewBox="0 0 24 24">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
+            </svg>
+            <svg id="muteIcon" viewBox="0 0 24 24" style="display: none">
+              <path
+                d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn play-pause-btn" id="playPauseBtn">
+            <svg id="playIcon" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+            </svg>
+          </button>
+
+          <button class="control-btn speed-btn" id="speedBtn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44z" />
+              <path
+                d="M10.59 15.41a2 2 0 0 0 2.83 0l5.66-5.66a2 2 0 0 0-2.83-2.83L12 11.17 7.76 6.93a2 2 0 0 0-2.83 2.83l5.66 5.65z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="volume-control">
+          <div class="volume-slider" id="volumeSlider">
+            <div class="volume-fill" id="volumeFill"></div>
+          </div>
+          <div class="speed-control">
+            <span class="speed-display" id="speedDisplay">1x</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio element oculto -->
+      <audio id="audioPlayer" preload="metadata" autoplay>
+        <source src="../../assets/audio/M2/pg5.wav" type="audio/mp3" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+  </div>
+
+  <script src="../../js/audioPlayer.js"></script>
+  <!--///////-->
+  <!-- Scripts funcionales -->
+  <script src="../../js/SCORM.js"></script>
+  <script>
+    // Navegación
+    function goHome() { window.location.href = '../../index.html'; }
+    function backPage() { window.location.href = 'M3_pg16.html'; }
+    function goToNextPage() { window.location.href = '../../index.html'; }
+
+    ScormManager.init();
+    ScormManager.guardarProgreso("M3_pg17.html");
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const progreso = ScormManager.cargarProgreso();
+      const porcentaje = progreso.score ? parseInt(progreso.score) : 0;
+      document.getElementById("progreso-barra").style.width = porcentaje + "%";
+      document.getElementById("progreso-texto").textContent = porcentaje + "%";
+    });
+  </script>
+
+</body>
+
+</html>
