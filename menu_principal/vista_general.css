@@ -1,13 +1,42 @@
+/* ========================================= */
+/* ==         ESTILOS GENERALES           == */
+/* ========================================= */
+
 body {
     background-color: #ffffff;
     color: var(--color-gris);
     margin: 0;
     padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.main-container {
+    margin: auto;
+    /* Animación de entrada para el contenido principal */
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.section-title {
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #031795;
+    /* Animación para los títulos de sección */
+    animation: slideInDown 0.7s ease-out forwards;
+}
+
+.highlight-text {
+    color: #031795;
+    font-weight: 600;
+}
+
+
+/* ========================================= */
+/* ==             LOGO Y HEADER           == */
+/* ========================================= */
 
 .logo-container {
     text-align: right;
-    /* margin-bottom: 40px; */
 }
 
 .logo {
@@ -17,13 +46,11 @@ body {
     width: clamp(100px, 15vw, 150px);
 }
 
-.main-container {
-    margin: auto;
-}
-
 .page-header {
     text-align: center;
     margin: 50px 0;
+    /* Animación de aparición para el encabezado */
+    animation: slideInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .page-header h1 {
@@ -42,19 +69,11 @@ body {
     color: var(--color-azul);
 }
 
-.section-title {
-    text-align: center;
-    font-weight: 500;
-    margin-bottom: 30px;
-    color: #031795;
-}
 
-.code-builder .section-title {
-    font-weight: 400;
-    margin-bottom: 20px;
-}
+/* ========================================= */
+/* ==     CAJAS DE INSTRUCCIONES          == */
+/* ========================================= */
 
-/* Instruction boxes */
 .instruction-box {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border: 2px solid #e2e8f0;
@@ -64,6 +83,10 @@ body {
     max-width: 800px;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideInUp 0.8s ease-out 0.2s forwards;
 }
 
 .instruction-box h3 {
@@ -78,15 +101,19 @@ body {
     line-height: 1.5;
 }
 
-.highlight-text {
-    color: #031795;
-    font-weight: 600;
-}
 
-/* Interactive Code Builder */
+/* ========================================= */
+/* ==   CONSTRUCTOR DE CÓDIGO INTERACTIVO == */
+/* ========================================= */
+
 .code-builder {
     padding: 60px 20px;
     background: #F5F7FA;
+}
+
+.code-builder .section-title {
+    font-weight: 400;
+    margin-bottom: 20px;
 }
 
 .code-inputs {
@@ -111,13 +138,13 @@ body {
     background-color: #F5F7FA;
     box-shadow: 3px 3px 6px rgba(100, 96, 96, 0.34);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .code-box:hover {
     background: var(--color-azul);
     color: white;
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 20px rgba(3, 23, 149, 0.3);
     border-color: var(--color-azul);
 }
@@ -127,6 +154,7 @@ body {
     color: white;
     transform: scale(1.1);
     border-color: var(--color-azul);
+    box-shadow: 0 12px 25px rgba(3, 23, 149, 0.4);
 }
 
 .code-description {
@@ -140,7 +168,7 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .code-description.visible {
@@ -154,7 +182,11 @@ body {
     margin: 0;
 }
 
-/* Bearing Types */
+
+/* ========================================= */
+/* ==        TIPOS DE RODAMIENTOS         == */
+/* ========================================= */
+
 .bearing-types {
     text-align: center;
     max-width: 1000px;
@@ -179,12 +211,22 @@ body {
     align-items: center;
     gap: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: pointer;
+    /* Animación de entrada */
+    opacity: 0;
+    animation: slideInUp 0.8s ease-out forwards;
 }
 
+/* Animación escalonada para las tarjetas */
+.type-card:nth-child(1) { animation-delay: 0.1s; }
+.type-card:nth-child(2) { animation-delay: 0.2s; }
+.type-card:nth-child(3) { animation-delay: 0.3s; }
+/* ... puedes continuar para más tarjetas */
+
+
 .type-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     border-color: #031795;
 }
@@ -204,7 +246,11 @@ body {
     line-height: 1.4;
 }
 
-/* Modal Styles */
+
+/* ========================================= */
+/* ==           ESTILOS DE MODAL          == */
+/* ========================================= */
+
 .modal {
     display: none;
     position: fixed;
@@ -215,12 +261,14 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
     align-items: center;
     justify-content: center;
 }
 
 .modal.active {
     display: flex;
+    animation: fadeIn 0.4s ease;
 }
 
 .modal-content {
@@ -232,22 +280,10 @@ body {
     max-width: 550px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: modalSlideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 .modal-close-btn {
@@ -265,12 +301,12 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease-in-out;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .modal-close-btn:hover {
     background-color: #003366;
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(90deg);
 }
 
 .modal-image {
@@ -298,59 +334,10 @@ body {
     line-height: 1.5;
 }
 
-/* Continue button */
-.start-button {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-}
 
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .code-inputs {
-        gap: 8px;
-    }
-
-    .types-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .type-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-
-    .start-button {
-        bottom: 1rem;
-        right: 1rem;
-        padding: 15px 30px;
-        font-size: 16px;
-    }
-}
-
-@media (min-width: 600px) {
-    .modal-content {
-        /* flex-direction: row; */
-        text-align: left;
-        align-items: center;
-        gap: 25px;
-        padding: 40px;
-    }
-
-    .modal-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 0;
-    }
-
-    .modal-text-content {
-        text-align: left;
-    }
-}
+/* ========================================= */
+/* ==           GRID DE TARJETAS          == */
+/* ========================================= */
 
 .grid-container {
     display: grid;
@@ -359,9 +346,7 @@ body {
     gap: 1.5rem;
     padding: 0 1.4rem 1.4rem 1.4rem;
     max-width: 1000px;
-    height: auto;
     margin: 0 auto;
-    /* centra horizontalmente */
 }
 
 .card {
@@ -374,11 +359,15 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    /* centra verticalmente */
     justify-content: flex-start;
-    /* alinea a la izquierda */
     padding-left: 2rem;
-    /* separa de borde izquierdo */
+    border-radius: 16px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .card::before {
@@ -392,6 +381,11 @@ body {
     mix-blend-mode: multiply;
     z-index: 1;
     opacity: 0.9;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+    opacity: 0.8;
 }
 
 .card-content {
@@ -414,21 +408,18 @@ body {
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .card .btn:hover {
     background-color: #ffffff44;
-}
-
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
-    }
+    transform: translateY(-2px);
 }
 
 
+/* ========================================= */
+/* ==             SECCIÓN INICIO          == */
+/* ========================================= */
 
 .logo-inicio {
     position: absolute;
@@ -438,21 +429,8 @@ body {
     z-index: 2;
 }
 
-@media (max-width: 480px) {
-    .inicio-container {
-        padding: 20px;
-    }
-
-    .logo-inicio {
-        width: 100px;
-        top: 15px;
-        right: 15px;
-    }
-}
-
-
 .inicio-box {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: 16px;
@@ -462,26 +440,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-@media (max-width: 768px) {
-    .inicio-container {
-        padding-left: 5%;
-        padding-right: 5%;
-        justify-content: center;
-        /* Centra en móviles */
-    }
-
-    .inicio-box {
-        width: 90%;
-    }
-
-    .inicio-button {
-        align-self: center;
-        /* Centra el botón en móviles */
-        width: 100%;
-        max-width: 200px;
-    }
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .inicio-module-number {
@@ -498,6 +457,17 @@ body {
     font-weight: 500;
 }
 
+
+/* ========================================= */
+/* ==               BOTONES               == */
+/* ========================================= */
+
+.start-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+}
+
 .start-button-card {
     padding: 0.4rem 1rem;
     background-color: white;
@@ -508,24 +478,151 @@ body {
     cursor: pointer;
     font-size: var(--font-6);
     align-self: flex-start;
-    transition: background-color 0.3s ease;
-}
-
-.start-button-card:hover::before {
-    left: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+    /* Animación para llamar la atención */
+    animation: pulse 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .start-button-card:hover {
     background: var(--color-azul);
     color: white;
     border-color: var(--color-azul);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(29, 78, 216, 0.25);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.3);
 }
 
 .start-button-card:active {
-    transform: translateY(0);
-    box-shadow:
-        0 4px 15px rgba(30, 64, 175, 0.2),
-        0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+}
+
+
+/* ========================================= */
+/* ==       DISEÑO RESPONSIVE (MEDIA QUERIES)     == */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .code-inputs {
+        gap: 8px;
+    }
+
+    .types-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .type-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .start-button {
+        padding: 15px 30px;
+        font-size: 16px;
+    }
+    
+    .inicio-container {
+        padding: 0 5%;
+        justify-content: center;
+    }
+
+    .inicio-box {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .inicio-button {
+        align-self: center;
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 600px) {
+    .modal-content {
+        align-items: center;
+        gap: 25px;
+        padding: 40px;
+    }
+
+    .modal-image {
+        margin-bottom: 0;
+    }
+
+    .modal-text-content {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-inicio {
+        width: 100px;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+
+/* ========================================= */
+/* ==       ANIMACIONES (KEYFRAMES)       == */
+/* ========================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px) scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(30, 64, 175, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(29, 78, 216, 0.3);
+    }
 }
