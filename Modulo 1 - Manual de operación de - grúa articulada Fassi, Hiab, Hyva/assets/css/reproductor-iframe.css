@@ -2,9 +2,20 @@
    Tabla de Contenidos
    ==========================================================================
    1. Variables Globales (:root)
+      - Paleta de Colores
+      - Tipografía Fluida (Responsive)
+      - Fondos y Degradados
+      - Variables de Texto
+      - Sombras (Shadows)
+      - Estilos Glassmorphism
+      - Bordes y Radio
+      - Dimensiones (Ancho/Alto)
+      - Espaciado (Spacing)
+      - Transiciones
+      - Fuentes (Fonts) y Misceláneos
    2. Estilos de Componentes
       - Contenedor General (iFrame de audio)
-      - Clases de Utilidad para Animaciones (¡NUEVO!)
+      - Reproductor de Audio
    3. Animaciones (@keyframes)
    4. Diseño Responsivo (Media Queries)
    ========================================================================== */
@@ -27,14 +38,24 @@
     --color-background: #ffffff;
 
     /* --- Tipografía Fluida (Responsive) --- */
+    /* Se utiliza clamp() para que el tamaño de la fuente se ajuste suavemente
+       entre un valor mínimo y máximo según el ancho de la pantalla. */
     --font-8: clamp(0.598rem, 0.6695rem + -0.0923vw, 0.651rem);
+    /* 10.4px -> 9.5px */
     --font-7: clamp(0.7813rem, 0.7757rem + 0.0275vw, 0.7971rem);
+    /* 12.5px -> 12.7px */
     --font-6: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
+    /* 15px -> 17px */
     --font-5: clamp(1.125rem, 1.0237rem + 0.5066vw, 1.4163rem);
+    /* 18px -> 22.6px */
     --font-4: clamp(1.35rem, 1.1629rem + 0.9356vw, 1.8879rem);
+    /* 21.6px -> 30.2px */
     --font-3: clamp(1.62rem, 1.3081rem + 1.5594vw, 2.5166rem);
+    /* 25.9px -> 40.2px */
     --font-2: clamp(1.819rem, 1.3283rem + 2.4533vw, 3.2297rem);
+    /* 29.1px -> 51.6px */
     --font-1: clamp(2.3328rem, 1.5888rem + 3.72vw, 4.4718rem);
+    /* 37.3px -> 71.5px */
 
     /* --- Fondos y Degradados --- */
     --color-azul-degradado: radial-gradient(45.95% 45.95% at 100% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.0001) 100%), linear-gradient(152.68deg, rgba(31, 124, 252, 1) -19.33%, rgba(3, 23, 148, 1) 80.85%);
@@ -56,6 +77,7 @@
     --shadow-color-strong: rgba(0, 0, 0, 0.2);
 
     /* --- Estilos Glassmorphism --- */
+    /* Efecto de cristal esmerilado */
     --glass-background: rgba(255, 255, 255, 0.15);
     --glass-border: 1px solid rgba(255, 255, 255, 0.2);
     --glass-blur: blur(10px);
@@ -72,10 +94,15 @@
 
     /* --- Espaciado (Spacing) --- */
     --spacing-xs: 0.5rem;
+    /* 8px */
     --spacing-sm: 1rem;
+    /* 16px */
     --spacing-md: 1.5rem;
+    /* 24px */
     --spacing-lg: 2rem;
+    /* 32px */
     --spacing-xl: 3rem;
+    /* 48px */
 
     /* --- Transiciones --- */
     --transition-fast: 0.2s ease;
@@ -94,6 +121,8 @@
 /* -------------------------------------------------------------------------- */
 /* Contenedor General (iFrame de audio)                                       */
 /* -------------------------------------------------------------------------- */
+/* Este iFrame se posiciona de forma fija en la esquina inferior izquierda,
+   probablemente para contener una fuente de audio externa o un widget. */
 .audio-iframe {
     position: fixed;
     bottom: 0;
@@ -103,32 +132,339 @@
     border: none;
     overflow: hidden;
     z-index: 9999;
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.7s ease-out 0.5s forwards;
+    opacity: 0;
+    /* Asegura que el elemento esté oculto antes de que comience la animación */
+    /* Un z-index alto asegura que esté sobre todo el contenido. */
 }
 
 /* -------------------------------------------------------------------------- */
-/* ✨ Clases de Utilidad para Animaciones (¡NUEVO!) ✨                         */
+/* Reproductor de Audio                                                       */
 /* -------------------------------------------------------------------------- */
-/* Simplemente añade estas clases a cualquier elemento HTML para activarlas. */
 
-/* Animación de pulso continuo. Ideal para notificaciones o botones. */
-.animate-pulse {
-    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+/* Envoltorio principal para el control de audio, posicionado fijo. */
+.audio-control-wrapper {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 10;
 }
 
-/* Animación de sacudida. Perfecta para errores en formularios. */
-.animate-shake {
-    animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
+/* Contenedor principal del reproductor. Inicia en un estado compacto. */
+.audio-player-container {
+    background: var(--color-blanco, #ffffff);
+    border-radius: 35px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 102, 204, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 120px;
+    /* Ancho inicial (compacto) */
+    height: 70px;
+    cursor: pointer;
+    /* El cursor indica que se puede hacer clic para expandir */
+    position: relative;
 }
 
-/* Animación de entrada desde la izquierda. */
-.animate-slideInLeft {
-    animation: slideInLeft 0.6s ease-out forwards;
+/* Estado expandido del reproductor. Se activa añadiendo la clase 'expanded'. */
+.audio-player-container.expanded {
+    width: 260px;
+    /* Ancho al expandirse */
+    height: 70px;
+    cursor: default;
+    /* El cursor vuelve a la normalidad */
+    border-radius: 35px;
 }
 
-/* Animación de salida con desvanecimiento. */
-.animate-fadeOut {
-    animation: fadeOut 0.5s ease-out forwards;
+/* Efecto sutil al pasar el mouse sobre el reproductor compacto. */
+.audio-player-container:not(.expanded):hover {
+    transform: scale(1.01);
+}
+
+.audio-player-container:not(.expanded):hover .play-pause-btn {
+    transform: translateX(-3px);
+}
+
+/* Oculta los indicadores cuando el reproductor ya está expandido. */
+.audio-player-container.expanded .expand-indicators {
+    opacity: 0;
+    pointer-events: none;
+    /* Evita que se pueda interactuar con ellos cuando son invisibles. */
+}
+
+/* Muestra los controles cuando el contenedor está expandido. */
+.audio-player-container.expanded .expanded-controls {
+    display: flex;
+    transform: translateX(0);
+}
+
+
+/* --- Botón Principal (Play/Pause) --- */
+.play-pause-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--color-azul, #0066cc);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    margin: 5px;
+    z-index: 2;
+    position: relative;
+    animation: spin-coin 1s ease-out;
+}
+
+.play-pause-btn svg {
+    fill: white;
+    width: 28px;
+    height: 28px;
+    transition: all 0.3s ease;
+}
+
+.play-pause-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Añade una animación de pulso cuando la música está sonando. */
+.play-pause-btn.playing {
+    animation: subtlePulse 2s infinite;
+}
+
+/* Indicador visual (punto verde) para el estado de reproducción. */
+.play-pause-btn::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #28a745;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.play-pause-btn.playing::after {
+    opacity: 1;
+}
+
+/* --- Controles Expandidos --- */
+/* Contenedor de los controles que solo son visibles en el estado expandido. */
+.expanded-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 15px;
+    padding-left: 10px;
+    display: none;
+    /* Oculto por defecto */
+    transform: translateX(-20px);
+    /* Animación de entrada */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    flex: 1;
+}
+
+/* Organiza la barra de progreso y el control de volumen en una columna. */
+.controls-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+/* --- Barra de Progreso --- */
+.progress-container {
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 102, 204, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    overflow: visible;
+    /* Permite que el 'thumb' se vea fuera de la barra */
+}
+
+.progress-bar:hover .progress-thumb {
+    opacity: 1;
+}
+
+.progress-bar:hover .progress-fill {
+    background: #0056b3;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--color-azul, #0066cc);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.1s ease;
+    position: relative;
+}
+
+/* Círculo para arrastrar y cambiar el progreso. */
+.progress-thumb {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--color-azul, #0066cc);
+    border-radius: 50%;
+    cursor: grab;
+    opacity: 0;
+    /* Visible solo al hacer hover */
+    transition: opacity 0.2s ease;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-thumb:active {
+    cursor: grabbing;
+    transform: translateY(-50%) scale(1.2);
+}
+
+
+/* --- Control de Volumen --- */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volume-btn:hover {
+    background: rgba(0, 102, 204, 0.1);
+}
+
+.volume-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-azul, #0066cc);
+}
+
+.volume-slider {
+    width: 60px;
+    height: 5px;
+    background: rgba(0, 102, 204, 0.2);
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-fill {
+    height: 100%;
+    background: var(--color-azul, #0066cc);
+    border-radius: 3px;
+    width: 80%;
+    /* Volumen inicial */
+    transition: width 0.2s ease;
+}
+
+/* --- Botón de Cerrar --- */
+/* Botón para volver al estado compacto. */
+.close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.close-btn:hover {
+    background: rgba(0, 102, 204, 0.1);
+}
+
+.close-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--color-azul);
+}
+
+/* --- Indicadores visuales y de tiempo --- */
+/* Puntos animados que indican que el reproductor se puede expandir. */
+.expand-indicators {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.audio-player-container:not(.expanded):hover .expand-indicators {
+    opacity: 1;
+}
+
+.expand-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--color-azul, #0066cc);
+    border-radius: 50%;
+    animation: expandHint 2s infinite;
+}
+
+.expand-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.expand-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Texto opcional junto a los puntos. */
+.expand-text {
+    font-size: 0.7rem;
+    color: var(--color-azul, #0066cc);
+    font-weight: 500;
+    margin-left: 5px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Muestra los indicadores y el texto al hacer hover. */
+.audio-player-container:not(.expanded):hover .expand-text {
+    opacity: 0.8;
+}
+
+/* Muestra el tiempo transcurrido o total del audio. */
+.time-display {
+    font-size: 0.7rem;
+    color: #666;
+    min-width: 32px;
+    text-align: center;
 }
 
 
@@ -136,68 +472,56 @@
    3. Animaciones (@keyframes)
    ========================================================================== */
 
-/* --- Animaciones de Entrada / Salida --- */
+/* Animación de rotación en el eje Y para el botón de play. */
+@keyframes spin-coin {
+    from {
+        /* Estado inicial: sin rotación */
+        transform: rotateY(0deg);
+    }
+    to {
+        /* Estado final: una vuelta completa */
+        transform: rotateY(360deg);
+    }
+}
+
+/* Definición de la animación de entrada para el iFrame. */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(20px);
+        /* Empieza 20px abajo */
     }
     to {
         opacity: 1;
         transform: translateY(0);
+        /* Termina en su posición original */
     }
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-        transform: scale(0.95); /* Efecto sutil de encogimiento */
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* --- Animaciones de Interacción / UI --- */
-@keyframes shake {
-    10%, 90% { transform: translateX(-1px); }
-    20%, 80% { transform: translateX(2px); }
-    30%, 50%, 70% { transform: translateX(-4px); }
-    40%, 60% { transform: translateX(4px); }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* --- Animaciones Existentes --- */
+/* Animación de pulso para el botón de play cuando está activo. */
 @keyframes subtlePulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(0, 102, 204, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 102, 204, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
+    }
 }
 
+/* Animación para los puntos que indican que se puede expandir. */
 @keyframes expandHint {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.4;
         transform: scale(1);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.3);
@@ -208,19 +532,25 @@
 /* ==========================================================================
    4. Diseño Responsivo (Media Queries)
    ========================================================================== */
+
+/* Para pantallas de tabletas y más pequeñas. */
 @media screen and (max-width: 768px) {
     .audio-player-container.expanded {
         width: calc(100vw - 2rem);
+        /* Ocupa casi todo el ancho menos un pequeño margen. */
         max-width: 280px;
     }
 }
 
+/* Para pantallas de móviles. */
 @media screen and (max-width: 480px) {
     .audio-player-container.expanded {
         width: calc(100vw - 1rem);
+        /* Reduce aún más el margen. */
         max-width: 300px;
     }
 
+    /* Reduce el tamaño del botón principal en pantallas pequeñas. */
     .play-pause-btn {
         width: 50px;
         height: 50px;
