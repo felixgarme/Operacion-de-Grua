@@ -1,0 +1,12 @@
+
+.audio-iframe {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 145px;   /* ajusta el ancho a lo que necesites */
+    height: 95px;
+    border: none;
+    overflow: hidden;
+    z-index: 9999;  /* asegura que quede por encima del contenido */
+}
+  

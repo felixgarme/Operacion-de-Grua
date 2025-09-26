@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Usa el CSS que ya tienes; NO se agregan estilos nuevos -->
+  <link rel="stylesheet" href="../../assets/css/main_ex.css" />
+  <title>Audio Player (componente)</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <div class="audio-control-wrapper">
+    <div class="audio-player-container" id="audioContainer" tabindex="0" aria-label="Reproductor de audio">
+      <div class="expand-indicators" id="expandIndicators" title="Mostrar controles">
+        <div class="expand-dot"></div>
+        <div class="expand-dot"></div>
+        <div class="expand-dot"></div>
+      </div>
+
+      <button class="play-pause-btn" id="playPauseBtn" aria-pressed="false" title="Reproducir / Pausar">
+        <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+        <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
+      </button>
+
+      <div class="expanded-controls" id="expandedControls" aria-hidden="true">
+        <div class="controls-column">
+          <div class="progress-container">
+            <div class="progress-bar" id="progressBar" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div class="progress-fill" id="progressFill">
+                <div class="progress-thumb" id="progressThumb"></div>
+              </div>
+            </div>
+            <div class="time-labels" style="display:none;">
+              <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+            </div>
+          </div>
+          <div class="volume-control">
+            <button class="volume-btn" id="volumeToggle" title="Silenciar / Restaurar volumen">
+              <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" /></svg>
+              <svg id="muteIcon" viewBox="0 0 24 24" style="display: none"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" /></svg>
+            </button>
+            <div class="volume-slider" id="volumeSlider" role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" title="Volumen">
+              <div class="volume-fill" id="volumeFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <button class="close-btn" id="closeBtn" title="Cerrar reproductor">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
+        </button>
+      </div>
+
+      <audio id="audioPlayer" preload="metadata" controlslist="nodownload" playsinline>
+        <!-- la source se actualizará dinámicamente -->
+        <source id="audioSource" src="" type="audio/wav" />
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const audio = document.getElementById('audioPlayer');
+      const audioSource = document.getElementById('audioSource');
+
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const volumeToggle = document.getElementById('volumeToggle');
+      const volumeIcon = document.getElementById('volumeIcon');
+      const muteIcon = document.getElementById('muteIcon');
+
+      const progressBar = document.getElementById('progressBar');
+      const progressFill = document.getElementById('progressFill');
+
+      const volumeSlider = document.getElementById('volumeSlider');
+      const volumeFill = document.getElementById('volumeFill');
+
+      const expandedControls = document.getElementById('expandedControls');
+      const audioContainer = document.getElementById('audioContainer');
+      const expandIndicators = document.getElementById('expandIndicators');
+      const closeBtn = document.getElementById('closeBtn');
+
+      let isDraggingProgress = false;
+      let isDraggingVolume = false;
+      let lastVolume = 1;
+      let autoplayBlocked = false;
+      let mutedAutoplay = false;
+
+      // --- resolución de la ruta (igual que antes) ---
+      function getCandidateFromIframeAttribute() {
+        try {
+          const iframeEl = window.frameElement;
+          if (iframeEl && iframeEl.dataset && iframeEl.dataset.audio) {
+            return iframeEl.dataset.audio.trim();
+          }
+        } catch (e) {}
+        return null;
+      }
+      function getCandidateFromQuery() {
+        try {
+          const params = new URLSearchParams(window.location.search);
+          const a = params.get('audio');
+          return a ? a.trim() : null;
+        } catch (e) { return null; }
+      }
+      function resolveRelativeAgainstParent(path) {
+        if (!path) return path;
+        if (/^(https?:)?\/\//i.test(path) || path.startsWith('/')) return path;
+        try {
+          if (window.parent && window.parent.location && typeof window.parent.location.href === 'string') {
+            return new URL(path, window.parent.location.href).href;
+          }
+        } catch (e) {}
+        try {
+          return new URL(path, window.location.href).href;
+        } catch (e) { return path; }
+      }
+      function determineAudioSrc() {
+        const byIframeAttr = getCandidateFromIframeAttribute();
+        if (byIframeAttr) return resolveRelativeAgainstParent(byIframeAttr);
+        const byQuery = getCandidateFromQuery();
+        if (byQuery) return resolveRelativeAgainstParent(byQuery);
+        return resolveRelativeAgainstParent('../assets/audio/M1_pagina1.wav');
+      }
+      function setAudioSrcFromParent() {
+        const resolved = determineAudioSrc();
+        console.log('[audio-player] audio src resuelto:', resolved);
+        audioSource.src = resolved;
+        audio.load();
+      }
+
+      setAudioSrcFromParent();
+
+      // --- Intenta autoplay con manejo de fallos ---
+      function tryAutoplay() {
+        // intenta reproducir con sonido primero
+        audio.muted = false;
+        audio.play().then(() => {
+          console.log('[audio-player] autoplay con sonido OK');
+          updatePlayState();
+        }).catch((err) => {
+          console.warn('[audio-player] autoplay con sonido bloqueado:', err);
+          autoplayBlocked = true;
+          // intenta autoplay en modo silenciado
+          audio.muted = true;
+          audio.play().then(() => {
+            console.log('[audio-player] autoplay SILENCIOSO OK (se desmuteará en el primer gesto del usuario)');
+            mutedAutoplay = true;
+            updatePlayState();
+            // esperar gesto del usuario para desmutear
+            waitForUserGestureToUnmute();
+          }).catch((err2) => {
+            console.warn('[audio-player] autoplay SILENCIOSO también bloqueado:', err2);
+            // dejaremos que el usuario pulse play manualmente
+            autoplayBlocked = true;
+            mutedAutoplay = false;
+            audio.muted = false;
+            updatePlayState();
+            // opcional: podemos enfocar el botón de play para que el usuario lo vea
+            try { playPauseBtn.focus(); } catch (e) {}
+          });
+        });
+      }
+
+      // escucha el primer gesto del usuario para desmutear si arrancó en modo silenciado
+      function waitForUserGestureToUnmute() {
+        function onFirstGesture() {
+          if (mutedAutoplay && audio.muted) {
+            audio.muted = false;
+            audio.volume = lastVolume || 1;
+            volumeFill.style.width = (audio.volume * 100) + '%';
+            console.log('[audio-player] primer gesto detectado -> desmuteando');
+            mutedAutoplay = false;
+          }
+          removeGestureListeners();
+        }
+        function removeGestureListeners() {
+          document.removeEventListener('click', onFirstGesture);
+          document.removeEventListener('touchstart', onFirstGesture);
+          document.removeEventListener('keydown', onFirstGesture);
+        }
+        document.addEventListener('click', onFirstGesture, { once: true });
+        document.addEventListener('touchstart', onFirstGesture, { once: true });
+        document.addEventListener('keydown', onFirstGesture, { once: true });
+      }
+
+      // intentamos autoplay cuando el audio está listo
+      audio.addEventListener('canplay', () => {
+        // canplay puede dispararse varias veces; solo intentamos si no hemos arrancado
+        if (audio.paused && !mutedAutoplay) {
+          tryAutoplay();
+        }
+      });
+      // también intentamos después de cargar metadata
+      audio.addEventListener('loadedmetadata', () => {
+        if (audio.paused && !mutedAutoplay) {
+          tryAutoplay();
+        }
+      });
+
+      // --- resto de lógica del reproductor (play/pause, progreso, volumen) ---
+      function updatePlayState() {
+        if (audio.paused) {
+          playIcon.style.display = '';
+          pauseIcon.style.display = 'none';
+          playPauseBtn.setAttribute('aria-pressed', 'false');
+        } else {
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = '';
+          playPauseBtn.setAttribute('aria-pressed', 'true');
+        }
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+          audio.play().catch(()=>{ /* si falla, queda pausado y usuario verá el botón */ });
+        } else {
+          audio.pause();
+        }
+        updatePlayState();
+      });
+
+      audio.addEventListener('play', updatePlayState);
+      audio.addEventListener('pause', updatePlayState);
+
+      audio.addEventListener('timeupdate', () => {
+        if (!isDraggingProgress && audio.duration) {
+          const pct = (audio.currentTime / audio.duration) * 100;
+          progressFill.style.width = pct + '%';
+          progressBar.setAttribute('aria-valuenow', Math.floor(pct));
+        }
+      });
+
+      function seekFromEvent(e) {
+        const rect = progressBar.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        const pct = Math.max(0, Math.min(1, x / rect.width));
+        if (audio.duration) audio.currentTime = pct * audio.duration;
+      }
+      progressBar.addEventListener('mousedown', (e) => {
+        isDraggingProgress = true;
+        seekFromEvent(e);
+      });
+      window.addEventListener('mousemove', (e) => { if (isDraggingProgress) seekFromEvent(e); });
+      window.addEventListener('mouseup', () => { if (isDraggingProgress) isDraggingProgress = false; });
+      progressBar.addEventListener('touchstart', (e) => { isDraggingProgress = true; seekFromEvent(e); });
+      progressBar.addEventListener('touchmove', (e) => { if (isDraggingProgress) seekFromEvent(e); });
+      progressBar.addEventListener('touchend', () => { isDraggingProgress = false; });
+
+      function setVolumeFromEvent(e) {
+        const rect = volumeSlider.getBoundingClientRect();
+        const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        const pct = Math.max(0, Math.min(1, x / rect.width));
+        audio.volume = pct;
+        volumeFill.style.width = (pct * 100) + '%';
+        volumeSlider.setAttribute('aria-valuenow', Math.round(pct * 100));
+        if (audio.volume > 0) {
+          volumeIcon.style.display = '';
+          muteIcon.style.display = 'none';
+          lastVolume = audio.volume;
+        } else {
+          volumeIcon.style.display = 'none';
+          muteIcon.style.display = '';
+        }
+      }
+      volumeSlider.addEventListener('mousedown', (e) => { isDraggingVolume = true; setVolumeFromEvent(e); });
+      window.addEventListener('mousemove', (e) => { if (isDraggingVolume) setVolumeFromEvent(e); });
+      window.addEventListener('mouseup', () => { isDraggingVolume = false; });
+      volumeSlider.addEventListener('touchstart', (e) => { isDraggingVolume = true; setVolumeFromEvent(e); });
+      volumeSlider.addEventListener('touchmove', (e) => { if (isDraggingVolume) setVolumeFromEvent(e); });
+      volumeSlider.addEventListener('touchend', () => { isDraggingVolume = false; });
+
+      volumeToggle.addEventListener('click', () => {
+        if (audio.volume > 0 && !audio.muted) {
+          lastVolume = audio.volume;
+          audio.muted = true;
+          volumeFill.style.width = '0%';
+          volumeIcon.style.display = 'none';
+          muteIcon.style.display = '';
+        } else {
+          audio.muted = false;
+          audio.volume = lastVolume || 1;
+          volumeFill.style.width = (audio.volume * 100) + '%';
+          volumeIcon.style.display = '';
+          muteIcon.style.display = 'none';
+        }
+      });
+
+      function toggleExpanded(show) {
+        const willShow = (typeof show === 'boolean') ? show : expandedControls.getAttribute('aria-hidden') === 'true';
+        if (willShow) {
+          expandedControls.style.display = '';
+          expandedControls.setAttribute('aria-hidden', 'false');
+        } else {
+          expandedControls.style.display = 'none';
+          expandedControls.setAttribute('aria-hidden', 'true');
+        }
+      }
+      expandIndicators.addEventListener('click', () => toggleExpanded(true));
+      audioContainer.addEventListener('dblclick', () => toggleExpanded());
+
+      closeBtn.addEventListener('click', () => {
+        audio.pause();
+        expandedControls.style.display = 'none';
+        expandedControls.setAttribute('aria-hidden', 'true');
+      });
+
+      audioContainer.addEventListener('keydown', (e) => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          if (audio.paused) audio.play(); else audio.pause();
+          updatePlayState();
+        } else if (e.key === 'ArrowRight') {
+          audio.currentTime = Math.min(audio.duration || 0, (audio.currentTime || 0) + 5);
+        } else if (e.key === 'ArrowLeft') {
+          audio.currentTime = Math.max(0, (audio.currentTime || 0) - 5);
+        } else if (e.key === 'm' || e.key === 'M') {
+          volumeToggle.click();
+        }
+      });
+
+      // Si padre quiere cambiar la src vía postMessage
+      window.addEventListener('message', (ev) => {
+        try {
+          const msg = typeof ev.data === 'string' ? JSON.parse(ev.data) : ev.data;
+          if (msg && msg.type === 'set-audio-src' && msg.src) {
+            const resolved = resolveRelativeAgainstParent(msg.src);
+            console.log('[audio-player] audio src actualizado por postMessage:', resolved);
+            audioSource.src = resolved;
+            audio.load();
+            // reintentar autoplay si es posible
+            tryAutoplay();
+          }
+        } catch (e) {}
+      });
+
+      // estado inicial
+      audio.volume = 1;
+      volumeFill.style.width = '100%';
+    })();
+  </script>
+</body>
+</html>
