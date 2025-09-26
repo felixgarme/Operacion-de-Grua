@@ -17,20 +17,39 @@
         <img id="background_image" src="" alt="Fondo" class="background-image">
     </div>
     <img id="logo" src="" alt="Logo" class="logo">
-    <div class="audio-control-wrapper">
-        <button class="audio-toggle-btn" id="audioToggle">
-            <svg id="togglePlayIcon" viewBox="0 0 24 24">
+    <!--AUDIOv2-->
+  <div class="audio-control-wrapper">
+    <div class="audio-player-container" id="audioContainer">
+        <!-- Indicadores mejorados de que se puede expandir -->
+        <div class="expand-indicators">
+            <div class="expand-dot"></div>
+            <div class="expand-dot"></div>
+            <div class="expand-dot"></div>
+        </div>
+
+        <!-- Botón de play/pause -->
+        <button class="play-pause-btn" id="playPauseBtn">
+            <svg id="playIcon" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
             </svg>
-            <svg id="togglePauseIcon" viewBox="0 0 24 24" style="display: none">
+            <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none">
                 <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
             </svg>
         </button>
 
-        <div class="audio-controls" id="audioControls">
-            <div class="custom-audio-player">
-                <div class="audio-main-controls">
-                    <button class="control-btn volume-btn" id="volumeToggle">
+        <!-- Controles expandidos -->
+        <div class="expanded-controls">
+            <div class="controls-column">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill">
+                            <div class="progress-thumb" id="progressThumb"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="volume-control">
+                    <button class="volume-btn" id="volumeToggle">
                         <svg id="volumeIcon" viewBox="0 0 24 24">
                             <path
                                 d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
@@ -41,53 +60,27 @@
                         </svg>
                     </button>
 
-                    <button class="control-btn play-pause-btn" id="playPauseBtn">
-                        <svg id="playIcon" viewBox="0 0 24 24">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                        <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none">
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-                        </svg>
-                    </button>
-
-                    <button class="control-btn speed-btn" id="speedBtn">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44z" />
-                            <path
-                                d="M10.59 15.41a2 2 0 0 0 2.83 0l5.66-5.66a2 2 0 0 0-2.83-2.83L12 11.17 7.76 6.93a2 2 0 0 0-2.83 2.83l5.66 5.65z" />
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="progress-container">
-                    <div class="progress-bar" id="progressBar">
-                        <div class="progress-fill" id="progressFill"></div>
-                    </div>
-                    <div class="time-display">
-                        <span id="currentTime">0:00</span>
-                        <span id="duration">0:00</span>
-                    </div>
-                </div>
-
-                <div class="volume-control">
                     <div class="volume-slider" id="volumeSlider">
                         <div class="volume-fill" id="volumeFill"></div>
-                    </div>
-                    <div class="speed-control">
-                        <span class="speed-display" id="speedDisplay">1x</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Audio element oculto -->
-            <audio id="audioPlayer" preload="metadata" autoplay>
-                <source src="assets/audio/bienvenida.wav" type="audio/mp3" />
-                Tu navegador no soporta el elemento de audio.
-            </audio>
+            <button class="close-btn" id="closeBtn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                </svg>
+            </button>
         </div>
-    </div>
 
+        <!-- Audio element -->
+        <audio id="audioPlayer" preload="metadata">
+            <source src="assets/audio/bienvenida.wav" type="audio/wav" />
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+</div>
     <main class="content">
         <h3 class="welcome-text">Bienvenido a </h3>
         <h1 id="title_course">OPERACION-DE-GRUAS</h1>
@@ -130,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="module-card hover-borde" onclick="cambiarModulo('views/M3/M3_inicio.html')" data-module="3">
+            <div class="module-card hover-borde" onclick="cambiarModulo('views/M3_inicio.html')" data-module="3">
                 <div class="module-number">03</div>
                 <div class="card-content">
                     <h3 class="module-title">Mantenimiento de grúa articulada</h3>

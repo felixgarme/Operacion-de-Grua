@@ -97,13 +97,12 @@ body {
     position: relative;
     overflow: hidden;
     color: #021794;
-    background: #f8fafc;
+    background: #fefefe;
     border: 2px solid #e2e8f0;
     place-items: center;
     place-content: center;
     align-content: center;
     align-items: center;
-
 }
 
 .equipment-card:hover {
