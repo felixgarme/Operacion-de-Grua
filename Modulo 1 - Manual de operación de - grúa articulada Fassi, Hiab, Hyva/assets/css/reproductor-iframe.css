@@ -1,4 +1,19 @@
+/* ==========================================================================
+   Tabla de Contenidos
+   ==========================================================================
+   1. Variables Globales (:root)
+   2. Estilos de Componentes
+      - Contenedor General (iFrame de audio)
+      - Clases de Utilidad para Animaciones (¡NUEVO!)
+   3. Animaciones (@keyframes)
+   4. Diseño Responsivo (Media Queries)
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Variables Globales (:root)
+   ========================================================================== */
 :root {
+    /* --- Paleta de Colores --- */
     --color-azul: #031795;
     --color-azul-oscuro: #1D107A;
     --color-azul-claro: #351EED;
@@ -7,426 +22,192 @@
     --color-rojo: #FF0000;
     --color-blanco: #FFF;
     --color-negro: #000;
-    --color-azul-degradado: radial-gradient(45.95% 45.95% at 100% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.0001) 100%)
-        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-        , linear-gradient(152.68deg, rgba(31, 124, 252, 1) -19.33%, rgba(3, 23, 148, 1) 80.85%);
+    --color-secondary: #e3e3e3;
+    --color-text: #4D4D4E;
+    --color-background: #ffffff;
 
-    /* Step -2: 10.4167px → 9.5673px */
+    /* --- Tipografía Fluida (Responsive) --- */
     --font-8: clamp(0.598rem, 0.6695rem + -0.0923vw, 0.651rem);
-    /* Step -1: 12.5px → 12.7532px */
     --font-7: clamp(0.7813rem, 0.7757rem + 0.0275vw, 0.7971rem);
-    /* Step 0: 15px → 17px */
     --font-6: clamp(0.9375rem, 0.894rem + 0.2174vw, 1.0625rem);
-    /* Step 1: 18px → 22.661px */
     --font-5: clamp(1.125rem, 1.0237rem + 0.5066vw, 1.4163rem);
-    /* Step 2: 21.6px → 30.2071px */
     --font-4: clamp(1.35rem, 1.1629rem + 0.9356vw, 1.8879rem);
-    /* Step 3: 25.92px → 40.2661px */
     --font-3: clamp(1.62rem, 1.3081rem + 1.5594vw, 2.5166rem);
-    /* Step 4: 29.104px → 51.6747px */
     --font-2: clamp(1.819rem, 1.3283rem + 2.4533vw, 3.2297rem);
-    /* Step 5: 37.3248px → 71.5484px */
     --font-1: clamp(2.3328rem, 1.5888rem + 3.72vw, 4.4718rem);
 
-    /* Variables de bordes */
-    --border-style: 1px solid var(--color-azul);
-
-    /* Variables de fondo */
+    /* --- Fondos y Degradados --- */
+    --color-azul-degradado: radial-gradient(45.95% 45.95% at 100% 0%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.0001) 100%), linear-gradient(152.68deg, rgba(31, 124, 252, 1) -19.33%, rgba(3, 23, 148, 1) 80.85%);
     --background-gradient-1: linear-gradient(288deg, #62B6DA 7.1%, #366FA9 35.48%, var(--color-azul) 64.7%, #9F2B6A 93.92%);
     --background-gradient-2: white;
     --background-color: rgba(255, 255, 255, 0.1);
     --gradient-overlay: linear-gradient(90deg, #FF0000 0%, #351EE0 33%, #347FF6 66%, #1F87C6 100%);
 
-    /* Variables de texto */
+    /* --- Variables de Texto --- */
     --text-secondary: var(--color-azul);
     --text-disabled: rgba(255, 255, 255, 0.6);
     --font-size-welcome: 45px;
     --font-size-title: 75px;
     --line-height-welcome: 56px;
 
-    /* Variables de sombras */
+    /* --- Sombras (Shadows) --- */
     --shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25), 0px 4px 29.2px 3px rgba(3, 23, 149, 0.31);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --shadow-color-strong: rgba(0, 0, 0, 0.2);
 
-    /* Variables de glassmorphism */
+    /* --- Estilos Glassmorphism --- */
     --glass-background: rgba(255, 255, 255, 0.15);
     --glass-border: 1px solid rgba(255, 255, 255, 0.2);
     --glass-blur: blur(10px);
 
-    /* Variables de bordes */
+    /* --- Bordes y Radio --- */
+    --border-style: 1px solid var(--color-azul);
     --border-radius-sm: 8px;
     --border-radius-md: 15px;
     --border-radius-lg: 25px;
 
-    /* Variables de ancho y altura */
+    /* --- Dimensiones (Ancho/Alto) --- */
     --width-card-info: 60vh;
     --width-welcome-text: 750px;
 
-    /* Variables de espaciado */
+    /* --- Espaciado (Spacing) --- */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
 
-    /* Variables de transición */
+    /* --- Transiciones --- */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
 
-    /* Fuente principal */
+    /* --- Fuentes (Fonts) y Misceláneos --- */
     --font-family: 'AA Smart Sans', Arial, sans-serif;
-    --color-secondary: #e3e3e3;
-    --color-text: #4D4D4E;
-    --color-background: #ffffff;
 }
 
-/* //////////////////////////////////////////////////////////////////////////////////////// */
-/* CONTENEDOR GENERAL */
+
+/* ==========================================================================
+   2. Estilos de Componentes
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* Contenedor General (iFrame de audio)                                       */
+/* -------------------------------------------------------------------------- */
 .audio-iframe {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 145px;   /* ajusta el ancho a lo que necesites */
+    width: 145px;
     height: 95px;
     border: none;
     overflow: hidden;
-    z-index: 9999;  /* asegura que quede por encima del contenido */
-}
-/* //////////////////////////////////////////////////////////////////////////////////////// */
-
-/* CONTROL DE AUDIO */
-.audio-control-wrapper {
-    position: fixed;
-    bottom: 1rem;
-    left: 1rem;
-    z-index: 10;
+    z-index: 9999;
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
-/* Contenedor principal que se expande */
-.audio-player-container {
-    background: var(--color-blanco, #ffffff);
-    border-radius: 35px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 102, 204, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    width: 120px;
-    height: 70px;
-    cursor: pointer;
-    position: relative;
+/* -------------------------------------------------------------------------- */
+/* ✨ Clases de Utilidad para Animaciones (¡NUEVO!) ✨                         */
+/* -------------------------------------------------------------------------- */
+/* Simplemente añade estas clases a cualquier elemento HTML para activarlas. */
+
+/* Animación de pulso continuo. Ideal para notificaciones o botones. */
+.animate-pulse {
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.audio-player-container.expanded {
-    width: 260px;
-    height: 70px;
-    cursor: default;
-    border-radius: 35px;
+/* Animación de sacudida. Perfecta para errores en formularios. */
+.animate-shake {
+    animation: shake 0.6s cubic-bezier(.36, .07, .19, .97) both;
 }
 
-/* Botón de play/pause */
-.play-pause-btn {
-    width: 60px;
-    height: 60px;
-    background: var(--color-azul, #0066cc);
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    margin: 5px;
-    z-index: 2;
-    position: relative;
+/* Animación de entrada desde la izquierda. */
+.animate-slideInLeft {
+    animation: slideInLeft 0.6s ease-out forwards;
 }
 
-.play-pause-btn svg {
-    fill: white;
-    width: 28px;
-    height: 28px;
-    transition: all 0.3s ease;
+/* Animación de salida con desvanecimiento. */
+.animate-fadeOut {
+    animation: fadeOut 0.5s ease-out forwards;
 }
 
-.play-pause-btn:hover {
-    background: #0056b3;
-    transform: scale(1.05);
+
+/* ==========================================================================
+   3. Animaciones (@keyframes)
+   ========================================================================== */
+
+/* --- Animaciones de Entrada / Salida --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Controles expandidos */
-.expanded-controls {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-right: 15px;
-    padding-left: 10px;
-    display: none;
-    transform: translateX(-20px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    white-space: nowrap;
-    flex: 1;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95); /* Efecto sutil de encogimiento */
+    }
 }
 
-.audio-player-container.expanded .expanded-controls {
-    display: flex;
-    transform: translateX(0);
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-/* Contenedor para las barras en columna */
-.controls-column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1;
+/* --- Animaciones de Interacción / UI --- */
+@keyframes shake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
 }
 
-/* Barra de progreso */
-.progress-container {
-    width: 100%;
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background: rgba(0, 102, 204, 0.2);
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
-    overflow: visible;
-}
-
-.progress-fill {
-    height: 100%;
-    background: var(--color-azul, #0066cc);
-    border-radius: 3px;
-    width: 0%;
-    transition: width 0.1s ease;
-    position: relative;
-}
-
-.progress-thumb {
-    position: absolute;
-    right: -6px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: var(--color-azul, #0066cc);
-    border-radius: 50%;
-    cursor: grab;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.progress-bar:hover .progress-thumb {
-    opacity: 1;
-}
-
-.progress-thumb:active {
-    cursor: grabbing;
-    transform: translateY(-50%) scale(1.2);
-}
-
-.progress-bar:hover .progress-fill {
-    background: #0056b3;
-}
-
-/* Control de volumen */
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.volume-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.volume-btn:hover {
-    background: rgba(0, 102, 204, 0.1);
-}
-
-.volume-btn svg {
-    width: 18px;
-    height: 18px;
-    fill: var(--color-azul, #0066cc);
-}
-
-.volume-slider {
-    width: 60px;
-    height: 5px;
-    background: rgba(0, 102, 204, 0.2);
-    border-radius: 3px;
-    cursor: pointer;
-    position: relative;
-}
-
-.volume-fill {
-    height: 100%;
-    background: var(--color-azul, #0066cc);
-    border-radius: 3px;
-    width: 80%;
-    transition: width 0.2s ease;
-}
-
-/* Botón de cerrar */
-.close-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5px;
-}
-
-.close-btn:hover {
-    background: rgba(0, 102, 204, 0.1);
-}
-
-.close-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: var(--color-azul);
-}
-
-/* Animaciones para el estado de reproducción */
+/* --- Animaciones Existentes --- */
 @keyframes subtlePulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(0, 102, 204, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(0, 102, 204, 0);
-    }
-}
-
-.play-pause-btn.playing {
-    animation: subtlePulse 2s infinite;
-}
-
-/* Indicador de estado */
-.play-pause-btn::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #28a745;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.play-pause-btn.playing::after {
-    opacity: 1;
-}
-
-/* Indicador sutil de que se puede expandir */
-.audio-player-container:not(.expanded):hover {
-    transform: scale(1.01);
-}
-
-.audio-player-container:not(.expanded):hover .play-pause-btn {
-    transform: translateX(-3px);
-}
-
-/* Indicadores mejorados de que se puede expandir */
-.expand-indicators {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.expand-dot {
-    width: 4px;
-    height: 4px;
-    background: var(--color-azul, #0066cc);
-    border-radius: 50%;
-    animation: expandHint 2s infinite;
-}
-
-.expand-dot:nth-child(2) {
-    animation-delay: 0.3s;
-}
-
-.expand-dot:nth-child(3) {
-    animation-delay: 0.6s;
-}
-
-.expand-text {
-    font-size: 0.7rem;
-    color: var(--color-azul, #0066cc);
-    font-weight: 500;
-    margin-left: 5px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-.audio-player-container:not(.expanded):hover .expand-indicators {
-    opacity: 1;
-}
-
-.audio-player-container:not(.expanded):hover .expand-text {
-    opacity: 0.8;
-}
-
-.audio-player-container.expanded .expand-indicators {
-    opacity: 0;
-    pointer-events: none;
+    0% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 102, 204, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 102, 204, 0); }
 }
 
 @keyframes expandHint {
-
-    0%,
-    100% {
+    0%, 100% {
         opacity: 0.4;
         transform: scale(1);
     }
-
     50% {
         opacity: 1;
         transform: scale(1.3);
     }
 }
 
-/* Tiempo actual (opcional) */
-.time-display {
-    font-size: 0.7rem;
-    color: #666;
-    min-width: 32px;
-    text-align: center;
-}
 
+/* ==========================================================================
+   4. Diseño Responsivo (Media Queries)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
     .audio-player-container.expanded {
         width: calc(100vw - 2rem);
@@ -450,4 +231,3 @@
         height: 24px;
     }
 }
-
